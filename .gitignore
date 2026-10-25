@@ -1,2 +1,4 @@
 node_modules/
 out/
+# Fotos personales: no se suben al repositorio público
+public/titanic/

@@ -7,7 +7,8 @@
     "dev": "remotion studio",
     "render": "remotion render HelloWorld out/video.mp4",
     "typecheck": "tsc",
-    "dev:codespaces": "node scripts/codespaces-dev.mjs"
+    "dev:codespaces": "node scripts/codespaces-dev.mjs",
+    "render:titanic": "remotion render Titanic out/titanic.mp4 --crf=30"
   },
   "repository": {
     "type": "git",
