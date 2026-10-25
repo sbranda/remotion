@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "remotion studio",
     "render": "remotion render HelloWorld out/video.mp4",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "dev:codespaces": "node scripts/codespaces-dev.mjs"
   },
   "repository": {
     "type": "git",
