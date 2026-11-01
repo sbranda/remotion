@@ -1,0 +1,25 @@
+{
+  "name": "reel-accidente-trenes-toledo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reel informativo (9:16, 3 minutos) sobre el choque de trenes del 28 de octubre de 2026 en Toledo, hecho con Remotion",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render Accidente out/accidente-trenes.mp4",
+    "render:sin-subtitulos": "remotion render AccidenteSinSubtitulos out/accidente-trenes-sin-subtitulos.mp4",
+    "portada": "remotion still Accidente out/portada.png --frame=150",
+    "subtitulos": "node scripts/subtitulos.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "^4.0.539",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.539"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}
