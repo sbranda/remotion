@@ -13,7 +13,8 @@ import { slide } from "@remotion/transitions/slide";
 import { fade } from "@remotion/transitions/fade";
 import { loadFont as loadTitle } from "@remotion/google-fonts/SpaceGrotesk";
 import { loadFont as loadBody } from "@remotion/google-fonts/Inter";
-import { HITO, HITOS, Hito, INTRO, OUTRO, TRANSICION, inicioHito } from "./data";
+import { GRAFICO, HITO, HITOS, Hito, INTRO, OUTRO, TRANSICION, inicioHito } from "./data";
+import { GraficoInternet, GraficoPeso, GraficoTransistores } from "./Charts";
 import { Icon } from "./Icons";
 
 const { fontFamily: TITLE } = loadTitle("normal", { weights: ["500", "700"], subsets: ["latin"] });
@@ -100,7 +101,7 @@ const Intro: React.FC = () => {
       >
         4.500 años de computadoras
         <br />
-        en menos de 40 segundos ⏱️
+        en menos de un minuto ⏱️
       </div>
     </AbsoluteFill>
   );
@@ -224,7 +225,7 @@ const Outro: React.FC = () => {
   return (
     <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: 80 }}>
       <div style={{ fontFamily: BODY, fontSize: 52, color: "#ffffffcc", textAlign: "center", opacity: a }}>
-        De 2.300 transistores en 1971…
+        4.500 años de historia…
       </div>
       <div
         style={{
@@ -240,7 +241,7 @@ const Outro: React.FC = () => {
           color: "transparent",
         }}
       >
-        a más de 100.000 millones hoy
+        y recién empieza
       </div>
       <div
         style={{
@@ -338,6 +339,17 @@ export const Reel: React.FC = () => {
             />
             <TransitionSeries.Sequence durationInFrames={HITO}>
               <EscenaHito hito={h} anterior={HITOS[i - 1]} index={i} />
+            </TransitionSeries.Sequence>
+          </React.Fragment>
+        ))}
+        {[GraficoPeso, GraficoTransistores, GraficoInternet].map((Grafico, i) => (
+          <React.Fragment key={i}>
+            <TransitionSeries.Transition
+              presentation={i === 0 ? fade() : slide({ direction: "from-right" })}
+              timing={transicion}
+            />
+            <TransitionSeries.Sequence durationInFrames={GRAFICO}>
+              <Grafico fonts={{ title: TITLE, body: BODY }} />
             </TransitionSeries.Sequence>
           </React.Fragment>
         ))}

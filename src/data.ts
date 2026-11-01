@@ -118,8 +118,15 @@ export const HITO = 95;
 export const OUTRO = 110;
 export const TRANSICION = 15;
 
+export const GRAFICO = 150;
+export const NUM_GRAFICOS = 3;
+
 export const DURACION_TOTAL =
-  INTRO + HITOS.length * HITO + OUTRO - (HITOS.length + 1) * TRANSICION;
+  INTRO +
+  HITOS.length * HITO +
+  NUM_GRAFICOS * GRAFICO +
+  OUTRO -
+  (HITOS.length + NUM_GRAFICOS + 1) * TRANSICION;
 
 /** Frame (global) en el que empieza cada hito, teniendo en cuenta el solapamiento */
 export const inicioHito = (i: number) => INTRO - TRANSICION + i * (HITO - TRANSICION);
