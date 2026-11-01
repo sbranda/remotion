@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "remotion studio",
     "render": "remotion render HistoriaComputadora out/historia-computadora.mp4",
-    "still": "remotion still HistoriaComputadora out/portada.png --frame=45"
+    "still": "remotion still HistoriaComputadora out/portada.png --frame=45",
+    "titanic": "remotion render Titanic out/titanic.mp4",
+    "titanic:sin-subtitulos": "remotion render TitanicSinSubtitulos out/titanic-sin-subtitulos.mp4",
+    "subtitulos": "node scripts/subtitulos.js"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

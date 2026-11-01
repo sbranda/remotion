@@ -43,3 +43,33 @@ npm run still    # genera out/portada.png (imagen de portada)
 
 El video no lleva audio: conviene agregar la música desde Instagram al publicar (usar audio en tendencia ayuda al alcance).
 El contenido importante está dentro de la zona segura (se deja libre el tercio inferior donde Instagram muestra la descripción y los botones).
+
+---
+
+# Video: Yo estuve en el Titanic
+
+Video horizontal (1920×1080, 30 fps, 10:00 exactos) con motion graphics, basado en el guion "Yo estuve en el Titanic". Lo narra en primera persona alguien que viajó en segunda clase y sobrevivió en el bote salvavidas 13.
+
+- 9 capítulos, cada uno con su tarjeta de título y entre 4 y 9 escenas animadas que cambian al ritmo de la narración.
+- Ilustraciones vectoriales: el barco (que se inclina, se apaga, se parte y se hunde), mapa del Atlántico con la ruta, reloj, telegramas, pictogramas de botes y víctimas, etc.
+- Subtítulos con el texto de la voz en off. Los tiempos se calculan solos a 157 palabras por minuto, para que el video dure 10:00 exactos.
+- No lleva audio: la voz en off y la música se agregan después en el editor de video.
+
+## Uso
+
+```bash
+npm run titanic                 # out/titanic.mp4 (con subtítulos)
+npm run titanic:sin-subtitulos  # out/titanic-sin-subtitulos.mp4
+npm run subtitulos              # out/titanic.srt + out/titanic-capitulos.txt
+```
+
+## Editar
+
+- Texto de la narración: `src/titanic/guion.ts`. Si lo cambias, los tiempos y las animaciones se reacomodan solos. Cada escena se engancha a una frase concreta (por ejemplo `cueDe("choque", "37 segundos")`): si borras esa frase, el render avisa cuál falta.
+- Ritmo, duración total y pausas: `src/titanic/tiempos.ts`.
+- Escenas: `src/titanic/escenas1.tsx` (capítulos 1 a 4) y `src/titanic/escenas2.tsx` (capítulos 5 a 9).
+- Componentes gráficos (barco, mar, reloj, pictogramas): `src/titanic/graficos.tsx`. Mapa: `src/titanic/mapa.tsx`.
+
+## Grabar la voz
+
+Usa `out/titanic.srt` como guía: cada línea tiene el segundo exacto en que aparece en pantalla. También puedes grabar a tu ritmo y después estirar o recortar los tramos en el editor.
