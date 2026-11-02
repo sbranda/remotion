@@ -67,4 +67,7 @@ npm run trigliceridos:portada   # out/trigliceridos-portada.png
 ```
 
 Textos, rangos y duraciones: `src/trigliceridos/datos.ts` · Escenas: `src/trigliceridos/Trigliceridos.tsx` · Íconos: `src/trigliceridos/iconos.tsx`.
-No lleva audio: agregá música y voz en off en tu editor (o en Canva/Instagram).
+**Música:** pista original sintetizada con `scripts/musica_trigliceridos.py` (sin derechos de terceros): acordes F–C–Dm–Bb a 96 BPM, arpegio suave y una campanita en cada cambio de página.
+Para regenerarla (por ejemplo, si cambiás las duraciones): `python3 scripts/musica_trigliceridos.py` y después
+`ffmpeg -i public/audio/trigliceridos-musica.wav -b:a 160k public/audio/trigliceridos-musica.mp3`.
+Si preferís música de Instagram, renderizá sin la línea `<Html5Audio>` de `Trigliceridos.tsx`.

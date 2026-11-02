@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Sequence, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Html5Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { SANS } from "../fuente";
 import { BAJAR, FPS, PAGINAS, PaginaId, RANGOS, SUBEN, VALOR_EJEMPLO } from "./datos";
 import { Icono, T } from "./iconos";
@@ -522,6 +522,8 @@ export const Trigliceridos: React.FC = () => {
         return seq;
       })}
       <Progreso />
+      {/* Música original (scripts/musica_trigliceridos.py), con campanita en cada cambio de página */}
+      <Html5Audio src={staticFile("audio/trigliceridos-musica.mp3")} volume={0.9} />
     </AbsoluteFill>
   );
 };
