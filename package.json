@@ -9,7 +9,9 @@
     "render:sin-subtitulos": "remotion render AccidenteSinSubtitulos out/accidente-trenes-sin-subtitulos.mp4",
     "portada": "remotion still Accidente out/portada.png --frame=150",
     "subtitulos": "node scripts/subtitulos.js",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "trigliceridos": "remotion render Trigliceridos out/trigliceridos.mp4",
+    "trigliceridos:portada": "remotion still Trigliceridos out/trigliceridos-portada.png --frame=90"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

@@ -2,6 +2,8 @@ import React from "react";
 import { Composition } from "remotion";
 import { Accidente } from "./accidente/Accidente";
 import { DURACION_FRAMES, FPS } from "./accidente/tiempos";
+import { Trigliceridos } from "./trigliceridos/Trigliceridos";
+import { DURACION_FRAMES as DURACION_TG, FPS as FPS_TG } from "./trigliceridos/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -24,5 +26,7 @@ export const RemotionRoot: React.FC = () => (
       height={1920}
       defaultProps={{ subtitulos: false }}
     />
+    {/* Reel de 90 segundos: triglicéridos */}
+    <Composition id="Trigliceridos" component={Trigliceridos} durationInFrames={DURACION_TG} fps={FPS_TG} width={1080} height={1920} />
   </>
 );

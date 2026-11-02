@@ -1,13 +1,8 @@
 import React from "react";
-import { interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { loadFont } from "@remotion/fonts";
+import { interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { SANS } from "../fuente";
 
-// Inter incluida en public/fonts (licencia OFL): no depende de internet al renderizar
-for (const weight of ["400", "600", "800"]) {
-  loadFont({ family: "Inter", url: staticFile(`fonts/inter-latin-${weight}-normal.woff2`), weight });
-}
-
-export const SANS = "Inter, sans-serif";
+export { SANS };
 
 /** Paleta sobria: fondo azul noche, texto claro y un rojo apagado solo para el impacto */
 export const C = {

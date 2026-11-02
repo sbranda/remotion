@@ -43,3 +43,28 @@ npm run subtitulos              # out/accidente.srt y out/guion-con-tiempos.txt
 
 El video no lleva audio. Graba la voz en off siguiendo `out/guion-con-tiempos.txt` o el `.srt` (ritmo de unas 140 palabras por minuto) y agrégala con música suave en el editor.
 La fuente Inter va incluida en `public/fonts` (licencia SIL OFL), así que no hace falta internet para renderizar.
+
+---
+
+# Reel: Triglicéridos (90 s)
+
+Video vertical (1080×1920, 30 fps, **1:30 exactos**) para público argentino, con el mismo contenido y estilo que el diseño de Canva "Reel 90 s – Triglicéridos".
+
+| Página | Duración | Contenido |
+|---|---|---|
+| 1. Gancho | 4 s | "En tu análisis dice: Triglicéridos 210. ¿Es mucho?" + análisis de ejemplo |
+| 2. Qué son | 10 s | Gota de sangre con grasa |
+| 3. Valores | 12 s | Semáforo de rangos, marca "tu 210" en Alto |
+| 4. Por qué importan | 12 s | Sin síntomas, corazón, páncreas |
+| 5. Qué los sube | 17 s | 5 causas con íconos |
+| 6. Cómo bajarlos | 23 s | 5 consejos + "bajar 5–10 % del peso ≈ 20 % menos" |
+| 7. Cómo se miden | 7 s | Perfil lipídico, ayuno |
+| 8. Cierre | 5 s | "Guardalo para tu próximo análisis" + aviso médico |
+
+```bash
+npm run trigliceridos           # out/trigliceridos.mp4
+npm run trigliceridos:portada   # out/trigliceridos-portada.png
+```
+
+Textos, rangos y duraciones: `src/trigliceridos/datos.ts` · Escenas: `src/trigliceridos/Trigliceridos.tsx` · Íconos: `src/trigliceridos/iconos.tsx`.
+No lleva audio: agregá música y voz en off en tu editor (o en Canva/Instagram).
