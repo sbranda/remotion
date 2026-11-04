@@ -15,7 +15,9 @@
     "colesterol": "remotion render Colesterol out/colesterol.mp4",
     "colesterol:portada": "remotion still Colesterol out/colesterol-portada.png --frame=100",
     "mitos": "remotion render TrigliceridosMitos out/trigliceridos-mitos.mp4",
-    "mitos:portada": "remotion still TrigliceridosMitos out/trigliceridos-mitos-portada.png --frame=60"
+    "mitos:portada": "remotion still TrigliceridosMitos out/trigliceridos-mitos-portada.png --frame=60",
+    "anemia": "remotion render Anemia out/anemia.mp4",
+    "anemia:portada": "remotion still Anemia out/anemia-portada.png --frame=100"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

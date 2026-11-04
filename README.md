@@ -125,3 +125,28 @@ npm run mitos:portada    # out/trigliceridos-mitos-portada.png
 
 Frases, veredictos y explicaciones: `src/mitos/datos.ts`. El usuario del pie se cambia en `FIRMA` (`src/salud/pop.tsx`), y vale para este Reel y el del colesterol.
 Música: `python3 scripts/musica_reel.py --paginas 4,6,12,12,12,12,12,12,8 --transponer -3 --bpm 122 --estilo energico --salida public/audio/mitos-musica.wav` y convertir con `loudnorm` como el del colesterol.
+
+---
+
+# Reel: Anemia (90 s)
+
+Cuarto Reel de la serie, estilo llamativo y **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| 1. Gancho | 4 s | "¿Siempre cansado? Podría ser anemia" con batería que se descarga |
+| 2. Qué es | 10 s | Glóbulos rojos con oxígeno; con anemia desaparece la mitad |
+| 3. Síntomas | 14 s | Cansancio, palidez, falta de aire, mareos, manos y pies fríos, corazón acelerado |
+| 4. Valores | 12 s | Hemoglobina < 13 (hombres), < 12 (mujeres), < 11 g/dL (embarazadas), criterio OMS · hemograma |
+| 5. Causas | 13 s | Poco hierro, sangrados, embarazo, celiaquía, falta de B12 o ácido fólico |
+| 6. Hierro | 12 s | Carne roja, hígado y morcilla · pollo y pescado · legumbres · acelga y espinaca |
+| 7. Trucos | 17 s | Vitamina C · el mate lejos de las comidas · no tomar hierro por cuenta propia |
+| 8. Cierre | 8 s | "Si te sentís así, pedí un hemograma" |
+
+```bash
+npm run anemia            # out/anemia.mp4
+npm run anemia:portada    # out/anemia-portada.png
+```
+
+Textos: `src/anemia/datos.ts` · Escenas: `src/anemia/Anemia.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,10,14,12,13,12,17,8 --transponer 5 --bpm 116 --estilo energico --salida public/audio/anemia-musica.wav` y convertir con `loudnorm`.
