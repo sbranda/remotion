@@ -10,7 +10,7 @@ import {
   useVideoConfig,
 } from "remotion";
 import { SANS } from "../fuente";
-import { BAJAR, FPS, P, PAGINAS, PaginaId, SUBE } from "./datos";
+import { BAJAR, FIRMA, FPS, P, PAGINAS, PaginaId, SUBE } from "./datos";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const suave = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -689,6 +689,32 @@ const Progreso: React.FC = () => {
   );
 };
 
+/** Usuario al pie, fijo en todo el video (por encima de la zona de botones de Instagram) */
+const Firma: React.FC = () => {
+  const frame = useCurrentFrame();
+  const op = interpolate(frame, [10, 25], [0, 1], clamp);
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, bottom: 420, display: "flex", justifyContent: "center", opacity: op }}>
+      <div
+        style={{
+          fontFamily: SANS,
+          fontWeight: 800,
+          fontSize: 40,
+          letterSpacing: 1,
+          color: P.texto,
+          background: "rgba(7,22,48,0.55)",
+          border: `2px solid ${P.borde}`,
+          borderRadius: 999,
+          padding: "10px 34px",
+          textShadow: "0 2px 10px rgba(0,0,0,0.4)",
+        }}
+      >
+        {FIRMA}
+      </div>
+    </div>
+  );
+};
+
 const ESCENAS: Record<PaginaId, React.FC> = {
   gancho: Gancho,
   queEs: QueEs,
@@ -723,6 +749,7 @@ export const Colesterol: React.FC = () => {
       {secuencias}
       <Destello inicios={inicios} />
       <Progreso />
+      <Firma />
       {/* Música original: scripts/musica_reel.py --estilo energico (ver README) */}
       <Html5Audio src={staticFile("audio/colesterol-musica.mp3")} volume={0.9} />
     </AbsoluteFill>

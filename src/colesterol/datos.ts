@@ -6,6 +6,9 @@
 
 export const FPS = 30;
 
+/** Usuario que aparece al pie de todas las páginas */
+export const FIRMA = "@sebranda";
+
 /** Duración de cada página en segundos (suman 90) */
 export const PAGINAS = [
   { id: "gancho", seg: 4 },
