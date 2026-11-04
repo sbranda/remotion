@@ -204,7 +204,7 @@ Estilo neón de la serie (`src/salud/pop.tsx`) y **@sebranda** al pie.
 | Síntomas | 16 s | 9 tarjetas: palpitaciones, peso, nervios, temblor, calor, sueño, baño, debilidad, ojos saltones |
 | Hiper vs. hipo | 12 s | Todo se acelera vs. todo se enlentece |
 | Causas | 12 s | Graves, nódulos, tiroiditis, exceso de medicación · más frecuente en mujeres |
-| Diagnóstico | 12 s | Análisis de sangre: TSH baja, T4 libre alta · ecografía u otros estudios |
+| Diagnóstico | 12 s | Análisis de sangre: TSH baja, T4 libre alta · por qué la TSH baja · ecografía u otros estudios |
 | Tratamiento | 14 s | Medicamentos, yodo radiactivo, cirugía · lo decide el endocrinólogo · sin tratar: arritmias y huesos frágiles |
 | Cierre | 8 s | "Si te sentís así, pedí un análisis de tiroides" |
 

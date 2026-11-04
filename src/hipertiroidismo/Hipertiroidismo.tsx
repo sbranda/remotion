@@ -239,8 +239,13 @@ const Diagnostico: React.FC = () => (
       <Hormona desde={40} nombre="TSH" estado="BAJA" flecha="↓" color={P.cian} />
       <Hormona desde={100} nombre="T4 libre" estado="ALTA" flecha="↑" color={P.rojo} />
     </div>
-    <Golpe desde={200}>
-      <Chico size={42} color={P.texto2}>
+    <Golpe desde={170}>
+      <Chico size={42}>
+        La TSH baja porque el cuerpo ya tiene hormona de sobra y le pide a la tiroides que frene ✋
+      </Chico>
+    </Golpe>
+    <Golpe desde={270}>
+      <Chico size={36} color={P.texto2}>
         Después, tu médico puede pedir una ecografía u otros estudios.
       </Chico>
     </Golpe>
