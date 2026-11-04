@@ -10,6 +10,8 @@ import { Mitos } from "./mitos/Mitos";
 import { DURACION_FRAMES as DURACION_MITOS, FPS as FPS_MITOS } from "./mitos/datos";
 import { Anemia } from "./anemia/Anemia";
 import { DURACION_FRAMES as DURACION_ANEMIA, FPS as FPS_ANEMIA } from "./anemia/datos";
+import { Tdah } from "./tdah/Tdah";
+import { DURACION_FRAMES as DURACION_TDAH, FPS as FPS_TDAH } from "./tdah/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -40,5 +42,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="TrigliceridosMitos" component={Mitos} durationInFrames={DURACION_MITOS} fps={FPS_MITOS} width={1080} height={1920} />
     {/* Reel de 90 segundos: anemia */}
     <Composition id="Anemia" component={Anemia} durationInFrames={DURACION_ANEMIA} fps={FPS_ANEMIA} width={1080} height={1920} />
+    {/* Reel de 3 minutos: TDAH, estilo cómic */}
+    <Composition id="Tdah" component={Tdah} durationInFrames={DURACION_TDAH} fps={FPS_TDAH} width={1080} height={1920} />
   </>
 );

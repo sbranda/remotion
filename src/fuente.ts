@@ -7,3 +7,8 @@ for (const weight of ["400", "600", "800"]) {
 }
 
 export const SANS = "Inter, sans-serif";
+
+// Bangers (licencia OFL), tipografía de cómic para el estilo "cómic / pop art"
+loadFont({ family: "Bangers", url: staticFile("fonts/bangers-latin-400-normal.woff2"), weight: "400" });
+
+export const COMIC = "Bangers, Impact, sans-serif";

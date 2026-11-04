@@ -17,7 +17,9 @@
     "mitos": "remotion render TrigliceridosMitos out/trigliceridos-mitos.mp4",
     "mitos:portada": "remotion still TrigliceridosMitos out/trigliceridos-mitos-portada.png --frame=60",
     "anemia": "remotion render Anemia out/anemia.mp4",
-    "anemia:portada": "remotion still Anemia out/anemia-portada.png --frame=100"
+    "anemia:portada": "remotion still Anemia out/anemia-portada.png --frame=100",
+    "tdah": "remotion render Tdah out/tdah.mp4 --crf=24",
+    "tdah:portada": "remotion still Tdah out/tdah-portada.png --frame=120"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

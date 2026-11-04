@@ -150,3 +150,32 @@ npm run anemia:portada    # out/anemia-portada.png
 
 Textos: `src/anemia/datos.ts` · Escenas: `src/anemia/Anemia.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,10,14,12,13,12,17,8 --transponer 5 --bpm 116 --estilo energico --salida public/audio/anemia-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: TDAH (3 minutos, estilo cómic)
+
+Quinto Reel de la serie, con un estilo nuevo **cómic / pop art** (`src/salud/comic.tsx`): fondos de color con rayos y trama de puntos, bordes negros gruesos, sombras duras, stickers torcidos, globos de diálogo, sellos "MITO" y una onomatopeya (¡ZAS!, ¡PUM!, ¡BOOM!…) en cada cambio de página. Tipografía Bangers (OFL) en `public/fonts`. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 5 s | "¿Empezás 10 cosas y no terminás ninguna?" con pendientes "¡A medias!" |
+| Qué es | 15 s | Sigla T-D-A-H, "una forma diferente en que funciona el cerebro", "no es falta de ganas" |
+| ¿Es común? | 12 s | Grilla de 100: 5 de cada 100 chicos, 2 a 3 de cada 100 adultos |
+| 3 formas | 18 s | Inatento · hiperactivo-impulsivo · combinado |
+| Distracción | 18 s | 5 señales de inatención |
+| Hiperactividad e impulsividad | 18 s | 4 señales |
+| En adultos | 18 s | 4 señales + "en mujeres suele pasar desapercibido" |
+| Mitos | 22 s | Falta de voluntad · crianza · solo chicos · disciplina |
+| Diagnóstico | 15 s | Profesional, entrevistas, desde la infancia, sin análisis de sangre |
+| Tratamiento | 17 s | Entenderlo · terapia · apoyo · medicación si se indica |
+| Tips | 14 s | Pasos chicos · alarmas · listas · moverse y dormir bien |
+| Cierre | 8 s | "¿Te identificaste? Consultá con un profesional" |
+
+```bash
+npm run tdah             # out/tdah.mp4 (con --crf=24 para que pese ~45 MB)
+npm run tdah:portada     # out/tdah-portada.png
+```
+
+Textos: `src/tdah/datos.ts` · Escenas: `src/tdah/Tdah.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 5,15,12,18,18,18,18,22,15,17,14,8 --transponer 7 --bpm 126 --estilo energico --salida public/audio/tdah-musica.wav` y convertir con `loudnorm`.
