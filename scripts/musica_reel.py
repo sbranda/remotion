@@ -1,27 +1,40 @@
 """
-Música original para el Reel de triglicéridos (90 s), sintetizada desde cero.
+Música original para los Reels de la serie de salud, sintetizada desde cero.
 Al no usar ninguna grabación ni canción existente, no tiene problemas de derechos.
 
 - Progresión F – C – Dm – Bb (tono alegre y tranquilo), 96 BPM
 - Capas: colchón de acordes, bajo, arpegio tipo "pluck", percusión muy suave
 - Una campanita en cada cambio de página (tiempos tomados de src/trigliceridos/datos.ts)
 
-Uso:  python3 scripts/musica_trigliceridos.py
-Salida: public/audio/trigliceridos-musica.wav (después se convierte a .mp3 con ffmpeg)
+Uso:
+  python3 scripts/musica_reel.py                       # triglicéridos (valores por defecto)
+  python3 scripts/musica_reel.py --paginas 4,10,12,14,12,13,17,8 --transponer 2 --bpm 100 \
+      --salida public/audio/colesterol-musica.wav
+Después se convierte a .mp3 con ffmpeg.
 """
 
+import argparse
 import os
 import wave
 
 import numpy as np
 
+ap = argparse.ArgumentParser()
+ap.add_argument("--paginas", default="4,10,12,12,17,23,7,5", help="duración de cada página en segundos")
+ap.add_argument("--bpm", type=float, default=96)
+ap.add_argument("--transponer", type=int, default=0, help="semitonos (cambia la tonalidad)")
+ap.add_argument("--salida", default="public/audio/trigliceridos-musica.wav")
+args = ap.parse_args()
+
 SR = 44100
-DUR = 90.0
-BPM = 96
+_pag = [float(x) for x in args.paginas.split(",")]
+DUR = sum(_pag)
+BPM = args.bpm
 BEAT = 60 / BPM
 BAR = 4 * BEAT
-# segundos en que empieza cada página (4, 10, 12, 12, 17, 23, 7, 5)
-CAMBIOS = [4, 14, 26, 38, 55, 78, 85]
+# segundos en que empieza cada página (sin contar la primera)
+CAMBIOS = list(np.cumsum(_pag)[:-1])
+TR = args.transponer
 
 N = int(SR * DUR)
 t_total = np.arange(N) / SR
@@ -30,7 +43,7 @@ rng = np.random.default_rng(7)
 
 
 def hz(midi):
-    return 440.0 * 2 ** ((midi - 69) / 12)
+    return 440.0 * 2 ** ((midi + TR - 69) / 12)
 
 
 # acordes (MIDI): F, C, Dm, Bb
@@ -152,8 +165,8 @@ mix = mix / np.max(np.abs(mix)) * 0.7
 estereo = np.stack([mix, mix], axis=1)
 datos = (estereo * 32767).astype(np.int16)
 
-os.makedirs("public/audio", exist_ok=True)
-salida = "public/audio/trigliceridos-musica.wav"
+salida = args.salida
+os.makedirs(os.path.dirname(salida), exist_ok=True)
 with wave.open(salida, "wb") as w:
     w.setnchannels(2)
     w.setsampwidth(2)

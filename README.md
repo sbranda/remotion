@@ -68,6 +68,32 @@ npm run trigliceridos:portada   # out/trigliceridos-portada.png
 
 Textos, rangos y duraciones: `src/trigliceridos/datos.ts` · Escenas: `src/trigliceridos/Trigliceridos.tsx` · Íconos: `src/trigliceridos/iconos.tsx`.
 **Música:** pista original sintetizada con `scripts/musica_trigliceridos.py` (sin derechos de terceros): acordes F–C–Dm–Bb a 96 BPM, arpegio suave y una campanita en cada cambio de página.
-Para regenerarla (por ejemplo, si cambiás las duraciones): `python3 scripts/musica_trigliceridos.py` y después
+Para regenerarla (por ejemplo, si cambiás las duraciones): `python3 scripts/musica_reel.py` y después
 `ffmpeg -i public/audio/trigliceridos-musica.wav -b:a 160k public/audio/trigliceridos-musica.mp3`.
 Si preferís música de Instagram, renderizá sin la línea `<Html5Audio>` de `Trigliceridos.tsx`.
+
+---
+
+# Reel: Colesterol (90 s)
+
+Segundo Reel de la serie de salud (mismo estilo que Triglicéridos), para público argentino. Contenido igual al diseño de Canva "Reel 90 s – Colesterol".
+
+| Página | Duración | Contenido |
+|---|---|---|
+| 1. Gancho | 4 s | "¿Colesterol bueno y colesterol malo? ¿Cuál es cuál?" con LDL/HDL |
+| 2. Qué es | 10 s | Arteria animada que se va tapando |
+| 3. Bueno vs. malo | 12 s | LDL (malo) y HDL (bueno) |
+| 4. Valores | 14 s | Total < 200 · LDL < 100 · HDL > 40 / 50 |
+| 5. Por qué importa | 12 s | Sin síntomas, placas, infarto o ACV |
+| 6. Qué lo sube | 13 s | 5 causas con íconos |
+| 7. Cómo bajarlo | 17 s | 5 consejos + no dejar la medicación |
+| 8. Cierre | 8 s | Perfil lipídico, guardar y compartir, aviso médico |
+
+```bash
+npm run colesterol            # out/colesterol.mp4
+npm run colesterol:portada    # out/colesterol-portada.png
+```
+
+Textos y duraciones: `src/colesterol/datos.ts` · Escenas: `src/colesterol/Colesterol.tsx`.
+Los componentes comunes de la serie (fondo, transiciones, barra de progreso, listas) están en `src/salud/`.
+Música: `python3 scripts/musica_reel.py --paginas 4,10,12,14,12,13,17,8 --transponer 2 --bpm 100 --salida public/audio/colesterol-musica.wav` y convertir a .mp3.

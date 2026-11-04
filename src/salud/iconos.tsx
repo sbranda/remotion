@@ -119,6 +119,93 @@ const PATHS: Record<string, React.ReactNode> = {
     </>
   ),
   marcador: <path d="M26 10h48v80L50 72 26 90z" {...base} fill={T.menta2} />,
+  arteria: (
+    <>
+      <path d="M8 30h84M8 70h84" {...base} />
+      <path d="M8 30c20 10 30 10 40 4M52 70c14-12 26-10 40-4" {...base} fill="#f2c94c" strokeWidth={4} />
+      <circle cx="30" cy="52" r="7" {...base} fill="#e46a5e" strokeWidth={3} />
+      <circle cx="64" cy="48" r="7" {...base} fill="#e46a5e" strokeWidth={3} />
+    </>
+  ),
+  cerebro: (
+    <>
+      <path
+        d="M50 18c-6-8-22-6-24 6-12 0-16 14-10 22-6 8-2 22 10 22 2 12 18 14 24 6 6 8 22 6 24-6 12 0 16-14 10-22 6-8 2-22-10-22-2-12-18-14-24-6z"
+        {...base}
+        fill={T.menta2}
+      />
+      <path d="M50 18v56M36 34c6 4 6 10 0 14M64 34c-6 4-6 10 0 14" {...base} strokeWidth={4} />
+    </>
+  ),
+  chorizo: (
+    <>
+      <path d="M14 62c0-20 30-38 56-32 16 4 18 22 4 30-16 10-44 20-56 10-3-2-4-5-4-8z" {...base} fill="#f3c4b8" />
+      <path d="M10 64l-4 6M86 40l6-4" {...base} />
+      <circle cx="40" cy="52" r="3" fill={T.azul} />
+      <circle cx="58" cy="44" r="3" fill={T.azul} />
+    </>
+  ),
+  manteca: (
+    <>
+      <path d="M14 56l18-18h54l-18 18z" {...base} fill="#fff4c2" />
+      <path d="M14 56h54v20H14zM68 56l18-18v20L68 76" {...base} fill="#ffe680" />
+    </>
+  ),
+  factura: (
+    <>
+      <path d="M10 64c6-22 24-34 40-34s34 12 40 34c-10 8-24 10-40 10s-30-2-40-10z" {...base} fill="#f5d9a8" />
+      <path d="M30 40l8 28M50 32v38M70 40l-8 28" {...base} strokeWidth={4} />
+    </>
+  ),
+  cigarrillo: (
+    <>
+      <rect x="10" y="56" width="64" height="14" rx="3" {...base} fill="#fff" />
+      <rect x="74" y="56" width="16" height="14" rx="3" {...base} fill="#f2a65a" />
+      <path d="M80 46c-6-6 6-10 0-18M90 46c-6-6 6-10 0-18" {...base} strokeWidth={4} />
+    </>
+  ),
+  adn: (
+    <>
+      <path d="M32 10c0 26 36 26 36 40S32 64 32 90M68 10c0 26-36 26-36 40s36 14 36 40" {...base} />
+      <path d="M38 24h24M38 76h24M44 50h12" {...base} strokeWidth={4} stroke={T.menta} />
+    </>
+  ),
+  carneMagra: (
+    <>
+      <path d="M16 46c4-18 30-28 50-22 18 6 22 24 12 36-10 12-34 16-50 8-10-4-14-12-12-22z" {...base} fill="#e78a7e" />
+      <path d="M40 38c10 4 18 12 20 22" stroke="#fff" strokeWidth={4} fill="none" strokeLinecap="round" />
+    </>
+  ),
+  aceite: (
+    <>
+      <path d="M44 10h12v12l6 8v54a6 6 0 0 1-6 6H44a6 6 0 0 1-6-6V30l6-8z" {...base} fill="#f6f0b0" />
+      <path d="M38 54h24v20H38z" fill="#b5cf6b" stroke="none" />
+      <path d="M70 60c4 6 10 10 10 16a8 8 0 0 1-16 0c0-6 6-10 6-16z" {...base} fill="#d8c94e" strokeWidth={4} />
+    </>
+  ),
+  legumbres: (
+    <>
+      <path d="M10 50h80c0 22-18 36-40 36S10 72 10 50z" {...base} fill={T.menta2} />
+      {[[30, 42], [46, 38], [62, 42], [38, 30], [56, 28]].map(([x, y], i) => (
+        <ellipse key={i} cx={x} cy={y} rx="7" ry="5" {...base} fill="#c98b4e" strokeWidth={3} />
+      ))}
+    </>
+  ),
+  sinCigarrillo: (
+    <>
+      <rect x="14" y="44" width="56" height="12" rx="3" {...base} fill="#fff" />
+      <rect x="70" y="44" width="14" height="12" rx="3" {...base} fill="#f2a65a" />
+      <circle cx="50" cy="50" r="40" {...base} stroke={T.rojo} />
+      <path d="M22 22l56 56" stroke={T.rojo} strokeWidth={7} strokeLinecap="round" />
+    </>
+  ),
+  pastilla: (
+    <>
+      <rect x="18" y="34" width="64" height="32" rx="16" transform="rotate(-30 50 50)" {...base} fill="#fff" />
+      <path d="M50 34v32" transform="rotate(-30 50 50)" {...base} />
+      <path d="M34 42a16 16 0 0 1 0 0" {...base} />
+    </>
+  ),
 };
 
 export const Icono: React.FC<{ nombre: string; size?: number; style?: React.CSSProperties }> = ({ nombre, size = 100, style }) => (

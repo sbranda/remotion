@@ -11,7 +11,9 @@
     "subtitulos": "node scripts/subtitulos.js",
     "typecheck": "tsc",
     "trigliceridos": "remotion render Trigliceridos out/trigliceridos.mp4",
-    "trigliceridos:portada": "remotion still Trigliceridos out/trigliceridos-portada.png --frame=90"
+    "trigliceridos:portada": "remotion still Trigliceridos out/trigliceridos-portada.png --frame=90",
+    "colesterol": "remotion render Colesterol out/colesterol.mp4",
+    "colesterol:portada": "remotion still Colesterol out/colesterol-portada.png --frame=100"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
