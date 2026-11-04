@@ -238,3 +238,27 @@ npm run hipotiroidismo     # out/hipotiroidismo.mp4
 
 Textos: `src/hipotiroidismo/datos.ts` · Escenas: `src/hipotiroidismo/Hipotiroidismo.tsx`.
 Música (más lenta, 104 BPM): `python3 scripts/musica_reel.py --paginas 4,12,16,12,12,12,14,8 --transponer 0 --bpm 104 --estilo energico --salida public/audio/hipotiroidismo-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Arritmia (90 s, estilo neón)
+
+Estilo neón de la serie y **@sebranda** al pie. Incluye un electrocardiograma animado (`Ecg` en `src/arritmia/Arritmia.tsx`) con ritmos normal, rápido, lento, irregular y fibrilación.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Corazón que salta + electro irregular: "¿Sentiste que el corazón se salta un latido?" |
+| Qué es | 14 s | 4 electros: normal (60 a 100 lpm), muy rápido, muy lento, irregular |
+| Síntomas | 12 s | Palpitaciones, mareos, falta de aire, cansancio, dolor de pecho, desmayos · algunas no dan síntomas |
+| Fibrilación auricular | 12 s | La más común, más frecuente después de los 60 · riesgo de coágulos y ACV |
+| Causas | 14 s | Presión alta y corazón, tiroides, café o energizantes, alcohol y tabaco, estrés y dormir poco |
+| Tomate el pulso | 12 s | Dos dedos en la muñeca, contar 30 s, multiplicar por 2 |
+| Diagnóstico y tratamiento | 12 s | Electrocardiograma, Holter · hábitos, medicamentos, procedimientos o marcapasos |
+| Cierre | 10 s | "Llamá al 107 o al 911 si…", "si notás el pulso raro, consultá" |
+
+```bash
+npm run arritmia     # out/arritmia.mp4
+```
+
+Textos: `src/arritmia/datos.ts` · Escenas: `src/arritmia/Arritmia.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,14,12,12,14,12,12,10 --transponer 3 --bpm 112 --estilo energico --salida public/audio/arritmia-musica.wav` y convertir con `loudnorm`.
