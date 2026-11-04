@@ -14,12 +14,13 @@ export const DISTANCIA_LUNA_KM = 384400;
 /** Duración de cada página en segundos (suman 90) */
 export const PAGINAS = [
   { id: "gancho", seg: 5 },
-  { id: "hoja", seg: 8 },
-  { id: "duplica", seg: 14 },
+  { id: "hoja", seg: 6 },
+  { id: "doblez", seg: 8 },
+  { id: "duplica", seg: 12 },
   { id: "escalada", seg: 30 },
-  { id: "luna", seg: 10 },
+  { id: "luna", seg: 8 },
   { id: "realidad", seg: 10 },
-  { id: "idea", seg: 8 },
+  { id: "idea", seg: 6 },
   { id: "cierre", seg: 5 },
 ] as const;
 

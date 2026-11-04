@@ -153,7 +153,73 @@ const Hoja: React.FC = () => (
   </Pagina>
 );
 
-// ─── 3. Cada doblez duplica ─────────────────────────────────────────────────
+// ─── 3. ¿Qué es un doblez? ──────────────────────────────────────────────────
+const MitadHoja: React.FC<{ w: number; h: number; capas: number; style?: React.CSSProperties }> = ({ w, h, capas, style }) => (
+  <div
+    style={{
+      position: "absolute",
+      width: w,
+      height: h,
+      background: "#ffffff",
+      border: `4px solid ${K.tinta}`,
+      boxShadow: Array.from({ length: Math.min(capas, 4) - 1 })
+        .map((_, i) => `${(i + 1) * 5}px ${(i + 1) * 5}px 0 -1px #ffffff, ${(i + 1) * 5}px ${(i + 1) * 5}px 0 2px ${K.tinta}`)
+        .join(", ") || undefined,
+      backfaceVisibility: "hidden",
+      ...style,
+    }}
+  />
+);
+
+const Doblez: React.FC = () => {
+  const frame = useCurrentFrame();
+  const W = 420;
+  const H = 560;
+  // primer doblez: la mitad de arriba baja sobre la de abajo
+  const d1 = interpolate(frame, [45, 85], [0, 180], { ...clamp, easing: (t) => (1 - Math.cos(t * Math.PI)) / 2 });
+  // segundo doblez: la mitad izquierda pasa sobre la derecha
+  const d2 = interpolate(frame, [140, 180], [0, 180], { ...clamp, easing: (t) => (1 - Math.cos(t * Math.PI)) / 2 });
+  const capasAhora = frame < 85 ? 1 : frame < 180 ? 2 : 4;
+  const fase2 = frame >= 120;
+  return (
+    <Pagina gap={26}>
+      <Escribe desde={0} size={96}>
+        ¿Qué es un <Fibron desde={25}>doblez</Fibron>?
+      </Escribe>
+      <Pop desde={20}>
+        <Texto size={44}>Es doblar la hoja <b style={{ color: K.rojo }}>por la mitad</b> ✋</Texto>
+      </Pop>
+      <div style={{ position: "relative", width: W, height: H, perspective: 1400 }}>
+        {!fase2 ? (
+          <>
+            {/* mitad de abajo, fija */}
+            <MitadHoja w={W} h={H / 2} capas={1} style={{ left: 0, top: H / 2 }} />
+            {/* mitad de arriba, gira sobre la línea del medio */}
+            <div style={{ position: "absolute", left: 0, top: 0, width: W, height: H / 2, transformOrigin: "50% 100%", transform: `rotateX(${-d1}deg)`, transformStyle: "preserve-3d" }}>
+              <MitadHoja w={W} h={H / 2} capas={1} style={{ left: 0, top: 0, background: d1 > 90 ? "#eef3fb" : "#ffffff" }} />
+            </div>
+            <div style={{ position: "absolute", left: -20, right: -20, top: H / 2 - 2, borderTop: `4px dashed ${K.rojo}`, opacity: frame < 45 ? 1 : 0 }} />
+          </>
+        ) : (
+          <>
+            {/* la hoja ya doblada una vez: mitad derecha fija, mitad izquierda gira */}
+            <MitadHoja w={W / 2} h={H / 2} capas={2} style={{ left: W / 2, top: H / 2 }} />
+            <div style={{ position: "absolute", left: 0, top: H / 2, width: W / 2, height: H / 2, transformOrigin: "100% 50%", transform: `rotateY(${d2}deg)`, transformStyle: "preserve-3d" }}>
+              <MitadHoja w={W / 2} h={H / 2} capas={2} style={{ left: 0, top: 0, background: d2 > 90 ? "#eef3fb" : "#ffffff" }} />
+            </div>
+            <div style={{ position: "absolute", left: W / 2 - 2, top: H / 2 - 20, bottom: -20, borderLeft: `4px dashed ${K.rojo}`, opacity: frame < 140 ? 1 : 0 }} />
+          </>
+        )}
+      </div>
+      <div style={{ fontFamily: MANUSCRITA, fontSize: 84, color: K.tinta }}>
+        {capasAhora === 1 ? "1 capa" : `${frame < 180 ? 1 : 2} ${frame < 180 ? "doblez" : "dobleces"} = `}
+        {capasAhora > 1 && <span style={{ color: K.rojo }}>{capasAhora} capas</span>}
+      </div>
+    </Pagina>
+  );
+};
+
+// ─── 4. Cada doblez duplica ─────────────────────────────────────────────────
 const Pila: React.FC<{ n: number; ancho?: number }> = ({ n, ancho = 360 }) => {
   const c = Math.pow(2, n);
   const alto = Math.min(16, 220 / c);
@@ -169,7 +235,7 @@ const Pila: React.FC<{ n: number; ancho?: number }> = ({ n, ancho = 360 }) => {
 const Duplica: React.FC = () => {
   const frame = useCurrentFrame();
   const pasos = [0, 1, 2, 3, 4];
-  const n = Math.max(0, Math.min(4, Math.floor((frame - 40) / 70) + 1));
+  const n = Math.max(0, Math.min(4, Math.floor((frame - 40) / 60) + 1));
   return (
     <Pagina gap={30}>
       <Escribe desde={0} size={96}>
@@ -184,7 +250,7 @@ const Duplica: React.FC = () => {
               fontFamily: MANUSCRITA,
               fontSize: 64,
               color: p === n ? K.rojo : K.tinta,
-              opacity: frame >= 40 + (p - 1) * 70 || p === 0 ? 1 : 0.2,
+              opacity: frame >= 40 + (p - 1) * 60 || p === 0 ? 1 : 0.2,
               transform: `scale(${p === n ? 1.25 : 1})`,
               width: 140,
               textAlign: "center",
@@ -194,7 +260,7 @@ const Duplica: React.FC = () => {
           </div>
         ))}
       </div>
-      <Pop desde={330}>
+      <Pop desde={290}>
         <Texto size={44}>1 → 2 → 4 → 8 → 16 … ¡y no para!</Texto>
       </Pop>
     </Pagina>
@@ -288,7 +354,7 @@ const Luna: React.FC = () => (
           La Luna está a unos {DISTANCIA_LUNA_KM.toLocaleString("es-AR")} km
         </Texto>
       </Pop>
-      <Pop desde={140} giro={-4}>
+      <Pop desde={120} giro={-4}>
         <div style={{ fontFamily: MANUSCRITA, fontSize: 110, color: "#ffffff" }}>¡Y te pasás! 🤯</div>
       </Pop>
     </Pagina>
@@ -327,7 +393,7 @@ const Idea: React.FC = () => (
     <Escribe desde={10} size={88}>
       Duplicar muchas veces hace crecer todo <Fibron desde={45}>muchísimo</Fibron>
     </Escribe>
-    <Pop desde={100}>
+    <Pop desde={80}>
       <Texto size={44}>
         Se llama <b style={{ color: K.rojo }}>crecimiento exponencial</b> 📈
       </Texto>
@@ -351,6 +417,7 @@ const Cierre: React.FC = () => (
 const ESCENAS: Record<PaginaId, React.FC> = {
   gancho: Gancho,
   hoja: Hoja,
+  doblez: Doblez,
   duplica: Duplica,
   escalada: Escalada,
   luna: Luna,
@@ -395,7 +462,7 @@ export const Papel: React.FC = () => {
     <AbsoluteFill style={{ background: "#e9e4d4" }}>
       {secuencias}
       <Firma />
-      {/* Música original: scripts/musica_reel.py --paginas 5,8,14,30,10,10,8,5 --transponer 5 --bpm 104 --estilo energico */}
+      {/* Música original: scripts/musica_reel.py --paginas 5,6,8,12,30,8,10,6,5 --transponer 5 --bpm 104 --estilo energico */}
       <Html5Audio src={staticFile("audio/papel-musica.mp3")} volume={0.8} />
     </AbsoluteFill>
   );

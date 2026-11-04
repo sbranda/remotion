@@ -372,12 +372,13 @@ Curiosidad matemática con un estilo nuevo **cuaderno**: hoja rayada con margen 
 | Página | Duración | Contenido |
 |---|---|---|
 | Gancho | 5 s | "¿Cuántas veces tenés que doblar un papel para llegar a la Luna?" |
-| La hoja | 8 s | 0,1 mm, como un pelo |
-| Duplica | 14 s | Pila de capas: 1 → 2 → 4 → 8 → 16 |
+| La hoja | 6 s | 0,1 mm, como un pelo |
+| ¿Qué es un doblez? | 8 s | Hoja que se dobla por la mitad dos veces: 1 → 2 → 4 capas |
+| Duplica | 12 s | Pila de capas: 1 → 2 → 4 → 8 → 16 |
 | Escalada | 30 s | Contador de dobleces y grosor; el fondo pasa del cuaderno al cielo y al espacio; hitos: libro, casa, edificio, rascacielos, aviones, espacio, Luna |
-| La Luna | 10 s | 42 dobleces ≈ 439.805 km; la Luna está a unos 384.400 km |
+| La Luna | 8 s | 42 dobleces ≈ 439.805 km; la Luna está a unos 384.400 km |
 | En la vida real | 10 s | 7 u 8 dobleces; récord de 12 (Britney Gallivan, 2002) |
-| La idea | 8 s | Crecimiento exponencial |
+| La idea | 6 s | Crecimiento exponencial |
 | Cierre | 5 s | "¿Lo sabías? Mandáselo a alguien que no lo crea" |
 
 ```bash
@@ -385,4 +386,4 @@ npm run papel     # out/papel-luna.mp4
 ```
 
 Datos e hitos: `src/papel/datos.ts` (grosor de la hoja, distancia a la Luna, comparaciones) · Escenas: `src/papel/Papel.tsx`.
-Música: `python3 scripts/musica_reel.py --paginas 5,8,14,30,10,10,8,5 --transponer 5 --bpm 104 --estilo energico --salida public/audio/papel-musica.wav` y convertir con `loudnorm=I=-15`.
+Música: `python3 scripts/musica_reel.py --paginas 5,6,8,12,30,8,10,6,5 --transponer 5 --bpm 104 --estilo energico --salida public/audio/papel-musica.wav` y convertir con `loudnorm=I=-15`.
