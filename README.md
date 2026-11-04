@@ -103,3 +103,25 @@ python3 scripts/musica_reel.py --paginas 4,10,12,14,12,13,17,8 --transponer 2 --
   --salida public/audio/colesterol-musica.wav
 ffmpeg -i public/audio/colesterol-musica.wav -af loudnorm=I=-14:TP=-1.5 -b:a 160k public/audio/colesterol-musica.mp3
 ```
+
+---
+
+# Reel: Triglicéridos · ¿Mito o verdad? (90 s)
+
+Tercer Reel de la serie, con el estilo llamativo (componentes en `src/salud/pop.tsx`) y **@sebranda** al pie.
+Formato de juego: aparece una frase, cuenta regresiva de 3 segundos ("¿Vos qué decís?"), cae el sello ❌ MITO o ✅ VERDAD y la explicación.
+
+| Página | Duración |
+|---|---|
+| Gancho "¿MITO o VERDAD?" | 4 s |
+| Intro "Respondé antes de que aparezca la respuesta" | 6 s |
+| 6 frases (flaco, grasa, jugos, síntomas, alcohol, ejercicio) | 12 s cada una |
+| Cierre "¿Cuántas acertaste? Contalo en los comentarios" | 8 s |
+
+```bash
+npm run mitos            # out/trigliceridos-mitos.mp4
+npm run mitos:portada    # out/trigliceridos-mitos-portada.png
+```
+
+Frases, veredictos y explicaciones: `src/mitos/datos.ts`. El usuario del pie se cambia en `FIRMA` (`src/salud/pop.tsx`), y vale para este Reel y el del colesterol.
+Música: `python3 scripts/musica_reel.py --paginas 4,6,12,12,12,12,12,12,8 --transponer -3 --bpm 122 --estilo energico --salida public/audio/mitos-musica.wav` y convertir con `loudnorm` como el del colesterol.

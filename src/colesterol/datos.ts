@@ -6,8 +6,7 @@
 
 export const FPS = 30;
 
-/** Usuario que aparece al pie de todas las páginas */
-export const FIRMA = "@sebranda";
+export { FIRMA, P } from "../salud/pop";
 
 /** Duración de cada página en segundos (suman 90) */
 export const PAGINAS = [
@@ -25,20 +24,6 @@ export type PaginaId = (typeof PAGINAS)[number]["id"];
 
 export const DURACION_FRAMES = PAGINAS.reduce((a, p) => a + p.seg, 0) * FPS;
 
-/** Paleta neón sobre fondo oscuro */
-export const P = {
-  fondo1: "#071630",
-  fondo2: "#0f2f5e",
-  texto: "#ffffff",
-  texto2: "#b9c8e6",
-  rojo: "#ff4d5e",
-  verde: "#2ee59d",
-  amarillo: "#ffd23f",
-  cian: "#3ad7ff",
-  violeta: "#8b5cff",
-  vidrio: "rgba(255,255,255,0.08)",
-  borde: "rgba(255,255,255,0.16)",
-};
 
 export const SUBE = [
   { emoji: "🥓", texto: "Carnes grasas, embutidos y achuras" },
