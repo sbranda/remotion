@@ -179,3 +179,14 @@ npm run tdah:portada     # out/tdah-portada.png
 
 Textos: `src/tdah/datos.ts` · Escenas: `src/tdah/Tdah.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 5,15,12,18,18,18,18,22,15,17,14,8 --transponer 7 --bpm 126 --estilo energico --salida public/audio/tdah-musica.wav` y convertir con `loudnorm`.
+
+## TDAH en 90 segundos (versión corta)
+
+Composición `Tdah90` (`src/tdah/Tdah90.tsx`): mismo estilo cómic y escenas del Reel de 3 minutos, resumido en 8 páginas:
+gancho (5 s) · qué es (12 s) · ¿es común? (8 s) · señales (16 s) · en adultos (12 s) · mitos (14 s) · diagnóstico y tratamiento (15 s) · cierre (8 s).
+
+```bash
+npm run tdah90           # out/tdah-90s.mp4
+```
+
+Música: `python3 scripts/musica_reel.py --paginas 5,12,8,16,12,14,15,8 --transponer 4 --bpm 128 --estilo energico --salida public/audio/tdah90-musica.wav` y convertir con `loudnorm`.

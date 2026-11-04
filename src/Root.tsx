@@ -12,6 +12,7 @@ import { Anemia } from "./anemia/Anemia";
 import { DURACION_FRAMES as DURACION_ANEMIA, FPS as FPS_ANEMIA } from "./anemia/datos";
 import { Tdah } from "./tdah/Tdah";
 import { DURACION_FRAMES as DURACION_TDAH, FPS as FPS_TDAH } from "./tdah/datos";
+import { DURACION_90, Tdah90 } from "./tdah/Tdah90";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -44,5 +45,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Anemia" component={Anemia} durationInFrames={DURACION_ANEMIA} fps={FPS_ANEMIA} width={1080} height={1920} />
     {/* Reel de 3 minutos: TDAH, estilo cómic */}
     <Composition id="Tdah" component={Tdah} durationInFrames={DURACION_TDAH} fps={FPS_TDAH} width={1080} height={1920} />
+    {/* Reel de 90 segundos: TDAH, estilo cómic (versión corta) */}
+    <Composition id="Tdah90" component={Tdah90} durationInFrames={DURACION_90} fps={FPS_TDAH} width={1080} height={1920} />
   </>
 );

@@ -25,7 +25,7 @@ const POS = [
   [60, 890, -3],
 ];
 
-const Gancho: React.FC = () => {
+export const Gancho: React.FC = () => {
   const frame = useCurrentFrame();
   return (
     <Pagina gap={0}>
@@ -81,7 +81,7 @@ const SIGLA = [
   ["H", "e Hiperactividad"],
 ];
 
-const QueEs: React.FC = () => (
+export const QueEs: React.FC = () => (
   <Pagina gap={34}>
     <Pop desde={0} giro={-2}>
       <TituloComic size={120}>¿Qué es el TDAH?</TituloComic>
@@ -110,7 +110,7 @@ const QueEs: React.FC = () => (
 );
 
 // ─── 3. ¿Es común? ──────────────────────────────────────────────────────────
-const Comun: React.FC = () => {
+export const Comun: React.FC = () => {
   const frame = useCurrentFrame();
   const marcados = new Set([12, 37, 58, 74, 91]);
   return (
@@ -176,7 +176,7 @@ const Tipos: React.FC = () => (
 );
 
 // ─── 5, 6 y 7. Listas ───────────────────────────────────────────────────────
-const Lista: React.FC<{ titulo: string; size?: number; items: { emoji: string; texto: string }[]; paso: number; colores: string[]; extra?: React.ReactNode }> = ({
+export const Lista: React.FC<{ titulo: string; size?: number; items: { emoji: string; texto: string }[]; paso: number; colores: string[]; extra?: React.ReactNode }> = ({
   titulo,
   size = 110,
   items,
@@ -199,14 +199,14 @@ const Hiperactividad: React.FC = () => (
   <Lista titulo="Hiperactividad e impulsividad" size={92} items={HIPERACTIVIDAD} paso={105} colores={[K.blanco, K.lima]} />
 );
 
-const Adultos: React.FC = () => (
+export const Adultos: React.FC<{ paso?: number; globoDesde?: number }> = ({ paso = 80, globoDesde = 380 }) => (
   <Lista
     titulo="¿Y en adultos?"
     items={ADULTOS}
-    paso={80}
+    paso={paso}
     colores={[K.blanco, K.naranja]}
     extra={
-      <Pop desde={380} giro={2}>
+      <Pop desde={globoDesde} giro={2}>
         <Globo size={42} color={K.rosa}>
           👩 En mujeres suele pasar desapercibido: hay menos hiperactividad y más distracción
         </Globo>
@@ -216,7 +216,7 @@ const Adultos: React.FC = () => (
 );
 
 // ─── 8. Mitos ───────────────────────────────────────────────────────────────
-const Mitos: React.FC = () => {
+export const Mitos: React.FC<{ paso?: number; aSello?: number }> = ({ paso = 150, aSello = 55 }) => {
   const frame = useCurrentFrame();
   return (
     <Pagina gap={30}>
@@ -226,8 +226,8 @@ const Mitos: React.FC = () => {
         </TituloComic>
       </Pop>
       {MITOS.map((m, i) => {
-        const desde = 40 + i * 150;
-        const sello = desde + 55;
+        const desde = 40 + i * paso;
+        const sello = desde + aSello;
         return (
           <Pop key={m} desde={desde} giro={i % 2 ? 1.5 : -1.5}>
             <div style={{ position: "relative" }}>
@@ -294,7 +294,7 @@ const Tratamiento: React.FC = () => {
 const Tips: React.FC = () => <Lista titulo="Tips que ayudan" items={TIPS} paso={70} colores={[K.blanco, K.lima]} />;
 
 // ─── 12. Cierre ─────────────────────────────────────────────────────────────
-const Cierre: React.FC = () => {
+export const Cierre: React.FC = () => {
   const p = useRebote(0);
   return (
     <Pagina gap={36} centro>
@@ -330,8 +330,8 @@ const ESCENAS: Record<PaginaId, { Escena: React.FC; color: string }> = {
   tipos: { Escena: Tipos, color: K.violeta },
   inatencion: { Escena: Inatencion, color: K.celeste },
   hiperactividad: { Escena: Hiperactividad, color: K.naranja },
-  adultos: { Escena: Adultos, color: K.violeta },
-  mitos: { Escena: Mitos, color: K.rosa },
+  adultos: { Escena: () => <Adultos />, color: K.violeta },
+  mitos: { Escena: () => <Mitos />, color: K.rosa },
   diagnostico: { Escena: Diagnostico, color: K.amarillo },
   tratamiento: { Escena: Tratamiento, color: K.violeta },
   tips: { Escena: Tips, color: K.celeste },
