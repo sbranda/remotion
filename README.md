@@ -335,3 +335,30 @@ npm run presion     # out/presion-arterial.mp4
 
 Textos y valores: `src/presion/datos.ts` (umbral de 140/90 según OMS y guías europeas y argentinas; algunas guías usan 130/80).
 Música: `python3 scripts/musica_reel.py --paginas 4,12,14,10,16,14,12,8 --transponer -1 --bpm 114 --estilo energico --salida public/audio/presion-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Ansiedad (3 minutos, estilo calma)
+
+Estilo nuevo **calma** (`src/salud/calma.tsx`): fondo pastel que cambia de color despacio, burbujas suaves, tarjetas blancas redondeadas, fundidos lentos y sin destellos. Música tranquila. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 6 s | Pensamientos que dan vueltas: "¿Tu cabeza no para nunca?" |
+| Qué es | 20 s | La alarma natural del cuerpo; el problema es cuando queda prendida |
+| Cuándo es un problema | 16 s | Intensa, duradera, sin motivo, te frena · los trastornos de ansiedad son los más frecuentes (OMS) |
+| En el cuerpo | 18 s | 8 síntomas físicos |
+| En la mente | 16 s | 5 síntomas mentales |
+| Ataque de pánico | 22 s | Qué se siente · curva "pico en minutos y pasa" · consultar la primera vez, 107/911 con dolor de pecho |
+| Respirá conmigo | 28 s | Respiración guiada: inhalar 4, exhalar 6, dos ciclos con círculo que crece y se achica |
+| 5-4-3-2-1 | 18 s | Técnica para volver al presente |
+| Día a día | 16 s | Moverse, dormir, menos café y alcohol, límite a pantallas, hablar con alguien |
+| Pedir ayuda | 12 s | Terapia; medicación si la indica un profesional |
+| Cierre | 8 s | "No estás solo ni sola" + línea de ayuda 135 / (011) 5275-1135 |
+
+```bash
+npm run ansiedad     # out/ansiedad.mp4
+```
+
+Textos y línea de ayuda: `src/ansiedad/datos.ts` · Escenas: `src/ansiedad/Ansiedad.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 6,20,16,18,16,22,28,18,16,12,8 --bpm 72 --transponer 2 --estilo suave --salida public/audio/ansiedad-musica.wav` y convertir con `loudnorm=I=-18`.

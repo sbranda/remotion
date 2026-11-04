@@ -25,6 +25,8 @@ import { Pies } from "./pies/Pies";
 import { DURACION_FRAMES as DURACION_PIES, FPS as FPS_PIES } from "./pies/datos";
 import { Presion } from "./presion/Presion";
 import { DURACION_FRAMES as DURACION_PRESION, FPS as FPS_PRESION } from "./presion/datos";
+import { Ansiedad } from "./ansiedad/Ansiedad";
+import { DURACION_FRAMES as DURACION_ANSIEDAD, FPS as FPS_ANSIEDAD } from "./ansiedad/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -71,5 +73,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="PiesHinchados" component={Pies} durationInFrames={DURACION_PIES} fps={FPS_PIES} width={1080} height={1920} />
     {/* Reel de 90 segundos: presión arterial, estilo neón */}
     <Composition id="PresionArterial" component={Presion} durationInFrames={DURACION_PRESION} fps={FPS_PRESION} width={1080} height={1920} />
+    {/* Reel de 3 minutos: ansiedad, estilo calma */}
+    <Composition id="Ansiedad" component={Ansiedad} durationInFrames={DURACION_ANSIEDAD} fps={FPS_ANSIEDAD} width={1080} height={1920} />
   </>
 );
