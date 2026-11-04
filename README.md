@@ -76,7 +76,7 @@ Si preferís música de Instagram, renderizá sin la línea `<Html5Audio>` de `T
 
 # Reel: Colesterol (90 s)
 
-Segundo Reel de la serie de salud (mismo estilo que Triglicéridos), para público argentino. Contenido igual al diseño de Canva "Reel 90 s – Colesterol".
+Segundo Reel de la serie de salud, para público argentino, en versión **llamativa**: fondo oscuro con manchas de color en movimiento, neón rojo (LDL) y verde (HDL), palabras clave resaltadas, entradas con rebote, destello en cada cambio de página y emojis. Contenido igual al diseño de Canva "Reel 90 s – Colesterol".
 
 | Página | Duración | Contenido |
 |---|---|---|
@@ -95,5 +95,11 @@ npm run colesterol:portada    # out/colesterol-portada.png
 ```
 
 Textos y duraciones: `src/colesterol/datos.ts` · Escenas: `src/colesterol/Colesterol.tsx`.
-Los componentes comunes de la serie (fondo, transiciones, barra de progreso, listas) están en `src/salud/`.
-Música: `python3 scripts/musica_reel.py --paginas 4,10,12,14,12,13,17,8 --transponer 2 --bpm 100 --salida public/audio/colesterol-musica.wav` y convertir a .mp3.
+Paleta y emojis: `src/colesterol/datos.ts` (objeto `P`). Los emojis se ven con la fuente de emojis del sistema donde se renderiza.
+Música enérgica (118 BPM, bombo, palmas y "whoosh" + golpe en cada cambio de página):
+
+```bash
+python3 scripts/musica_reel.py --paginas 4,10,12,14,12,13,17,8 --transponer 2 --bpm 118 --estilo energico \
+  --salida public/audio/colesterol-musica.wav
+ffmpeg -i public/audio/colesterol-musica.wav -af loudnorm=I=-14:TP=-1.5 -b:a 160k public/audio/colesterol-musica.mp3
+```

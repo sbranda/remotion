@@ -1,6 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 //  REEL: COLESTEROL (90 s) — textos y duraciones
-//  Mismo contenido que el diseño "Reel 90 s – Colesterol" de Canva.
+//  Mismo contenido que el diseño "Reel 90 s – Colesterol" de Canva,
+//  en versión "llamativa": fondo oscuro, neón, textos grandes y emojis.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const FPS = 30;
@@ -21,28 +22,33 @@ export type PaginaId = (typeof PAGINAS)[number]["id"];
 
 export const DURACION_FRAMES = PAGINAS.reduce((a, p) => a + p.seg, 0) * FPS;
 
-export const VERDE = "#3e9b5a";
-export const ROJO = "#d9534a";
-
-/** Valores de referencia para adultos (mg/dL) */
-export const VALORES = [
-  { nombre: "Colesterol total", meta: "menos de 200", nota: "", color: "#0e5a6d" },
-  { nombre: "LDL · el malo", meta: "menos de 100", nota: "Tu médico define tu meta según tu riesgo", color: ROJO },
-  { nombre: "HDL · el bueno", meta: "más de 40 / 50", nota: "Más de 40 en hombres, más de 50 en mujeres", color: VERDE },
-];
+/** Paleta neón sobre fondo oscuro */
+export const P = {
+  fondo1: "#071630",
+  fondo2: "#0f2f5e",
+  texto: "#ffffff",
+  texto2: "#b9c8e6",
+  rojo: "#ff4d5e",
+  verde: "#2ee59d",
+  amarillo: "#ffd23f",
+  cian: "#3ad7ff",
+  violeta: "#8b5cff",
+  vidrio: "rgba(255,255,255,0.08)",
+  borde: "rgba(255,255,255,0.16)",
+};
 
 export const SUBE = [
-  { icono: "chorizo", texto: "Carnes grasas, embutidos y achuras" },
-  { icono: "manteca", texto: "Manteca, crema y quesos duros" },
-  { icono: "factura", texto: "Facturas y productos industriales" },
-  { icono: "cigarrillo", texto: "Sedentarismo y tabaco" },
-  { icono: "adn", texto: "Genética: puede venir de familia" },
-] as const;
+  { emoji: "🥓", texto: "Carnes grasas, embutidos y achuras" },
+  { emoji: "🧈", texto: "Manteca, crema y quesos duros" },
+  { emoji: "🥐", texto: "Facturas y productos industriales" },
+  { emoji: "🚬", texto: "Sedentarismo y tabaco" },
+  { emoji: "🧬", texto: "Genética: puede venir de familia" },
+];
 
 export const BAJAR = [
-  { icono: "carneMagra", texto: "En el asado, elegí cortes magros" },
-  { icono: "aceite", texto: "Cambiá la manteca por aceite de oliva" },
-  { icono: "legumbres", texto: "Sumá avena, legumbres y frutos secos" },
-  { icono: "zapatilla", texto: "Movete: el ejercicio sube el HDL" },
-  { icono: "sinCigarrillo", texto: "Si fumás, dejar ayuda muchísimo" },
-] as const;
+  { emoji: "🥩", texto: "En el asado, elegí cortes magros" },
+  { emoji: "🫒", texto: "Cambiá la manteca por aceite de oliva" },
+  { emoji: "🥣", texto: "Sumá avena, legumbres y frutos secos" },
+  { emoji: "🏃", texto: "Movete: el ejercicio sube el HDL" },
+  { emoji: "🚭", texto: "Si fumás, dejar ayuda muchísimo" },
+];

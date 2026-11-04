@@ -24,6 +24,7 @@ ap.add_argument("--paginas", default="4,10,12,12,17,23,7,5", help="duración de 
 ap.add_argument("--bpm", type=float, default=96)
 ap.add_argument("--transponer", type=int, default=0, help="semitonos (cambia la tonalidad)")
 ap.add_argument("--salida", default="public/audio/trigliceridos-musica.wav")
+ap.add_argument("--estilo", choices=["suave", "energico"], default="suave")
 args = ap.parse_args()
 
 SR = 44100
@@ -130,29 +131,85 @@ def campana(m):
 
 
 compases = int(np.ceil(DUR / BAR))
-ARPEGIO = [0, 1, 2, 3, 2, 1, 2, 3]  # índices dentro del acorde, en corcheas
-for c in range(compases):
-    t0 = c * BAR
-    k = c % 4
-    acorde = ACORDES[k]
-    add(0.55 * pad(acorde, BAR + 0.6), t0)
-    if c >= 1:
-        for b in (0, 2):
-            add(0.32 * bajo(BAJOS[k], BEAT * 1.8), t0 + b * BEAT)
-    if c >= 2:
-        for i, idx in enumerate(ARPEGIO):
-            nota = acorde[idx] + 24
-            add(0.11 * pluck(nota), t0 + i * BEAT / 2)
-    final = t0 > DUR - 2 * BAR
-    if 4 <= c and not final:
-        for b in (0, 2):
-            add(0.30 * kick(), t0 + b * BEAT)
-        for i in range(8):
-            if i % 2 == 1:
-                add(0.05 * shaker(), t0 + i * BEAT / 2)
 
-for i, s in enumerate(CAMBIOS):
-    add(0.16 * campana(84 if i % 2 == 0 else 81), s - 0.05)
+
+def clap():
+    n = int(0.18 * SR)
+    t = np.arange(n) / SR
+    ruido = rng.standard_normal(n)
+    ruido = ruido - np.convolve(ruido, np.ones(4) / 4, mode="same")
+    env = np.exp(-t * 22) + 0.6 * np.exp(-np.maximum(t - 0.012, 0) * 30) * (t > 0.012)
+    return ruido * env
+
+
+def whoosh(dur=0.6):
+    """ruido que crece hasta el cambio de página"""
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    ruido = rng.standard_normal(n)
+    k = 12
+    suav = np.convolve(ruido, np.ones(k) / k, mode="same")
+    mezcla = suav + (ruido - suav) * (t / dur)  # se abre hacia los agudos
+    return mezcla * (t / dur) ** 2
+
+
+def impacto():
+    n = int(0.5 * SR)
+    t = np.arange(n) / SR
+    f = 80 * np.exp(-t * 10) + 38
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 6)
+
+
+if args.estilo == "suave":
+    ARPEGIO = [0, 1, 2, 3, 2, 1, 2, 3]  # índices dentro del acorde, en corcheas
+    for c in range(compases):
+        t0 = c * BAR
+        k = c % 4
+        acorde = ACORDES[k]
+        add(0.55 * pad(acorde, BAR + 0.6), t0)
+        if c >= 1:
+            for b in (0, 2):
+                add(0.32 * bajo(BAJOS[k], BEAT * 1.8), t0 + b * BEAT)
+        if c >= 2:
+            for i, idx in enumerate(ARPEGIO):
+                nota = acorde[idx] + 24
+                add(0.11 * pluck(nota), t0 + i * BEAT / 2)
+        final = t0 > DUR - 2 * BAR
+        if 4 <= c and not final:
+            for b in (0, 2):
+                add(0.30 * kick(), t0 + b * BEAT)
+            for i in range(8):
+                if i % 2 == 1:
+                    add(0.05 * shaker(), t0 + i * BEAT / 2)
+
+    for i, s in enumerate(CAMBIOS):
+        add(0.16 * campana(84 if i % 2 == 0 else 81), s - 0.05)
+else:
+    # Enérgico: bombo en negras, palmas en 2 y 4, bajo en corcheas, arpegio en semicorcheas
+    ARPEGIO = [0, 1, 2, 3, 2, 3, 1, 2, 0, 1, 2, 3, 3, 2, 1, 2]
+    for c in range(compases):
+        t0 = c * BAR
+        k = c % 4
+        acorde = ACORDES[k]
+        final = t0 > DUR - BAR
+        add(0.40 * pad(acorde, BAR + 0.6), t0)
+        for i in range(8):
+            octava = 12 if i % 2 else 0
+            add(0.30 * bajo(BAJOS[k] + octava, BEAT * 0.45), t0 + i * BEAT / 2)
+        for i, idx in enumerate(ARPEGIO):
+            add(0.085 * pluck(acorde[idx] + 24, 0.35), t0 + i * BEAT / 4)
+        if not final:
+            for b in range(4):
+                add(0.42 * kick(), t0 + b * BEAT)
+            for b in (1, 3):
+                add(0.16 * clap(), t0 + b * BEAT)
+            for i in range(8):
+                add((0.05 if i % 2 else 0.025) * shaker(), t0 + i * BEAT / 2)
+
+    for s in CAMBIOS:
+        add(0.10 * whoosh(), s - 0.6)
+        add(0.35 * impacto(), s)
+        add(0.10 * campana(88), s)
 
 # fundido de entrada y salida
 fade_in = np.minimum(1, t_total / 1.2)
