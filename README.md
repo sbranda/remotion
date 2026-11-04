@@ -190,3 +190,27 @@ npm run tdah90           # out/tdah-90s.mp4
 ```
 
 Música: `python3 scripts/musica_reel.py --paginas 5,12,8,16,12,14,15,8 --transponer 4 --bpm 128 --estilo energico --salida public/audio/tdah90-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Hipertiroidismo (90 s, estilo neón)
+
+Estilo neón de la serie (`src/salud/pop.tsx`) y **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Velocímetro que se va al rojo: "¿Corazón a mil, nervios y bajás de peso sin hacer dieta? Podría ser la tiroides" |
+| Qué es | 12 s | La "mariposa" del cuello que regula el motor del cuerpo; en el hiper fabrica hormonas de más |
+| Síntomas | 16 s | 9 tarjetas: palpitaciones, peso, nervios, temblor, calor, sueño, baño, debilidad, ojos saltones |
+| Hiper vs. hipo | 12 s | Todo se acelera vs. todo se enlentece |
+| Causas | 12 s | Graves, nódulos, tiroiditis, exceso de medicación · más frecuente en mujeres |
+| Diagnóstico | 12 s | Análisis de sangre: TSH baja, T4 libre alta · ecografía u otros estudios |
+| Tratamiento | 14 s | Medicamentos, yodo radiactivo, cirugía · lo decide el endocrinólogo · sin tratar: arritmias y huesos frágiles |
+| Cierre | 8 s | "Si te sentís así, pedí un análisis de tiroides" |
+
+```bash
+npm run hipertiroidismo     # out/hipertiroidismo.mp4
+```
+
+Textos: `src/hipertiroidismo/datos.ts` · Escenas: `src/hipertiroidismo/Hipertiroidismo.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,16,12,12,12,14,8 --transponer -5 --bpm 120 --estilo energico --salida public/audio/hipertiroidismo-musica.wav` y convertir con `loudnorm`.

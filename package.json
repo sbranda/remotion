@@ -20,7 +20,8 @@
     "anemia:portada": "remotion still Anemia out/anemia-portada.png --frame=100",
     "tdah": "remotion render Tdah out/tdah.mp4 --crf=24",
     "tdah:portada": "remotion still Tdah out/tdah-portada.png --frame=120",
-    "tdah90": "remotion render Tdah90 out/tdah-90s.mp4 --crf=24"
+    "tdah90": "remotion render Tdah90 out/tdah-90s.mp4 --crf=24",
+    "hipertiroidismo": "remotion render Hipertiroidismo out/hipertiroidismo.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
