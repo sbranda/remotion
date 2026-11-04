@@ -27,7 +27,8 @@
     "tenerife": "remotion render JesusDeMiguel out/jesus-de-miguel.mp4 --crf=24",
     "pies": "remotion render PiesHinchados out/pies-hinchados.mp4 --crf=24",
     "presion": "remotion render PresionArterial out/presion-arterial.mp4 --crf=24",
-    "ansiedad": "remotion render Ansiedad out/ansiedad.mp4 --crf=24"
+    "ansiedad": "remotion render Ansiedad out/ansiedad.mp4 --crf=24",
+    "papel": "remotion render PapelLuna out/papel-luna.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

@@ -12,3 +12,8 @@ export const SANS = "Inter, sans-serif";
 loadFont({ family: "Bangers", url: staticFile("fonts/bangers-latin-400-normal.woff2"), weight: "400" });
 
 export const COMIC = "Bangers, Impact, sans-serif";
+
+// Caveat (licencia OFL), letra manuscrita para el estilo "cuaderno"
+loadFont({ family: "Caveat", url: staticFile("fonts/caveat-latin-700-normal.woff2"), weight: "700" });
+
+export const MANUSCRITA = "Caveat, cursive";

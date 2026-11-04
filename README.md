@@ -362,3 +362,27 @@ npm run ansiedad     # out/ansiedad.mp4
 
 Textos y línea de ayuda: `src/ansiedad/datos.ts` · Escenas: `src/ansiedad/Ansiedad.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 6,20,16,18,16,22,28,18,16,12,8 --bpm 72 --transponer 2 --estilo suave --salida public/audio/ansiedad-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Reel: El papel que llega a la Luna (90 s, estilo cuaderno)
+
+Curiosidad matemática con un estilo nuevo **cuaderno**: hoja rayada con margen rojo, letra manuscrita Caveat (OFL, en `public/fonts`), resaltado con fibrón y notas pegadas. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 5 s | "¿Cuántas veces tenés que doblar un papel para llegar a la Luna?" |
+| La hoja | 8 s | 0,1 mm, como un pelo |
+| Duplica | 14 s | Pila de capas: 1 → 2 → 4 → 8 → 16 |
+| Escalada | 30 s | Contador de dobleces y grosor; el fondo pasa del cuaderno al cielo y al espacio; hitos: libro, casa, edificio, rascacielos, aviones, espacio, Luna |
+| La Luna | 10 s | 42 dobleces ≈ 439.805 km; la Luna está a unos 384.400 km |
+| En la vida real | 10 s | 7 u 8 dobleces; récord de 12 (Britney Gallivan, 2002) |
+| La idea | 8 s | Crecimiento exponencial |
+| Cierre | 5 s | "¿Lo sabías? Mandáselo a alguien que no lo crea" |
+
+```bash
+npm run papel     # out/papel-luna.mp4
+```
+
+Datos e hitos: `src/papel/datos.ts` (grosor de la hoja, distancia a la Luna, comparaciones) · Escenas: `src/papel/Papel.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 5,8,14,30,10,10,8,5 --transponer 5 --bpm 104 --estilo energico --salida public/audio/papel-musica.wav` y convertir con `loudnorm=I=-15`.
