@@ -311,3 +311,27 @@ npm run pies     # out/pies-hinchados.mp4
 
 Textos: `src/pies/datos.ts` · Escenas: `src/pies/Pies.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,12,14,14,14,12,8 --transponer 1 --bpm 108 --estilo energico --salida public/audio/pies-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Presión arterial (90 s, estilo neón)
+
+Estilo neón de la serie y **@sebranda** al pie, con un tensiómetro digital animado.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Tensiómetro con "¿?": "No duele. No avisa. ¿Sabés cuánto tenés de presión?" |
+| Los dos números | 12 s | 120/80: máxima (cuando late) y mínima (cuando descansa) |
+| Valores | 14 s | Normal < 120/80 · vigilar 120/80–139/89 · alta ≥ 140/90 · la meta la define el médico |
+| Enemiga silenciosa | 10 s | 1 de cada 3 adultos en el mundo (OMS) · sin síntomas · infarto, ACV, riñones |
+| Cómo medirla bien | 16 s | 6 pasos: reposo, sin café ni cigarrillo, postura, brazo, no hablar, 2 mediciones |
+| Qué ayuda | 14 s | Menos sal, moverse, peso, alcohol y cigarrillo, no dejar la medicación |
+| Urgencias | 12 s | Presión muy alta + síntomas de alarma: 107 o 911 |
+| Cierre | 8 s | "Medite la presión aunque te sientas bien" |
+
+```bash
+npm run presion     # out/presion-arterial.mp4
+```
+
+Textos y valores: `src/presion/datos.ts` (umbral de 140/90 según OMS y guías europeas y argentinas; algunas guías usan 130/80).
+Música: `python3 scripts/musica_reel.py --paginas 4,12,14,10,16,14,12,8 --transponer -1 --bpm 114 --estilo energico --salida public/audio/presion-musica.wav` y convertir con `loudnorm`.

@@ -25,7 +25,8 @@
     "hipotiroidismo": "remotion render Hipotiroidismo out/hipotiroidismo.mp4 --crf=24",
     "arritmia": "remotion render Arritmia out/arritmia.mp4 --crf=24",
     "tenerife": "remotion render JesusDeMiguel out/jesus-de-miguel.mp4 --crf=24",
-    "pies": "remotion render PiesHinchados out/pies-hinchados.mp4 --crf=24"
+    "pies": "remotion render PiesHinchados out/pies-hinchados.mp4 --crf=24",
+    "presion": "remotion render PresionArterial out/presion-arterial.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
