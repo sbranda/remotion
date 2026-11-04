@@ -49,24 +49,36 @@ const Gancho: React.FC = () => {
 };
 
 // ─── 2. Qué es: la mariposa del cuello ──────────────────────────────────────
-const Mariposa: React.FC<{ aceleraDesde: number }> = ({ aceleraDesde }) => {
+/** Tiroides "mariposa". En modo hiper se pone roja y late rápido; en modo hipo se apaga y late lento. */
+export const Mariposa: React.FC<{ aceleraDesde: number; modo?: "hiper" | "hipo" }> = ({ aceleraDesde, modo = "hiper" }) => {
   const frame = useCurrentFrame();
-  const acelera = interpolate(frame, [aceleraDesde, aceleraDesde + 30], [0, 1], clamp);
-  const latido = 1 + (0.03 + 0.07 * acelera) * Math.sin(frame / (6 - 4 * acelera));
-  const color = acelera > 0.5 ? P.rojo : P.cian;
+  const cambio = interpolate(frame, [aceleraDesde, aceleraDesde + 30], [0, 1], clamp);
+  const hiper = modo === "hiper";
+  const latido = hiper
+    ? 1 + (0.03 + 0.07 * cambio) * Math.sin(frame / (6 - 4 * cambio))
+    : 1 + (0.03 - 0.015 * cambio) * Math.sin(frame / (6 + 14 * cambio));
+  const color = cambio > 0.5 ? (hiper ? P.rojo : "#5b7ba6") : P.cian;
+  const brillo = hiper ? 20 + 30 * cambio : 20 - 14 * cambio;
   return (
     <svg width={460} height={300} viewBox="0 0 460 300" style={{ overflow: "visible" }}>
       {/* cuello */}
       <path d="M130 0 V300 M330 0 V300" stroke={P.texto2} strokeWidth={6} opacity={0.4} />
-      <g transform={`translate(230 160) scale(${latido}) translate(-230 -160)`} style={{ filter: `drop-shadow(0 0 ${20 + 30 * acelera}px ${color})` }}>
+      <g transform={`translate(230 160) scale(${latido}) translate(-230 -160)`} style={{ filter: `drop-shadow(0 0 ${brillo}px ${color})` }}>
         <path d="M230 150 C200 60 90 60 100 160 C110 240 200 250 225 190 Z" fill={color} />
         <path d="M230 150 C260 60 370 60 360 160 C350 240 260 250 235 190 Z" fill={color} />
         <rect x={205} y={150} width={50} height={46} rx={20} fill={color} />
       </g>
-      {acelera > 0 &&
+      {cambio > 0 &&
         [0, 1, 2].map((i) => (
-          <text key={i} x={60 + i * 170} y={40 - i * 10} fontSize={60} opacity={acelera} fontFamily="'Noto Color Emoji', sans-serif">
-            ⚡
+          <text
+            key={i}
+            x={60 + i * 170}
+            y={(hiper ? 40 : 30 - ((frame / 2 + i * 20) % 40)) - i * 10}
+            fontSize={60}
+            opacity={cambio}
+            fontFamily="'Noto Color Emoji', sans-serif"
+          >
+            {hiper ? "⚡" : "💤"}
           </text>
         ))}
     </svg>
@@ -97,12 +109,12 @@ const QueEs: React.FC = () => (
 );
 
 // ─── 3. Síntomas: grilla 3×3 ────────────────────────────────────────────────
-const Sintoma: React.FC<{ desde: number; emoji: string; texto: string }> = ({ desde, emoji, texto }) => {
+export const Sintoma: React.FC<{ desde: number; emoji: string; texto: string; color?: string }> = ({ desde, emoji, texto, color = P.rojo }) => {
   const p = useGolpe(desde, 9);
   const frame = useCurrentFrame();
   return (
     <div style={{ transform: `scale(${p})`, opacity: frame >= desde ? 1 : 0 }}>
-      <Vidrio color={P.rojo} style={{ width: 290, height: 240, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+      <Vidrio color={color} style={{ width: 290, height: 240, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
         <Emoji e={emoji} size={92} />
         <div style={{ fontFamily: SANS, fontSize: 34, fontWeight: 800, color: P.texto, textAlign: "center", lineHeight: 1.15, padding: "0 10px" }}>{texto}</div>
       </Vidrio>
@@ -126,23 +138,31 @@ const Sintomas: React.FC = () => (
 );
 
 // ─── 4. Hiper vs. hipo ──────────────────────────────────────────────────────
-const HiperHipo: React.FC = () => {
+export const HiperHipo: React.FC<{ primero?: "hiper" | "hipo" }> = ({ primero = "hiper" }) => {
   const frame = useCurrentFrame();
+  const columnas = [
+    { titulo: "HIPER", emoji: "⚡", sub: "Todo se acelera", color: P.rojo, lado: "hiper" as const },
+    { titulo: "HIPO", emoji: "🐢", sub: "Todo se enlentece", color: P.cian, lado: "hipo" as const },
+  ];
+  if (primero === "hipo") columnas.reverse();
   return (
     <Pagina gap={26}>
       <Golpe desde={0}>
         <Grande size={96}>
-          <span style={{ color: P.rojo, textShadow: `0 0 30px ${P.rojo}` }}>Hiper</span> vs. <span style={{ color: P.cian, textShadow: `0 0 30px ${P.cian}` }}>hipo</span>
+          {columnas.map((c, i) => (
+            <React.Fragment key={c.titulo}>
+              {i > 0 && " vs. "}
+              <span style={{ color: c.color, textShadow: `0 0 30px ${c.color}` }}>{i === 0 ? c.titulo[0] + c.titulo.slice(1).toLowerCase() : c.titulo.toLowerCase()}</span>
+            </React.Fragment>
+          ))}
         </Grande>
       </Golpe>
       <div style={{ display: "flex", gap: 24 }}>
-        {[
-          { titulo: "HIPER", emoji: "⚡", sub: "Todo se acelera", color: P.rojo, lado: "hiper" as const, desde: 20 },
-          { titulo: "HIPO", emoji: "🐢", sub: "Todo se enlentece", color: P.cian, lado: "hipo" as const, desde: 40 },
-        ].map((c) => {
-          const p = useGolpe(c.desde, 10);
+        {columnas.map((c, ci) => {
+          const desde = 20 + ci * 20;
+          const p = useGolpe(desde, 10);
           return (
-            <div key={c.titulo} style={{ transform: `translateY(${(1 - p) * 300}px)`, opacity: frame >= c.desde ? 1 : 0 }}>
+            <div key={c.titulo} style={{ transform: `translateY(${(1 - p) * 300}px)`, opacity: frame >= desde ? 1 : 0 }}>
               <Vidrio color={c.color} style={{ width: 458, padding: "24px 22px", textAlign: "center", fontFamily: SANS }}>
                 <Emoji e={c.emoji} size={90} />
                 <div style={{ fontSize: 70, fontWeight: 800, color: c.color, textShadow: `0 0 24px ${c.color}`, letterSpacing: 2 }}>{c.titulo}</div>
@@ -193,7 +213,7 @@ const Causas: React.FC = () => (
 );
 
 // ─── 6. Diagnóstico ─────────────────────────────────────────────────────────
-const Hormona: React.FC<{ desde: number; nombre: string; estado: string; flecha: string; color: string }> = ({ desde, nombre, estado, flecha, color }) => {
+export const Hormona: React.FC<{ desde: number; nombre: string; estado: string; flecha: string; color: string }> = ({ desde, nombre, estado, flecha, color }) => {
   const frame = useCurrentFrame();
   const p = useGolpe(desde, 10);
   const y = interpolate(frame, [desde + 10, desde + 30], [0, flecha === "↓" ? 18 : -18], { ...clamp, easing: suave });

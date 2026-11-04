@@ -214,3 +214,27 @@ npm run hipertiroidismo     # out/hipertiroidismo.mp4
 
 Textos: `src/hipertiroidismo/datos.ts` · Escenas: `src/hipertiroidismo/Hipertiroidismo.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,16,12,12,12,14,8 --transponer -5 --bpm 120 --estilo energico --salida public/audio/hipertiroidismo-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Hipotiroidismo (90 s, estilo neón)
+
+Contracara del Reel de hipertiroidismo; reutiliza sus piezas (mariposa, tarjetas de síntomas, "hiper vs. hipo" y hormonas), exportadas desde `src/hipertiroidismo/Hipertiroidismo.tsx`. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | 🐢 + barra de carga que no avanza: "¿Cansancio, frío y subís de peso sin explicación? Podría ser la tiroides" |
+| Qué es | 12 s | La mariposa del cuello se apaga y late lento (💤): fabrica hormonas de menos |
+| Síntomas | 16 s | 9 tarjetas: cansancio, peso, frío, piel seca, pelo, constipación, ánimo, memoria, corazón lento |
+| Hipo vs. hiper | 12 s | Todo se enlentece vs. todo se acelera |
+| Causas | 12 s | Hashimoto, cirugía o yodo radiactivo, medicamentos, posparto · más frecuente en mujeres · pesquisa neonatal |
+| Diagnóstico | 12 s | TSH alta, T4 libre baja |
+| Tratamiento | 14 s | Levotiroxina una vez por día, en ayunas, lejos del mate y el café · controles · no dejarla sin consultar |
+| Cierre | 8 s | "Si te sentís así, pedí un análisis de tiroides" |
+
+```bash
+npm run hipotiroidismo     # out/hipotiroidismo.mp4
+```
+
+Textos: `src/hipotiroidismo/datos.ts` · Escenas: `src/hipotiroidismo/Hipotiroidismo.tsx`.
+Música (más lenta, 104 BPM): `python3 scripts/musica_reel.py --paginas 4,12,16,12,12,12,14,8 --transponer 0 --bpm 104 --estilo energico --salida public/audio/hipotiroidismo-musica.wav` y convertir con `loudnorm`.
