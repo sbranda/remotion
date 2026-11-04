@@ -287,3 +287,27 @@ npm run tenerife     # out/jesus-de-miguel.mp4
 ```
 
 Música: `python3 scripts/musica_reel.py --paginas 8,25,18,30,25,30,30,14 --bpm 72 --transponer -2 --menor --estilo suave --salida public/audio/tenerife-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Reel: Pies hinchados (90 s, estilo neón)
+
+Estilo neón de la serie y **@sebranda** al pie. Incluye un pie que se hincha y la animación de la "prueba del dedo" (fóvea).
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Pie que se infla: "¿Llegás a la noche con los pies como globos?" |
+| Por qué se hinchan | 12 s | Líquido que baja por la gravedad: edema |
+| La prueba del dedo | 12 s | Apretar 5 segundos y ver si queda un hoyito |
+| Lo más común | 14 s | Horas de pie o sentado, viajes, calor, sal, embarazo |
+| Algo más | 14 s | Corazón, riñones, hígado, várices, tiroides, medicamentos |
+| Urgente si | 14 s | Una pierna con dolor/calor/rojo (trombosis), falta de aire (107/911), embarazada con dolor de cabeza |
+| Qué ayuda | 12 s | Piernas en alto, moverse, menos sal, agua, medias si las indica el médico |
+| Cierre | 8 s | "Si se repite seguido, consultá a tu médico" |
+
+```bash
+npm run pies     # out/pies-hinchados.mp4
+```
+
+Textos: `src/pies/datos.ts` · Escenas: `src/pies/Pies.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,12,14,14,14,12,8 --transponer 1 --bpm 108 --estilo energico --salida public/audio/pies-musica.wav` y convertir con `loudnorm`.

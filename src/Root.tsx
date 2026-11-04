@@ -21,6 +21,8 @@ import { Arritmia } from "./arritmia/Arritmia";
 import { DURACION_FRAMES as DURACION_ARRITMIA, FPS as FPS_ARRITMIA } from "./arritmia/datos";
 import { JesusDeMiguel } from "./tenerife/JesusDeMiguel";
 import { DURACION_FRAMES as DURACION_JDM, FPS as FPS_JDM } from "./tenerife/datos";
+import { Pies } from "./pies/Pies";
+import { DURACION_FRAMES as DURACION_PIES, FPS as FPS_PIES } from "./pies/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -63,5 +65,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Arritmia" component={Arritmia} durationInFrames={DURACION_ARRITMIA} fps={FPS_ARRITMIA} width={1080} height={1920} />
     {/* Reel de 3 minutos: Jesús de Miguel (CD Tenerife), estilo sobrio */}
     <Composition id="JesusDeMiguel" component={JesusDeMiguel} durationInFrames={DURACION_JDM} fps={FPS_JDM} width={1080} height={1920} />
+    {/* Reel de 90 segundos: pies hinchados, estilo neón */}
+    <Composition id="PiesHinchados" component={Pies} durationInFrames={DURACION_PIES} fps={FPS_PIES} width={1080} height={1920} />
   </>
 );
