@@ -262,3 +262,28 @@ npm run arritmia     # out/arritmia.mp4
 
 Textos: `src/arritmia/datos.ts` · Escenas: `src/arritmia/Arritmia.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,14,12,12,14,12,12,10 --transponer 3 --bpm 112 --estilo energico --salida public/audio/arritmia-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Jesús de Miguel (3 minutos, estilo sobrio)
+
+Homenaje e información sobre la muerte del delantero del CD Tenerife tras un choque en el partido contra el FC Andorra (Segunda División, jornada 12). Estilo sobrio propio (`src/tenerife/JesusDeMiguel.tsx`): fondo oscuro con azul y blanco, crespón negro, fundidos lentos, sin destellos. Música suave en tono menor. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Portada | 8 s | Crespón, nombre, 1996–2026, delantero del CD Tenerife |
+| Qué pasó | 25 s | Cronología del partido hasta el traslado al Hospital de La Candelaria |
+| En el hospital | 18 s | UCI, partes del club, fallecimiento el martes 3 de noviembre |
+| Quién era | 30 s | Nacimiento, Castellón (88 partidos, 25 goles), llegada al Tenerife y ascenso |
+| Lo que se sabe y lo que no | 25 s | Hechos confirmados vs. causa exacta y diagnóstico sin confirmar |
+| Homenajes | 30 s | Minuto de silencio, Real Madrid, UEFA, mensajes |
+| Por qué importa saber RCP | 30 s | Llamar a emergencias, RCP, desfibrilador |
+| Cierre | 14 s | "Descansá en paz, Jesús", fuentes y fecha de los datos |
+
+**Antes de publicar:** revisá los datos en `src/tenerife/datos.ts` contra la información oficial más reciente (la causa de la muerte no estaba confirmada al 4 de noviembre de 2026). No afirmes una causa hasta que la confirme una fuente oficial.
+
+```bash
+npm run tenerife     # out/jesus-de-miguel.mp4
+```
+
+Música: `python3 scripts/musica_reel.py --paginas 8,25,18,30,25,30,30,14 --bpm 72 --transponer -2 --menor --estilo suave --salida public/audio/tenerife-musica.wav` y convertir con `loudnorm=I=-18`.

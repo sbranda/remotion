@@ -25,6 +25,7 @@ ap.add_argument("--bpm", type=float, default=96)
 ap.add_argument("--transponer", type=int, default=0, help="semitonos (cambia la tonalidad)")
 ap.add_argument("--salida", default="public/audio/trigliceridos-musica.wav")
 ap.add_argument("--estilo", choices=["suave", "energico"], default="suave")
+ap.add_argument("--menor", action="store_true", help="progresión en tono menor (Dm–Bb–F–C), más melancólica")
 args = ap.parse_args()
 
 SR = 44100
@@ -55,6 +56,9 @@ ACORDES = [
     [46, 53, 58, 62],  # Bb
 ]
 BAJOS = [41, 36, 38, 34]
+if args.menor:
+    ACORDES = [ACORDES[2], ACORDES[3], ACORDES[0], ACORDES[1]]
+    BAJOS = [BAJOS[2], BAJOS[3], BAJOS[0], BAJOS[1]]
 
 
 def add(señal, inicio):
