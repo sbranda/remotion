@@ -387,3 +387,30 @@ npm run papel     # out/papel-luna.mp4
 
 Datos e hitos: `src/papel/datos.ts` (grosor de la hoja, distancia a la Luna, comparaciones) · Escenas: `src/papel/Papel.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 5,6,8,12,30,8,10,6,5 --transponer 5 --bpm 104 --estilo energico --salida public/audio/papel-musica.wav` y convertir con `loudnorm=I=-15`.
+
+---
+
+# Reel: ¿Qué es un ataque de pánico? (3 minutos, estilo calma)
+
+Hermano del Reel de ansiedad: mismo estilo **calma** y reutiliza la curva de la "ola" y la respiración guiada (exportadas desde `src/ansiedad/Ansiedad.tsx`). **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 6 s | Corazón que late cada vez más rápido (72 → 150 latidos/min) |
+| Qué es | 18 s | Miedo intenso de golpe, a veces sin aviso; le puede pasar a cualquiera |
+| Qué se siente | 20 s | 10 síntomas del cuerpo y la mente |
+| La ola | 16 s | Pico en unos 10 minutos y baja; el ataque en sí no hace daño |
+| Por qué pasa | 16 s | La alarma del cuerpo se dispara sin peligro real; adrenalina; desencadenantes |
+| Círculo del miedo | 18 s | Síntoma → pensamiento catastrófico → más miedo → más síntomas |
+| Qué hacer | 26 s | 5 pasos para el momento |
+| Respirá conmigo | 24 s | Respiración guiada: inhalar 4, exhalar 6 |
+| Si le pasa a alguien | 16 s | Cómo acompañar |
+| Tratamiento | 10 s | Terapia, medicación si la indica un profesional |
+| Cierre | 10 s | 107/911 si es la primera vez o hay dolor de pecho · "Va a pasar" |
+
+```bash
+npm run panico     # out/ataque-de-panico.mp4
+```
+
+Textos: `src/panico/datos.ts` · Escenas: `src/panico/Panico.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 6,18,20,16,16,18,26,24,16,10,10 --bpm 70 --transponer -3 --estilo suave --salida public/audio/panico-musica.wav` y convertir con `loudnorm=I=-18`.

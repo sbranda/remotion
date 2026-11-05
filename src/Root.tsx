@@ -29,6 +29,8 @@ import { Ansiedad } from "./ansiedad/Ansiedad";
 import { DURACION_FRAMES as DURACION_ANSIEDAD, FPS as FPS_ANSIEDAD } from "./ansiedad/datos";
 import { Papel } from "./papel/Papel";
 import { DURACION_FRAMES as DURACION_PAPEL, FPS as FPS_PAPEL } from "./papel/datos";
+import { Panico } from "./panico/Panico";
+import { DURACION_FRAMES as DURACION_PANICO, FPS as FPS_PANICO } from "./panico/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -79,5 +81,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Ansiedad" component={Ansiedad} durationInFrames={DURACION_ANSIEDAD} fps={FPS_ANSIEDAD} width={1080} height={1920} />
     {/* Reel de 90 segundos: curiosidad matemática, el papel que llega a la Luna */}
     <Composition id="PapelLuna" component={Papel} durationInFrames={DURACION_PAPEL} fps={FPS_PAPEL} width={1080} height={1920} />
+    {/* Reel de 3 minutos: ¿qué es un ataque de pánico?, estilo calma */}
+    <Composition id="AtaquePanico" component={Panico} durationInFrames={DURACION_PANICO} fps={FPS_PANICO} width={1080} height={1920} />
   </>
 );

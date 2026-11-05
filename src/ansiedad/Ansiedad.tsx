@@ -137,7 +137,7 @@ const Mente: React.FC = () => (
 );
 
 // ─── 6. Ataque de pánico ────────────────────────────────────────────────────
-const Ola: React.FC<{ desde: number }> = ({ desde }) => {
+export const Ola: React.FC<{ desde: number }> = ({ desde }) => {
   const frame = useCurrentFrame();
   const p = interpolate(frame, [desde, desde + 120], [0, 1], { ...clamp, easing: suave });
   const ancho = 900;
@@ -206,7 +206,7 @@ const EXHALA = 180; // 6 s
 const CICLO = INHALA + EXHALA;
 const CICLOS = 2;
 
-const Respirar: React.FC = () => {
+export const Respirar: React.FC = () => {
   const frame = useCurrentFrame();
   const t = frame - INICIO;
   const enCiclos = t >= 0 && t < CICLO * CICLOS;
