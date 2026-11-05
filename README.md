@@ -490,3 +490,11 @@ npm run insomnio     # out/insomnio.mp4
 
 Textos: `src/insomnio/datos.ts` · Escenas: `src/insomnio/Insomnio.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,8,14,22,10,12,8 --bpm 66 --transponer -4 --estilo suave --salida public/audio/insomnio-musica.wav` y convertir con `loudnorm=I=-18`.
+
+## Insomnio, versión estilo noche
+
+Composición `InsomnioNoche` (`src/insomnio/InsomnioNoche.tsx`): mismas escenas, textos y música que el Reel de insomnio, con un estilo nuevo **noche** (`src/salud/noche.tsx`): cielo azul oscuro con estrellas que titilan, estrellas fugaces, luna creciente con brillo, tarjetas translúcidas que flotan y fundidos lentos. Tiene la misma interfaz que el estilo calma, así que cualquier Reel en calma se puede pasar a noche cambiando el import.
+
+```bash
+npm run insomnio:noche     # out/insomnio-noche.mp4
+```

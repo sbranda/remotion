@@ -37,6 +37,7 @@ import { Diabetes } from "./diabetes/Diabetes";
 import { DURACION_FRAMES as DURACION_DIABETES, FPS as FPS_DIABETES } from "./diabetes/datos";
 import { Insomnio } from "./insomnio/Insomnio";
 import { DURACION_FRAMES as DURACION_INSOMNIO, FPS as FPS_INSOMNIO } from "./insomnio/datos";
+import { InsomnioNoche } from "./insomnio/InsomnioNoche";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -95,5 +96,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Diabetes" component={Diabetes} durationInFrames={DURACION_DIABETES} fps={FPS_DIABETES} width={1080} height={1920} />
     {/* Reel de 90 segundos: insomnio, estilo calma */}
     <Composition id="Insomnio" component={Insomnio} durationInFrames={DURACION_INSOMNIO} fps={FPS_INSOMNIO} width={1080} height={1920} />
+    {/* Insomnio, versión estilo noche */}
+    <Composition id="InsomnioNoche" component={InsomnioNoche} durationInFrames={DURACION_INSOMNIO} fps={FPS_INSOMNIO} width={1080} height={1920} />
   </>
 );
