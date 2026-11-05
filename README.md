@@ -466,3 +466,27 @@ npm run diabetes     # out/diabetes.mp4
 
 Textos y valores: `src/diabetes/datos.ts` · Escenas: `src/diabetes/Diabetes.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 6,16,18,16,20,18,18,14,14,10,22,8 --transponer 2 --bpm 110 --estilo energico --salida public/audio/diabetes-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Insomnio (90 s, estilo calma)
+
+Estilo **calma** y **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Reloj a las 03:00 y ovejas que saltan: "¿Son las 3 de la mañana y seguís mirando el techo?" |
+| Qué es | 12 s | Cuesta dormirse, despertarse a la noche o muy temprano + cansancio al día |
+| Cuántas horas | 8 s | 7 a 9 h para la mayoría de los adultos |
+| Qué lo empeora | 14 s | Estrés, pantallas, mate o café a la tarde, alcohol, horarios, siestas largas |
+| Hábitos | 22 s | 6 hábitos para dormir mejor |
+| Regla de los 20 minutos | 10 s | Si no te dormís, levantate, algo tranquilo y volvé con sueño (animación) |
+| Cuándo consultar | 12 s | Más de un mes, afecta el día, ronquidos o pausas al respirar · terapia · no automedicarse |
+| Cierre | 8 s | "Dormir bien también es salud" |
+
+```bash
+npm run insomnio     # out/insomnio.mp4
+```
+
+Textos: `src/insomnio/datos.ts` · Escenas: `src/insomnio/Insomnio.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,8,14,22,10,12,8 --bpm 66 --transponer -4 --estilo suave --salida public/audio/insomnio-musica.wav` y convertir con `loudnorm=I=-18`.
