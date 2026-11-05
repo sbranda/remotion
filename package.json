@@ -29,7 +29,8 @@
     "presion": "remotion render PresionArterial out/presion-arterial.mp4 --crf=24",
     "ansiedad": "remotion render Ansiedad out/ansiedad.mp4 --crf=24",
     "papel": "remotion render PapelLuna out/papel-luna.mp4 --crf=24",
-    "panico": "remotion render AtaquePanico out/ataque-de-panico.mp4 --crf=24"
+    "panico": "remotion render AtaquePanico out/ataque-de-panico.mp4 --crf=24",
+    "migrana": "remotion render Migrana out/migrana.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

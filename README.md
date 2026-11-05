@@ -414,3 +414,27 @@ npm run panico     # out/ataque-de-panico.mp4
 
 Textos: `src/panico/datos.ts` · Escenas: `src/panico/Panico.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 6,18,20,16,16,18,26,24,16,10,10 --bpm 70 --transponer -3 --estilo suave --salida public/audio/panico-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Reel: Migraña (90 s, estilo calma)
+
+Estilo **calma** (colores suaves y sin destellos) y **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Cabeza que late despacio: "¿Te duele tanto la cabeza que hasta la luz te molesta?" |
+| Qué es | 12 s | Enfermedad neurológica, no un dolor común · crisis de 4 a 72 h · 3 veces más en mujeres |
+| Síntomas | 12 s | Dolor que late de un lado, náuseas, luz, ruidos, olores, empeora al moverse |
+| El aura | 12 s | Zigzag animado: luces, zigzags o manchas antes del dolor |
+| Qué la dispara | 14 s | Estrés, sueño, saltear comidas, menstruación, alcohol, poca agua |
+| Qué ayuda | 14 s | Oscuridad y silencio, frío, medicación temprana, diario de crisis · ojo con el exceso de analgésicos |
+| Urgente si | 14 s | Peor dolor de golpe, fiebre y nuca rígida, problemas para hablar o debilidad, golpe en la cabeza · 107/911 |
+| Cierre | 8 s | "La migraña tiene tratamiento: consultá a un neurólogo" |
+
+```bash
+npm run migrana     # out/migrana.mp4
+```
+
+Textos: `src/migrana/datos.ts` · Escenas: `src/migrana/Migrana.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,12,12,14,14,14,8 --bpm 74 --transponer 6 --estilo suave --salida public/audio/migrana-musica.wav` y convertir con `loudnorm=I=-18`.

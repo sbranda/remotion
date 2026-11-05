@@ -31,6 +31,8 @@ import { Papel } from "./papel/Papel";
 import { DURACION_FRAMES as DURACION_PAPEL, FPS as FPS_PAPEL } from "./papel/datos";
 import { Panico } from "./panico/Panico";
 import { DURACION_FRAMES as DURACION_PANICO, FPS as FPS_PANICO } from "./panico/datos";
+import { Migrana } from "./migrana/Migrana";
+import { DURACION_FRAMES as DURACION_MIGRANA, FPS as FPS_MIGRANA } from "./migrana/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -83,5 +85,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="PapelLuna" component={Papel} durationInFrames={DURACION_PAPEL} fps={FPS_PAPEL} width={1080} height={1920} />
     {/* Reel de 3 minutos: ¿qué es un ataque de pánico?, estilo calma */}
     <Composition id="AtaquePanico" component={Panico} durationInFrames={DURACION_PANICO} fps={FPS_PANICO} width={1080} height={1920} />
+    {/* Reel de 90 segundos: migraña, estilo calma */}
+    <Composition id="Migrana" component={Migrana} durationInFrames={DURACION_MIGRANA} fps={FPS_MIGRANA} width={1080} height={1920} />
   </>
 );
