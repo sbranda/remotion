@@ -438,3 +438,31 @@ npm run migrana     # out/migrana.mp4
 
 Textos: `src/migrana/datos.ts` · Escenas: `src/migrana/Migrana.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,12,12,14,14,14,8 --bpm 74 --transponer 6 --estilo suave --salida public/audio/migrana-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Reel: Diabetes y glucosa (3 minutos, estilo neón)
+
+Estilo neón de la serie de análisis y **@sebranda** al pie. Animación central: la insulina como **llave** que abre la célula para que entre la glucosa; en la diabetes la llave falla y la glucosa se acumula en la sangre.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 6 s | 🥤🚽😴 "¿Mucha sed, vas al baño a cada rato y estás siempre cansado?" |
+| Glucosa | 16 s | El azúcar de la sangre, combustible del cuerpo; comidas que se convierten en glucosa |
+| Insulina | 18 s | La llave que abre la célula (animación) |
+| Diabetes | 16 s | La llave falla y la glucosa se acumula (animación) |
+| Tipos | 20 s | Tipo 1, tipo 2 (9 de cada 10), gestacional |
+| Valores | 18 s | Ayunas: < 100 normal · 100–125 prediabetes · ≥ 126 diabetes · HbA1c ≥ 6,5 % |
+| Señales | 18 s | 8 síntomas + "o ningún síntoma" |
+| Prediabetes | 14 s | Alarma que se puede frenar con movimiento y bajar de peso |
+| Complicaciones | 14 s | Corazón, riñones, ojos, pies, nervios, ACV |
+| Quién debería medirse | 10 s | +45 años, sobrepeso, familiares, presión o colesterol alto |
+| Qué ayuda | 22 s | 6 consejos |
+| Cierre | 8 s | "Un análisis de glucosa puede cambiarte la vida" |
+
+```bash
+npm run diabetes     # out/diabetes.mp4
+```
+
+Textos y valores: `src/diabetes/datos.ts` · Escenas: `src/diabetes/Diabetes.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 6,16,18,16,20,18,18,14,14,10,22,8 --transponer 2 --bpm 110 --estilo energico --salida public/audio/diabetes-musica.wav` y convertir con `loudnorm`.

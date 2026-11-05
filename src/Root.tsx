@@ -33,6 +33,8 @@ import { Panico } from "./panico/Panico";
 import { DURACION_FRAMES as DURACION_PANICO, FPS as FPS_PANICO } from "./panico/datos";
 import { Migrana } from "./migrana/Migrana";
 import { DURACION_FRAMES as DURACION_MIGRANA, FPS as FPS_MIGRANA } from "./migrana/datos";
+import { Diabetes } from "./diabetes/Diabetes";
+import { DURACION_FRAMES as DURACION_DIABETES, FPS as FPS_DIABETES } from "./diabetes/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -87,5 +89,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="AtaquePanico" component={Panico} durationInFrames={DURACION_PANICO} fps={FPS_PANICO} width={1080} height={1920} />
     {/* Reel de 90 segundos: migraña, estilo calma */}
     <Composition id="Migrana" component={Migrana} durationInFrames={DURACION_MIGRANA} fps={FPS_MIGRANA} width={1080} height={1920} />
+    {/* Reel de 3 minutos: diabetes y glucosa, estilo neón */}
+    <Composition id="Diabetes" component={Diabetes} durationInFrames={DURACION_DIABETES} fps={FPS_DIABETES} width={1080} height={1920} />
   </>
 );
