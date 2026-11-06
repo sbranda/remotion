@@ -546,3 +546,29 @@ npm run gota     # out/acido-urico-gota.mp4
 
 Textos y valores: `src/gota/datos.ts` · Escenas: `src/gota/Gota.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,10,14,12,14,16,8 --transponer -2 --bpm 108 --estilo energico --salida public/audio/gota-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Cómo reconocer un ACV (90 s, estilo neón)
+
+Estilo neón y **@sebranda** al pie. Animaciones: vaso que se tapa o se rompe, contador de neuronas por minuto, y la prueba de 3 pasos (cara que se cae, brazo que baja, frase trabada).
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | "Esto puede salvar una vida: cómo reconocer un ACV en 3 pasos" |
+| Qué es | 12 s | Un vaso del cerebro se tapa o se rompe |
+| El tiempo | 8 s | ~1,9 millones de neuronas por minuto |
+| 1. Sonreír | 8 s | ¿Se cae un lado de la cara? |
+| 2. Brazos | 8 s | ¿Uno se cae? |
+| 3. Hablar | 8 s | ¿Habla raro o trabado? |
+| Otras señales | 12 s | Mareo, visión, dolor de cabeza fuerte, confusión |
+| Qué hacer | 14 s | Llamar YA al 107/911, anotar la hora, nada por boca, aunque se pase |
+| Prevenir | 8 s | Presión, cigarrillo, diabetes, colesterol, arritmias, sedentarismo |
+| Cierre | 8 s | "Sonreír, brazos, hablar… y llamar YA" |
+
+```bash
+npm run acv     # out/acv.mp4
+```
+
+Textos: `src/acv/datos.ts` · Escenas: `src/acv/Acv.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,8,8,8,8,12,14,8,8 --transponer 1 --bpm 116 --estilo energico --salida public/audio/acv-musica.wav` y convertir con `loudnorm`.

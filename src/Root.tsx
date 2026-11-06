@@ -42,6 +42,8 @@ import { HigadoGraso } from "./higado/Higado";
 import { DURACION_FRAMES as DURACION_HIGADO, FPS as FPS_HIGADO } from "./higado/datos";
 import { Gota } from "./gota/Gota";
 import { DURACION_FRAMES as DURACION_GOTA, FPS as FPS_GOTA } from "./gota/datos";
+import { Acv } from "./acv/Acv";
+import { DURACION_FRAMES as DURACION_ACV, FPS as FPS_ACV } from "./acv/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -106,5 +108,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="HigadoGraso" component={HigadoGraso} durationInFrames={DURACION_HIGADO} fps={FPS_HIGADO} width={1080} height={1920} />
     {/* Reel de 90 segundos: ácido úrico y gota, estilo neón */}
     <Composition id="AcidoUricoGota" component={Gota} durationInFrames={DURACION_GOTA} fps={FPS_GOTA} width={1080} height={1920} />
+    {/* Reel de 90 segundos: cómo reconocer un ACV, estilo neón */}
+    <Composition id="Acv" component={Acv} durationInFrames={DURACION_ACV} fps={FPS_ACV} width={1080} height={1920} />
   </>
 );
