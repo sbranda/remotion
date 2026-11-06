@@ -599,3 +599,31 @@ npm run autismo     # out/autismo.mp4
 
 Textos: `src/autismo/datos.ts` · Escenas: `src/autismo/Autismo.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 6,20,18,10,18,18,18,18,20,22,12 --bpm 76 --transponer 3 --estilo suave --salida public/audio/autismo-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Reel: ¿Qué es la depresión? (3 minutos, estilo calma)
+
+Estilo **calma** y **@sebranda** al pie. Una nube gris llueve sobre una persona al principio y, en el cierre, se corre y sale el sol.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 6 s | Nube con lluvia: "¿Hace semanas que nada te da ganas?" |
+| Qué es | 18 s | Enfermedad, no falta de voluntad; tiene tratamiento |
+| Tristeza vs. depresión | 18 s | Motivo, duración (2 semanas o más), impacto |
+| Es común | 10 s | 280 millones de personas (OMS) |
+| Síntomas | 20 s | 8 síntomas |
+| En el cuerpo | 12 s | Cansancio, dolores, lentitud |
+| Causas | 14 s | Genética, química del cerebro, situaciones difíciles, enfermedades · no es culpa de nadie |
+| Señales de alarma | 16 s | Ideas de muerte o daño · línea 135 / (011) 5275-1135 · 911 |
+| Tratamiento | 20 s | Terapia, medicación o ambas · los antidepresivos no se dejan de golpe |
+| Cómo ayudar | 22 s | Escuchar, no juzgar, acompañar, preguntar directo, seguir presente |
+| Pasitos | 14 s | 5 hábitos que suman (no reemplazan el tratamiento) |
+| Cierre | 10 s | Sale el sol: "No estás solo ni sola. Pedir ayuda es el primer paso" |
+
+```bash
+npm run depresion     # out/depresion.mp4
+```
+
+Textos y línea de ayuda: `src/depresion/datos.ts` (verificar que la línea siga vigente) · Escenas: `src/depresion/Depresion.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 6,18,18,10,20,12,14,16,20,22,14,10 --bpm 70 --transponer 0 --estilo suave --salida public/audio/depresion-musica.wav` y convertir con `loudnorm=I=-18`.

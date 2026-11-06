@@ -46,6 +46,8 @@ import { Acv } from "./acv/Acv";
 import { DURACION_FRAMES as DURACION_ACV, FPS as FPS_ACV } from "./acv/datos";
 import { Autismo } from "./autismo/Autismo";
 import { DURACION_FRAMES as DURACION_AUTISMO, FPS as FPS_AUTISMO } from "./autismo/datos";
+import { Depresion } from "./depresion/Depresion";
+import { DURACION_FRAMES as DURACION_DEPRESION, FPS as FPS_DEPRESION } from "./depresion/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -114,5 +116,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Acv" component={Acv} durationInFrames={DURACION_ACV} fps={FPS_ACV} width={1080} height={1920} />
     {/* Reel de 3 minutos: ¿qué es el autismo?, estilo calma */}
     <Composition id="Autismo" component={Autismo} durationInFrames={DURACION_AUTISMO} fps={FPS_AUTISMO} width={1080} height={1920} />
+    {/* Reel de 3 minutos: ¿qué es la depresión?, estilo calma */}
+    <Composition id="Depresion" component={Depresion} durationInFrames={DURACION_DEPRESION} fps={FPS_DEPRESION} width={1080} height={1920} />
   </>
 );

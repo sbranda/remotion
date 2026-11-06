@@ -37,7 +37,8 @@
     "higado": "remotion render HigadoGraso out/higado-graso.mp4 --crf=24",
     "gota": "remotion render AcidoUricoGota out/acido-urico-gota.mp4 --crf=24",
     "acv": "remotion render Acv out/acv.mp4 --crf=24",
-    "autismo": "remotion render Autismo out/autismo.mp4 --crf=24"
+    "autismo": "remotion render Autismo out/autismo.mp4 --crf=24",
+    "depresion": "remotion render Depresion out/depresion.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
