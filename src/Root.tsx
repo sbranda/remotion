@@ -40,6 +40,8 @@ import { DURACION_FRAMES as DURACION_INSOMNIO, FPS as FPS_INSOMNIO } from "./ins
 import { InsomnioNoche } from "./insomnio/InsomnioNoche";
 import { HigadoGraso } from "./higado/Higado";
 import { DURACION_FRAMES as DURACION_HIGADO, FPS as FPS_HIGADO } from "./higado/datos";
+import { Gota } from "./gota/Gota";
+import { DURACION_FRAMES as DURACION_GOTA, FPS as FPS_GOTA } from "./gota/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -102,5 +104,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="InsomnioNoche" component={InsomnioNoche} durationInFrames={DURACION_INSOMNIO} fps={FPS_INSOMNIO} width={1080} height={1920} />
     {/* Reel de 90 segundos: hígado graso, estilo neón */}
     <Composition id="HigadoGraso" component={HigadoGraso} durationInFrames={DURACION_HIGADO} fps={FPS_HIGADO} width={1080} height={1920} />
+    {/* Reel de 90 segundos: ácido úrico y gota, estilo neón */}
+    <Composition id="AcidoUricoGota" component={Gota} durationInFrames={DURACION_GOTA} fps={FPS_GOTA} width={1080} height={1920} />
   </>
 );

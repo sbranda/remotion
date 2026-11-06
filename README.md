@@ -522,3 +522,27 @@ npm run higado     # out/higado-graso.mp4
 
 Textos: `src/higado/datos.ts` · Escenas: `src/higado/Higado.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,8,14,16,10,18,8 --transponer 4 --bpm 112 --estilo energico --salida public/audio/higado-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: Ácido úrico y gota (90 s, estilo neón)
+
+Estilo neón de la serie de análisis y **@sebranda** al pie. Animaciones: recorrido del ácido úrico (comida → sangre → riñones → orina) y cristales como agujitas que se juntan en el dedo gordo del pie (reutiliza el pie del Reel de pies hinchados).
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | "Un dolor tan fuerte en el dedo gordo que no soportás ni la sábana" |
+| Ácido úrico | 12 s | Desecho que eliminan los riñones; el problema es cuando se acumula |
+| Valores | 10 s | Alto: > 7 mg/dL hombres, > 6 mujeres (orientativo) |
+| La gota | 14 s | Cristales en la articulación → inflamación |
+| Síntomas | 12 s | Dolor de golpe, de noche, rojo, calor, hinchazón · qué hacer en una crisis |
+| Qué lo sube | 14 s | Achuras, carne roja, mariscos, cerveza, gaseosas, sobrepeso |
+| Qué ayuda | 16 s | Agua, menos achuras y alcohol, bajar de peso de a poco, no dejar la medicación |
+| Cierre | 8 s | "En tu próximo análisis, pedí el ácido úrico" |
+
+```bash
+npm run gota     # out/acido-urico-gota.mp4
+```
+
+Textos y valores: `src/gota/datos.ts` · Escenas: `src/gota/Gota.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,10,14,12,14,16,8 --transponer -2 --bpm 108 --estilo energico --salida public/audio/gota-musica.wav` y convertir con `loudnorm`.

@@ -5,7 +5,7 @@ import { Boton, Chico, Emoji, Fila, Golpe, Grande, Marcador, P, Pagina, ReelPop,
 import { ALARMAS, ALGO_MAS, COMUNES, FPS, PAGINAS, PaginaId, TIPS } from "./datos";
 
 // ─── Pie de perfil que se hincha ────────────────────────────────────────────
-const Pie: React.FC<{ hinchazon: number; ancho?: number }> = ({ hinchazon, ancho = 520 }) => {
+export const Pie: React.FC<{ hinchazon: number; ancho?: number }> = ({ hinchazon, ancho = 520 }) => {
   // hinchazon 0..1: tobillo y empeine se agrandan
   const h = hinchazon;
   const tobillo = 70 + 30 * h;
