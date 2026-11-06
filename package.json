@@ -33,7 +33,8 @@
     "migrana": "remotion render Migrana out/migrana.mp4 --crf=24",
     "diabetes": "remotion render Diabetes out/diabetes.mp4 --crf=24",
     "insomnio": "remotion render Insomnio out/insomnio.mp4 --crf=24",
-    "insomnio:noche": "remotion render InsomnioNoche out/insomnio-noche.mp4 --crf=24"
+    "insomnio:noche": "remotion render InsomnioNoche out/insomnio-noche.mp4 --crf=24",
+    "higado": "remotion render HigadoGraso out/higado-graso.mp4 --crf=24"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

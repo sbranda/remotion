@@ -498,3 +498,27 @@ Composición `InsomnioNoche` (`src/insomnio/InsomnioNoche.tsx`): mismas escenas,
 ```bash
 npm run insomnio:noche     # out/insomnio-noche.mp4
 ```
+
+---
+
+# Reel: Hígado graso (90 s, estilo neón)
+
+Estilo neón de la serie de análisis y **@sebranda** al pie. Animación de un hígado que se llena de gotitas de grasa y de las etapas (sano → graso → inflamado → cicatrices).
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | "Tu hígado se puede llenar de grasa… y no te avisa" |
+| Qué es | 12 s | Grasa de más dentro del hígado (nuevo nombre: asociada a disfunción metabólica) |
+| Es común | 8 s | 1 de cada 3 adultos · casi sin síntomas |
+| Qué lo favorece | 14 s | Sobrepeso, glucosa, triglicéridos y colesterol, presión, azúcar, alcohol · también en flacos |
+| Etapas | 16 s | Sano → graso → inflamado → cicatrices · en las primeras se puede revertir |
+| Diagnóstico | 10 s | Ecografía y análisis de sangre del hígado |
+| Qué ayuda | 18 s | 5 consejos + bajar 7–10 % del peso |
+| Cierre | 8 s | "Cuidá tu hígado: pedí un chequeo" |
+
+```bash
+npm run higado     # out/higado-graso.mp4
+```
+
+Textos: `src/higado/datos.ts` · Escenas: `src/higado/Higado.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,8,14,16,10,18,8 --transponer 4 --bpm 112 --estilo energico --salida public/audio/higado-musica.wav` y convertir con `loudnorm`.

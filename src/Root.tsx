@@ -38,6 +38,8 @@ import { DURACION_FRAMES as DURACION_DIABETES, FPS as FPS_DIABETES } from "./dia
 import { Insomnio } from "./insomnio/Insomnio";
 import { DURACION_FRAMES as DURACION_INSOMNIO, FPS as FPS_INSOMNIO } from "./insomnio/datos";
 import { InsomnioNoche } from "./insomnio/InsomnioNoche";
+import { HigadoGraso } from "./higado/Higado";
+import { DURACION_FRAMES as DURACION_HIGADO, FPS as FPS_HIGADO } from "./higado/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -98,5 +100,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Insomnio" component={Insomnio} durationInFrames={DURACION_INSOMNIO} fps={FPS_INSOMNIO} width={1080} height={1920} />
     {/* Insomnio, versión estilo noche */}
     <Composition id="InsomnioNoche" component={InsomnioNoche} durationInFrames={DURACION_INSOMNIO} fps={FPS_INSOMNIO} width={1080} height={1920} />
+    {/* Reel de 90 segundos: hígado graso, estilo neón */}
+    <Composition id="HigadoGraso" component={HigadoGraso} durationInFrames={DURACION_HIGADO} fps={FPS_HIGADO} width={1080} height={1920} />
   </>
 );
