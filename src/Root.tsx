@@ -44,6 +44,8 @@ import { Gota } from "./gota/Gota";
 import { DURACION_FRAMES as DURACION_GOTA, FPS as FPS_GOTA } from "./gota/datos";
 import { Acv } from "./acv/Acv";
 import { DURACION_FRAMES as DURACION_ACV, FPS as FPS_ACV } from "./acv/datos";
+import { Autismo } from "./autismo/Autismo";
+import { DURACION_FRAMES as DURACION_AUTISMO, FPS as FPS_AUTISMO } from "./autismo/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -110,5 +112,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="AcidoUricoGota" component={Gota} durationInFrames={DURACION_GOTA} fps={FPS_GOTA} width={1080} height={1920} />
     {/* Reel de 90 segundos: cómo reconocer un ACV, estilo neón */}
     <Composition id="Acv" component={Acv} durationInFrames={DURACION_ACV} fps={FPS_ACV} width={1080} height={1920} />
+    {/* Reel de 3 minutos: ¿qué es el autismo?, estilo calma */}
+    <Composition id="Autismo" component={Autismo} durationInFrames={DURACION_AUTISMO} fps={FPS_AUTISMO} width={1080} height={1920} />
   </>
 );

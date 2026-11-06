@@ -572,3 +572,30 @@ npm run acv     # out/acv.mp4
 
 Textos: `src/acv/datos.ts` · Escenas: `src/acv/Acv.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,8,8,8,8,12,14,8,8 --transponer 1 --bpm 116 --estilo energico --salida public/audio/acv-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Reel: ¿Qué es el autismo? (3 minutos, estilo calma)
+
+Estilo **calma** (sin destellos ni movimientos bruscos) y **@sebranda** al pie. Lenguaje respetuoso: no se presenta como enfermedad ni como algo para "curar". Símbolo del infinito multicolor de la neurodiversidad.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 6 s | Infinito multicolor: "No es una enfermedad. Es otra forma de percibir el mundo" |
+| Qué es | 20 s | Condición del neurodesarrollo, desde el nacimiento, para toda la vida · TEA |
+| Espectro | 18 s | Cada persona autista es distinta; distintas necesidades de apoyo |
+| ¿Es común? | 10 s | ~1 de cada 100 chicos (OMS) · en mujeres pasa desapercibido |
+| Comunicación | 18 s | Mirada, sentido literal, reglas sociales, comunicación sin palabras |
+| Intereses y rutinas | 18 s | Intereses intensos, rutinas, movimientos repetitivos, ordenar objetos |
+| Sentidos | 18 s | Ruidos, luces, texturas, olores, roces |
+| Señales tempranas | 18 s | Nombre, señalar, palabras, juego, pérdida de habilidades |
+| Mitos | 20 s | Vacunas, crianza, emociones, "cosa de chicos" |
+| Cómo acompañar | 22 s | 5 consejos + diagnóstico y terapias |
+| Cierre | 12 s | "Comprender y acompañar" · 2 de abril |
+
+```bash
+npm run autismo     # out/autismo.mp4
+```
+
+Textos: `src/autismo/datos.ts` · Escenas: `src/autismo/Autismo.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 6,20,18,10,18,18,18,18,20,22,12 --bpm 76 --transponer 3 --estilo suave --salida public/audio/autismo-musica.wav` y convertir con `loudnorm=I=-18`.
