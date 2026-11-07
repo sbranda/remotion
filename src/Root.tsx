@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_CUCHARAS_NEON, FatigaCucharasNeon } from "./cucharas/CucharasNeon";
 import { DURACION_CUCHARAS, FatigaCucharas } from "./cucharas/Cucharas";
 import { Relato } from "./relato/Relato";
 import { DURACION_FRAMES as DURACION_RELATO, FPS as FPS_RELATO } from "./relato/datos";
@@ -147,5 +148,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ArquitecturaDelVacio" component={Relato} durationInFrames={DURACION_RELATO} fps={FPS_RELATO} width={1080} height={1920} />
     {/* Reel de 90 segundos: fatiga crónica con la teoría de las cucharas, estilo cuaderno */}
     <Composition id="FatigaCucharas" component={FatigaCucharas} durationInFrames={DURACION_CUCHARAS} fps={30} width={1080} height={1920} />
+    {/* Fatiga crónica con la teoría de las cucharas, versión neón */}
+    <Composition id="FatigaCucharasNeon" component={FatigaCucharasNeon} durationInFrames={DURACION_CUCHARAS_NEON} fps={30} width={1080} height={1920} />
   </>
 );

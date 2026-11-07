@@ -813,3 +813,13 @@ npm run cucharas     # out/fatiga-cucharas.mp4
 ```
 
 Música: `python3 scripts/musica_reel.py --paginas 5,12,14,20,12,12,10,5 --bpm 92 --transponer 5 --estilo suave --salida public/audio/cucharas-musica.wav` y convertir con `loudnorm=I=-16`.
+
+## Fatiga crónica (cucharas), versión neón
+
+Composición `FatigaCucharasNeon` (`src/cucharas/CucharasNeon.tsx`): mismo contenido que la versión cuaderno, con el estilo neón y música enérgica.
+
+```bash
+npm run cucharas:neon     # out/fatiga-cucharas-neon.mp4
+```
+
+Música: `python3 scripts/musica_reel.py --paginas 5,12,14,20,12,12,10,5 --bpm 110 --transponer 5 --estilo energico --salida public/audio/cucharas-neon-musica.wav` y convertir con `loudnorm`.
