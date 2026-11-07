@@ -790,3 +790,26 @@ python3 scripts/musica_reel.py --paginas 8,26,24,22,24,22,24,28,24,22 --bpm 62 -
 python3 scripts/musica_reel.py --paginas 24,24,20,8 --bpm 70 --transponer -3 --estilo suave --salida /tmp/rB.wav
 ffmpeg -i /tmp/rA.wav -i /tmp/rB.wav -filter_complex "[0:a][1:a]concat=n=2:v=0:a=1[a];[a]loudnorm=I=-19:TP=-2[b]" -map "[b]" -b:a 160k public/audio/relato-musica.mp3
 ```
+
+---
+
+# Reel: ¿Qué es la fatiga crónica? — teoría de las cucharas (90 s, estilo cuaderno)
+
+El estilo **cuaderno** ahora es reutilizable: `src/salud/cuaderno.tsx` (`ReelCuaderno`, `Escribe`, `Fibron`, `Nota`, `Tilde`, `Pop`…). Este Reel (`src/cucharas/Cucharas.tsx`) explica la fatiga crónica con la "teoría de las cucharas" (idea de Christine Miserandino): 12 cucharas de energía por día que se gastan en tareas, y lo que pasa al gastar de más. **@sebranda** al pie.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 5 s | "¿Dormís 10 horas y te levantás como si no hubieras dormido?" |
+| Qué es | 12 s | Enfermedad, 6 meses o más, no se va descansando |
+| Las cucharas | 14 s | 12 cucharas de energía por día |
+| Un día | 20 s | Bañarte −2, vestirte −1, viajar −3, trabajar −4, cocinar −2 → 0 |
+| Gastar de más | 12 s | Prestado del día siguiente; empeora después del esfuerzo |
+| Síntomas | 12 s | Lista tildada |
+| Qué ayuda | 10 s | Dosificar, no forzar el ejercicio, consultar |
+| Cierre | 5 s | "No es pereza. Es una enfermedad." |
+
+```bash
+npm run cucharas     # out/fatiga-cucharas.mp4
+```
+
+Música: `python3 scripts/musica_reel.py --paginas 5,12,14,20,12,12,10,5 --bpm 92 --transponer 5 --estilo suave --salida public/audio/cucharas-musica.wav` y convertir con `loudnorm=I=-16`.

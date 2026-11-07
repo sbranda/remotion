@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_CUCHARAS, FatigaCucharas } from "./cucharas/Cucharas";
 import { Relato } from "./relato/Relato";
 import { DURACION_FRAMES as DURACION_RELATO, FPS as FPS_RELATO } from "./relato/datos";
 import { FatigaBurnout } from "./fatiga/Fatiga";
@@ -144,5 +145,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="FatigaBurnout" component={FatigaBurnout} durationInFrames={DURACION_FATIGA} fps={FPS_FATIGA} width={1080} height={1920} />
     {/* Relato de 5 minutos: "La arquitectura del vacío" */}
     <Composition id="ArquitecturaDelVacio" component={Relato} durationInFrames={DURACION_RELATO} fps={FPS_RELATO} width={1080} height={1920} />
+    {/* Reel de 90 segundos: fatiga crónica con la teoría de las cucharas, estilo cuaderno */}
+    <Composition id="FatigaCucharas" component={FatigaCucharas} durationInFrames={DURACION_CUCHARAS} fps={30} width={1080} height={1920} />
   </>
 );
