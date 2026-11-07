@@ -49,6 +49,8 @@ import { Autismo } from "./autismo/Autismo";
 import { DURACION_FRAMES as DURACION_AUTISMO, FPS as FPS_AUTISMO } from "./autismo/datos";
 import { Depresion } from "./depresion/Depresion";
 import { DURACION_FRAMES as DURACION_DEPRESION, FPS as FPS_DEPRESION } from "./depresion/datos";
+import { Fibromialgia } from "./fibromialgia/Fibromialgia";
+import { DURACION_FRAMES as DURACION_FIBRO, FPS as FPS_FIBRO } from "./fibromialgia/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -121,5 +123,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Depresion" component={Depresion} durationInFrames={DURACION_DEPRESION} fps={FPS_DEPRESION} width={1080} height={1920} />
     {/* Prueba de three.js: glóbulos rojos en 3D (10 s) */}
     <Composition id="Prueba3D" component={Prueba3D} durationInFrames={300} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: fibromialgia, estilo calma */}
+    <Composition id="Fibromialgia" component={Fibromialgia} durationInFrames={DURACION_FIBRO} fps={FPS_FIBRO} width={1080} height={1920} />
   </>
 );

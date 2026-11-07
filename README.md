@@ -639,3 +639,27 @@ npm run prueba3d     # out/prueba-3d.mp4
 ```
 
 Al renderizar algo con 3D hay que usar **`--gl=swangle`** (dibuja por software). En este entorno de la nube `--gl=angle`, `swiftshader`, `egl` y `angle-egl` fallan con "Error creating WebGL context". En una computadora con placa de video también suele andar `--gl=angle`, más rápido.
+
+---
+
+# Reel: Fibromialgia (90 s, estilo calma)
+
+Estilo **calma** y **@sebranda** al pie. Animaciones: cuerpo con puntos de dolor que laten y perilla de "volumen del dolor".
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | "¿Te duele todo el cuerpo… y los análisis dan bien?" |
+| Qué es | 12 s | Dolor crónico generalizado con cansancio · es real |
+| El volumen | 10 s | El sistema nervioso amplifica las señales de dolor |
+| Síntomas | 14 s | Dolor, cansancio, sueño no reparador, niebla mental, rigidez, sensibilidad |
+| A quién | 8 s | 2 a 4 de cada 100 personas, sobre todo mujeres |
+| Diagnóstico | 12 s | Sin análisis específico; por síntomas y descartando otras causas |
+| Qué ayuda | 22 s | Ejercicio suave, sueño, terapia, medicación indicada |
+| Cierre | 8 s | "Que no se vea no significa que no exista" |
+
+```bash
+npm run fibromialgia     # out/fibromialgia.mp4
+```
+
+Textos: `src/fibromialgia/datos.ts` · Escenas: `src/fibromialgia/Fibromialgia.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,12,10,14,8,12,22,8 --bpm 74 --transponer -1 --estilo suave --salida public/audio/fibromialgia-musica.wav` y convertir con `loudnorm=I=-18`.
