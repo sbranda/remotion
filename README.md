@@ -831,3 +831,11 @@ Composición `FatigaBurnoutNoche` (`src/fatiga/FatigaNoche.tsx`): mismas escenas
 ```bash
 npm run fatiga:noche     # out/fatiga-burnout-noche.mp4
 ```
+
+## Bruxismo (90 s, estilo noche)
+
+Reel `Bruxismo` (`src/bruxismo/Bruxismo.tsx`): qué es el bruxismo, por qué apretamos los dientes al dormir (estrés, microdespertares, café/alcohol, apnea), dientes animados que aprietan y rechinan, persona con puntos de dolor (sienes, mandíbula, cuello, hombros), señales, qué ayuda y cierre "labios juntos, dientes separados". Música original suave.
+
+```bash
+npm run bruxismo   # → out/bruxismo.mp4
+```

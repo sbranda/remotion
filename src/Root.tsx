@@ -1,4 +1,5 @@
 import React from "react";
+import { Bruxismo, DURACION_BRUXISMO } from "./bruxismo/Bruxismo";
 import { FatigaBurnoutNoche } from "./fatiga/FatigaNoche";
 import { DURACION_CUCHARAS_NEON, FatigaCucharasNeon } from "./cucharas/CucharasNeon";
 import { DURACION_CUCHARAS, FatigaCucharas } from "./cucharas/Cucharas";
@@ -153,5 +154,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="FatigaCucharasNeon" component={FatigaCucharasNeon} durationInFrames={DURACION_CUCHARAS_NEON} fps={30} width={1080} height={1920} />
     {/* Fatiga crónica y burnout, versión estilo noche */}
     <Composition id="FatigaBurnoutNoche" component={FatigaBurnoutNoche} durationInFrames={DURACION_FATIGA} fps={FPS_FATIGA} width={1080} height={1920} />
+    {/* Reel de 90 segundos: bruxismo, estilo noche */}
+    <Composition id="Bruxismo" component={Bruxismo} durationInFrames={DURACION_BRUXISMO} fps={30} width={1080} height={1920} />
   </>
 );
