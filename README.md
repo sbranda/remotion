@@ -823,3 +823,11 @@ npm run cucharas:neon     # out/fatiga-cucharas-neon.mp4
 ```
 
 Música: `python3 scripts/musica_reel.py --paginas 5,12,14,20,12,12,10,5 --bpm 110 --transponer 5 --estilo energico --salida public/audio/cucharas-neon-musica.wav` y convertir con `loudnorm`.
+
+## Fatiga crónica y burnout, versión noche
+
+Composición `FatigaBurnoutNoche` (`src/fatiga/FatigaNoche.tsx`): mismas escenas, textos y música que la versión calma, con el estilo noche (cielo estrellado, luna, tarjetas translúcidas).
+
+```bash
+npm run fatiga:noche     # out/fatiga-burnout-noche.mp4
+```

@@ -47,7 +47,8 @@
     "fatiga": "remotion render FatigaBurnout out/fatiga-burnout.mp4 --crf=24",
     "relato": "remotion render ArquitecturaDelVacio out/arquitectura-del-vacio.mp4 --crf=24",
     "cucharas": "remotion render FatigaCucharas out/fatiga-cucharas.mp4 --crf=24",
-    "cucharas:neon": "remotion render FatigaCucharasNeon out/fatiga-cucharas-neon.mp4 --crf=24"
+    "cucharas:neon": "remotion render FatigaCucharasNeon out/fatiga-cucharas-neon.mp4 --crf=24",
+    "fatiga:noche": "remotion render FatigaBurnoutNoche out/fatiga-burnout-noche.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
