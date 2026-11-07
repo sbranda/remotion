@@ -1,0 +1,23 @@
+{
+  "name": "la-arquitectura-del-vacio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Video en Remotion del relato «La Arquitectura del Vacío»",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render ArquitecturaDelVacio out/arquitectura-del-vacio.mp4",
+    "still": "remotion still ArquitecturaDelVacio out/poster.png --frame=90",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.541",
+    "@remotion/google-fonts": "4.0.541",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.541"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}
