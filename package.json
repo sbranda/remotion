@@ -38,17 +38,22 @@
     "gota": "remotion render AcidoUricoGota out/acido-urico-gota.mp4 --crf=24",
     "acv": "remotion render Acv out/acv.mp4 --crf=24",
     "autismo": "remotion render Autismo out/autismo.mp4 --crf=24",
-    "depresion": "remotion render Depresion out/depresion.mp4 --crf=24"
+    "depresion": "remotion render Depresion out/depresion.mp4 --crf=24",
+    "prueba3d": "remotion render Prueba3D out/prueba-3d.mp4 --gl=swangle --crf=24"
   },
   "dependencies": {
+    "@react-three/fiber": "8.18.0",
     "@remotion/cli": "4.0.539",
     "@remotion/fonts": "^4.0.539",
+    "@remotion/three": "4.0.539",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "remotion": "4.0.539"
+    "remotion": "4.0.539",
+    "three": "0.187.0"
   },
   "devDependencies": {
     "@types/react": "18.3.12",
-    "typescript": "5.6.3"
+    "typescript": "5.6.3",
+    "@types/three": "0.187.0"
   }
 }

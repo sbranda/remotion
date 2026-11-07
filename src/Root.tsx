@@ -1,4 +1,5 @@
 import React from "react";
+import { Prueba3D } from "./tres/Prueba3D";
 import { Composition } from "remotion";
 import { Accidente } from "./accidente/Accidente";
 import { DURACION_FRAMES, FPS } from "./accidente/tiempos";
@@ -118,5 +119,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Autismo" component={Autismo} durationInFrames={DURACION_AUTISMO} fps={FPS_AUTISMO} width={1080} height={1920} />
     {/* Reel de 3 minutos: ¿qué es la depresión?, estilo calma */}
     <Composition id="Depresion" component={Depresion} durationInFrames={DURACION_DEPRESION} fps={FPS_DEPRESION} width={1080} height={1920} />
+    {/* Prueba de three.js: glóbulos rojos en 3D (10 s) */}
+    <Composition id="Prueba3D" component={Prueba3D} durationInFrames={300} fps={30} width={1080} height={1920} />
   </>
 );

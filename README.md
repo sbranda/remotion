@@ -627,3 +627,15 @@ npm run depresion     # out/depresion.mp4
 
 Textos y línea de ayuda: `src/depresion/datos.ts` (verificar que la línea siga vigente) · Escenas: `src/depresion/Depresion.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 6,18,18,10,20,12,14,16,20,22,14,10 --bpm 70 --transponer 0 --estilo suave --salida public/audio/depresion-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# three.js (3D)
+
+Instalados `three` 0.187.0, `@react-three/fiber` 8.18.0 y `@remotion/three` 4.0.539. Prueba: composición `Prueba3D` (`src/tres/Prueba3D.tsx`), glóbulos rojos 3D que giran y flotan, 10 s.
+
+```bash
+npm run prueba3d     # out/prueba-3d.mp4
+```
+
+Al renderizar algo con 3D hay que usar **`--gl=swangle`** (dibuja por software). En este entorno de la nube `--gl=angle`, `swiftshader`, `egl` y `angle-egl` fallan con "Error creating WebGL context". En una computadora con placa de video también suele andar `--gl=angle`, más rápido.
