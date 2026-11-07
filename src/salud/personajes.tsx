@@ -4,8 +4,8 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
 
-export type TipoPersonaje = "doctora" | "doctor" | "chica" | "chico" | "abuelo" | "mama" | "papa" | "abuela" | "maestra";
-export type Expresion = "feliz" | "triste" | "dolor" | "sorpresa" | "pensando";
+export type TipoPersonaje = "doctora" | "doctor" | "chica" | "chico" | "abuelo" | "mama" | "papa" | "abuela" | "maestra" | "ejecutivo";
+export type Expresion = "feliz" | "triste" | "dolor" | "sorpresa" | "pensando" | "enojado";
 
 const PIEL: Record<TipoPersonaje, string> = {
   doctora: "#f2c6a0",
@@ -16,6 +16,7 @@ const PIEL: Record<TipoPersonaje, string> = {
   mama: "#d9a47a",
   papa: "#c99068",
   abuela: "#e2b48e",
+  ejecutivo: "#e9c3a1",
   maestra: "#f2c6a0",
 };
 
@@ -28,6 +29,7 @@ const PELO: Record<TipoPersonaje, string> = {
   mama: "#2e1d14",
   papa: "#2a2220",
   abuela: "#cfcfd6",
+  ejecutivo: "#7d7d86",
   maestra: "#8a5a2b",
 };
 
@@ -40,6 +42,7 @@ const ROPA: Record<TipoPersonaje, string> = {
   mama: "#e76f51",
   papa: "#4f6d8f",
   abuela: "#9c7bb8",
+  ejecutivo: "#1f2433",
   maestra: "#ffffff",
 };
 
@@ -100,6 +103,13 @@ const PeloAdelante: React.FC<{ tipo: TipoPersonaje; color?: string }> = ({ tipo,
       );
     case "abuela":
       return <path d="M94 120 C94 70 206 66 206 120 C196 92 104 92 94 120 Z" fill={c} />;
+    case "ejecutivo":
+      return (
+        <>
+          <path d="M92 114 C94 60 206 54 210 112 C196 86 150 76 120 88 C108 94 98 102 92 114 Z" fill={c} />
+          <path d="M120 88 C126 98 128 106 126 116" stroke="rgba(0,0,0,0.25)" strokeWidth={3} fill="none" />
+        </>
+      );
     case "maestra":
       return <path d="M90 120 C94 62 206 58 210 120 C196 100 170 92 150 94 C120 96 100 104 90 120 Z" fill={c} />;
   }
@@ -113,6 +123,7 @@ const Cara: React.FC<{ expresion: Expresion; parpadeo: number; tipo: TipoPersona
     dolor: "M110 124 L134 114 M166 114 L190 124",
     sorpresa: "M110 108 Q122 98 134 108 M166 108 Q178 98 190 108",
     pensando: "M110 116 Q122 112 134 116 M166 110 Q178 102 190 108",
+    enojado: "M108 112 L134 124 M166 124 L192 112",
   };
   const boca: Record<Expresion, React.ReactNode> = {
     feliz: <path d="M126 172 Q150 196 174 172" stroke={TINTA} strokeWidth={6} fill="none" strokeLinecap="round" />,
@@ -120,6 +131,7 @@ const Cara: React.FC<{ expresion: Expresion; parpadeo: number; tipo: TipoPersona
     dolor: <path d="M126 182 L136 176 L146 184 L156 176 L166 184 L174 178" stroke={TINTA} strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" />,
     sorpresa: <ellipse cx={150} cy={180} rx={11} ry={15} fill={TINTA} />,
     pensando: <path d="M132 180 L170 174" stroke={TINTA} strokeWidth={6} strokeLinecap="round" />,
+    enojado: <path d="M128 186 Q150 176 172 186" stroke={TINTA} strokeWidth={7} fill="none" strokeLinecap="round" />,
   };
   const ojosCerrados = expresion === "dolor";
   return (
@@ -190,6 +202,13 @@ export const Personaje: React.FC<{
             <rect x={186} y={300} width={30} height={22} rx={4} fill="#e8eef8" stroke="#c9d3e3" strokeWidth={3} />
           </>
         )}
+        {tipo === "ejecutivo" && (
+          <>
+            <path d="M128 252 L150 304 L172 252 Z" fill="#ffffff" />
+            <path d="M145 262 L155 262 L160 322 L150 334 L140 322 Z" fill="#b23a48" />
+            <path d="M126 254 L144 316 M174 254 L156 316" stroke="#0f1320" strokeWidth={5} />
+          </>
+        )}
         {tipo === "abuelo" && <path d="M110 262 L150 300 L190 262" stroke="#b8956a" strokeWidth={6} fill="none" />}
         {/* brazo izquierdo (se apoya en el mentón si piensa) */}
         {pensando ? (
@@ -238,4 +257,5 @@ export const NOMBRES: Record<TipoPersonaje, string> = {
   papa: "El papá",
   abuela: "La abuela",
   maestra: "La maestra",
+  ejecutivo: "El ejecutivo",
 };

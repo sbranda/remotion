@@ -44,7 +44,8 @@
     "personajes": "remotion render Personajes out/personajes.mp4 --crf=24",
     "celiaquia": "remotion render Celiaquia out/celiaquia.mp4 --crf=24",
     "historia": "remotion render LadrilloALadrillo out/ladrillo-a-ladrillo.mp4 --crf=24",
-    "fatiga": "remotion render FatigaBurnout out/fatiga-burnout.mp4 --crf=24"
+    "fatiga": "remotion render FatigaBurnout out/fatiga-burnout.mp4 --crf=24",
+    "relato": "remotion render ArquitecturaDelVacio out/arquitectura-del-vacio.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",

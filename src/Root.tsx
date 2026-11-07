@@ -1,4 +1,6 @@
 import React from "react";
+import { Relato } from "./relato/Relato";
+import { DURACION_FRAMES as DURACION_RELATO, FPS as FPS_RELATO } from "./relato/datos";
 import { FatigaBurnout } from "./fatiga/Fatiga";
 import { DURACION_FRAMES as DURACION_FATIGA, FPS as FPS_FATIGA } from "./fatiga/datos";
 import { Historia } from "./historia/Historia";
@@ -140,5 +142,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LadrilloALadrillo" component={Historia} durationInFrames={DURACION_HISTORIA} fps={FPS_HISTORIA} width={1080} height={1920} />
     {/* Reel de 90 segundos: fatiga crónica y burnout, estilo calma */}
     <Composition id="FatigaBurnout" component={FatigaBurnout} durationInFrames={DURACION_FATIGA} fps={FPS_FATIGA} width={1080} height={1920} />
+    {/* Relato de 5 minutos: "La arquitectura del vacío" */}
+    <Composition id="ArquitecturaDelVacio" component={Relato} durationInFrames={DURACION_RELATO} fps={FPS_RELATO} width={1080} height={1920} />
   </>
 );

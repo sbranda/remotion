@@ -769,3 +769,24 @@ npm run fatiga     # out/fatiga-burnout.mp4
 
 Textos: `src/fatiga/datos.ts` · Escenas: `src/fatiga/Fatiga.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,6,14,14,14,10,10,12,6 --bpm 74 --transponer 2 --estilo suave --salida public/audio/fatiga-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Relato: "La arquitectura del vacío" (5 minutos)
+
+Relato ilustrado con el texto que pasó el usuario: Julián Varela, un arquitecto que no acepta errores, pierde un concurso y se enfrenta a su propio ego. Escenario: su oficina en Puerto Madero (de día, de noche y al amanecer, con el Puente de la Mujer). Nuevo personaje `ejecutivo` (traje y corbata) y expresión `enojado` en `src/salud/personajes.tsx`.
+
+Momentos animados: maquetas bajo luces cenitales, la notificación del concurso, la comparación de maquetas, el reflejo en el vidrio que se convierte en un niño asustado, el pánico (viñeta roja que late), el vaso que cae y la mancha que se desparrama, la luz del alivio y el amanecer.
+
+```bash
+npm run relato     # out/arquitectura-del-vacio.mp4
+```
+
+Texto y duraciones: `src/relato/datos.ts` · Animación y escenarios: `src/relato/Relato.tsx`.
+Música en dos partes (menor y lenta hasta el vaso; mayor desde el alivio), concatenadas:
+
+```bash
+python3 scripts/musica_reel.py --paginas 8,26,24,22,24,22,24,28,24,22 --bpm 62 --transponer -3 --menor --estilo suave --salida /tmp/rA.wav
+python3 scripts/musica_reel.py --paginas 24,24,20,8 --bpm 70 --transponer -3 --estilo suave --salida /tmp/rB.wav
+ffmpeg -i /tmp/rA.wav -i /tmp/rB.wav -filter_complex "[0:a][1:a]concat=n=2:v=0:a=1[a];[a]loudnorm=I=-19:TP=-2[b]" -map "[b]" -b:a 160k public/audio/relato-musica.mp3
+```
