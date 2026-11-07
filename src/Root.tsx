@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_SOP, Sop } from "./sop/Sop";
 import { Bruxismo, DURACION_BRUXISMO } from "./bruxismo/Bruxismo";
 import { FatigaBurnoutNoche } from "./fatiga/FatigaNoche";
 import { DURACION_CUCHARAS_NEON, FatigaCucharasNeon } from "./cucharas/CucharasNeon";
@@ -156,5 +157,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="FatigaBurnoutNoche" component={FatigaBurnoutNoche} durationInFrames={DURACION_FATIGA} fps={FPS_FATIGA} width={1080} height={1920} />
     {/* Reel de 90 segundos: bruxismo, estilo noche */}
     <Composition id="Bruxismo" component={Bruxismo} durationInFrames={DURACION_BRUXISMO} fps={30} width={1080} height={1920} />
+    {/* Reel de 3 minutos: SOP (síndrome de ovario poliquístico), estilo neón */}
+    <Composition id="Sop" component={Sop} durationInFrames={DURACION_SOP} fps={30} width={1080} height={1920} />
   </>
 );

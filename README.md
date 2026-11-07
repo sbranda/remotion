@@ -839,3 +839,11 @@ Reel `Bruxismo` (`src/bruxismo/Bruxismo.tsx`): qué es el bruxismo, por qué apr
 ```bash
 npm run bruxismo   # → out/bruxismo.mp4
 ```
+
+## SOP: síndrome de ovario poliquístico (3 min, estilo neón)
+
+Reel `Sop` (`src/sop/Sop.tsx`): qué es, "poliquístico pero no son quistes" (ovario animado con folículos), efecto dominó insulina → andrógenos → sin ovulación, síntomas visibles, iceberg de síntomas invisibles (fatiga, ánimo, sueño, autoestima), cambios en la piel, diagnóstico (2 de 3 criterios), mitos, qué ayuda y cierre "No es tu culpa. No estás exagerando." Música original enérgica.
+
+```bash
+npm run sop   # → out/sop.mp4
+```
