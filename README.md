@@ -708,3 +708,39 @@ npm run celiaquia     # out/celiaquia.mp4
 
 Textos: `src/celiaquia/datos.ts` · Escenas: `src/celiaquia/Celiaquia.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,8,12,12,12,12,12,12,6 --transponer 3 --bpm 110 --estilo energico --salida public/audio/celiaquia-musica.wav` y convertir con `loudnorm`.
+
+---
+
+# Historia: "Ladrillo a ladrillo" (5 minutos)
+
+Historia ilustrada **ficticia**, inspirada en muchas historias reales: Lucía y su familia pasan de la pobreza a la clase media gracias a la educación, el trabajo y la ayuda (escuela pública, una maestra, una beca). Usa los personajes ilustrados (`src/salud/personajes.tsx`, ahora con mamá, papá, abuela y maestra, y colores personalizables con `piel`, `pelo` y `ropa`).
+
+| Escena | Duración | Qué pasa |
+|---|---|---|
+| Título | 8 s | "Ladrillo a ladrillo · La historia de Lucía" |
+| La familia | 24 s | Lucía, 8 años, y su familia en el barrio |
+| El papá | 22 s | Juan hace changas de albañil |
+| La mamá | 22 s | Rosa limpia casas y cose de noche |
+| La abuela | 22 s | "Lo que aprendés, nadie te lo puede quitar" |
+| La escuela | 26 s | Comedor escolar y la maestra Marta |
+| La crisis | 24 s | Lucía piensa dejar la escuela; la mamá dice que no |
+| El esfuerzo | 24 s | Termina la secundaria; Mateo aprende electricidad |
+| La facultad | 28 s | Primera universitaria de la familia, con beca |
+| La graduación | 22 s | Licenciada en Enfermería |
+| Hoy | 24 s | Lucía en el hospital; Mateo y el papá en el taller |
+| La casa | 28 s | Construyen una casa nueva, ladrillo a ladrillo |
+| Reflexión | 18 s | "Nadie lo logra solo" |
+| Cierre | 8 s | "¿Conocés una historia así?" |
+
+```bash
+npm run historia     # out/ladrillo-a-ladrillo.mp4
+```
+
+Textos, diálogos y duraciones: `src/historia/datos.ts` · Escenarios: `src/historia/escenarios.tsx` · Animación: `src/historia/Historia.tsx`.
+Música en dos partes (menor y después mayor), concatenadas:
+
+```bash
+python3 scripts/musica_reel.py --paginas 8,24,22,22,22,26,24 --bpm 72 --transponer -2 --menor --estilo suave --salida /tmp/hA.wav
+python3 scripts/musica_reel.py --paginas 24,28,22,24,28,18,8 --bpm 84 --transponer 0 --estilo suave --salida /tmp/hB.wav
+ffmpeg -i /tmp/hA.wav -i /tmp/hB.wav -filter_complex "[0:a][1:a]concat=n=2:v=0:a=1[a];[a]loudnorm=I=-18:TP=-2[b]" -map "[b]" -b:a 160k public/audio/historia-musica.mp3
+```

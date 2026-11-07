@@ -4,7 +4,7 @@
 import React from "react";
 import { useCurrentFrame } from "remotion";
 
-export type TipoPersonaje = "doctora" | "doctor" | "chica" | "chico" | "abuelo";
+export type TipoPersonaje = "doctora" | "doctor" | "chica" | "chico" | "abuelo" | "mama" | "papa" | "abuela" | "maestra";
 export type Expresion = "feliz" | "triste" | "dolor" | "sorpresa" | "pensando";
 
 const PIEL: Record<TipoPersonaje, string> = {
@@ -13,6 +13,10 @@ const PIEL: Record<TipoPersonaje, string> = {
   chica: "#f6d2b4",
   chico: "#8d5a3b",
   abuelo: "#efc9a8",
+  mama: "#d9a47a",
+  papa: "#c99068",
+  abuela: "#e2b48e",
+  maestra: "#f2c6a0",
 };
 
 const PELO: Record<TipoPersonaje, string> = {
@@ -21,6 +25,10 @@ const PELO: Record<TipoPersonaje, string> = {
   chica: "#c8742d",
   chico: "#1b1b1b",
   abuelo: "#d9d9de",
+  mama: "#2e1d14",
+  papa: "#2a2220",
+  abuela: "#cfcfd6",
+  maestra: "#8a5a2b",
 };
 
 const ROPA: Record<TipoPersonaje, string> = {
@@ -29,21 +37,28 @@ const ROPA: Record<TipoPersonaje, string> = {
   chica: "#8b6cff",
   chico: "#2fbf8f",
   abuelo: "#d8b98a",
+  mama: "#e76f51",
+  papa: "#4f6d8f",
+  abuela: "#9c7bb8",
+  maestra: "#ffffff",
 };
 
 const TINTA = "#2b2d42";
 
 /** Pelo detrás de la cabeza */
-const PeloAtras: React.FC<{ tipo: TipoPersonaje }> = ({ tipo }) => {
-  const c = PELO[tipo];
+const PeloAtras: React.FC<{ tipo: TipoPersonaje; color?: string }> = ({ tipo, color }) => {
+  const c = color ?? PELO[tipo];
   if (tipo === "doctora") return <path d="M88 120 C80 60 220 40 214 120 L224 250 C190 270 110 270 76 250 Z" fill={c} />;
   if (tipo === "chica") return <path d="M200 110 C250 120 262 190 236 236 C226 200 214 170 200 150 Z" fill={c} />;
+  if (tipo === "mama") return <path d="M90 120 C82 64 218 48 212 120 L218 214 C196 232 104 232 82 214 Z" fill={c} />;
+  if (tipo === "maestra") return <path d="M86 122 C80 64 220 56 214 122 L214 182 C190 196 110 196 86 182 Z" fill={c} />;
+  if (tipo === "abuela") return <circle cx={150} cy={58} r={30} fill={c} />;
   return null;
 };
 
 /** Pelo delante (flequillo, peinado) */
-const PeloAdelante: React.FC<{ tipo: TipoPersonaje }> = ({ tipo }) => {
-  const c = PELO[tipo];
+const PeloAdelante: React.FC<{ tipo: TipoPersonaje; color?: string }> = ({ tipo, color }) => {
+  const c = color ?? PELO[tipo];
   switch (tipo) {
     case "doctora":
       return <path d="M92 118 C96 66 204 56 210 118 C186 92 140 86 92 118 Z" fill={c} />;
@@ -71,6 +86,22 @@ const PeloAdelante: React.FC<{ tipo: TipoPersonaje }> = ({ tipo }) => {
           <path d="M122 186 C136 176 164 176 178 186 C166 192 134 192 122 186 Z" fill={c} />
         </>
       );
+    case "mama":
+      return <path d="M92 118 C96 64 204 56 210 118 C190 96 120 84 92 118 Z" fill={c} />;
+    case "papa":
+      return (
+        <>
+          <path d="M96 112 C100 70 200 66 204 112 C190 100 120 98 96 112 Z" fill={c} />
+          {/* gorra */}
+          <path d="M90 104 C92 50 208 46 210 104 Z" fill="#c0392b" />
+          <path d="M150 104 L242 104 C238 116 196 118 150 112 Z" fill="#a93226" />
+          <path d="M122 186 C136 178 164 178 178 186 C166 190 134 190 122 186 Z" fill={c} />
+        </>
+      );
+    case "abuela":
+      return <path d="M94 120 C94 70 206 66 206 120 C196 92 104 92 94 120 Z" fill={c} />;
+    case "maestra":
+      return <path d="M90 120 C94 62 206 58 210 120 C196 100 170 92 150 94 C120 96 100 104 90 120 Z" fill={c} />;
   }
 };
 
@@ -104,7 +135,7 @@ const Cara: React.FC<{ expresion: Expresion; parpadeo: number; tipo: TipoPersona
           <circle cx={181} cy={ojoY - 3} r={3} fill="#fff" />
         </g>
       )}
-      {tipo === "doctor" && (
+      {(tipo === "doctor" || tipo === "maestra" || tipo === "abuela") && (
         <g stroke={TINTA} strokeWidth={4} fill="none">
           <circle cx={122} cy={ojoY} r={20} />
           <circle cx={178} cy={ojoY} r={20} />
@@ -128,15 +159,19 @@ export const Personaje: React.FC<{
   saluda?: boolean;
   /** desfase para que no respiren todos a la vez */
   fase?: number;
-}> = ({ tipo, expresion = "feliz", size = 360, saluda = false, fase = 0 }) => {
+  /** colores opcionales para variar un mismo tipo (por ejemplo, la misma persona de chica y de grande) */
+  piel?: string;
+  pelo?: string;
+  ropa?: string;
+}> = ({ tipo, expresion = "feliz", size = 360, saluda = false, fase = 0, piel: pielX, pelo, ropa: ropaX }) => {
   const frame = useCurrentFrame() + fase;
   const respira = Math.sin(frame / 18) * 3;
   // parpadeo corto cada ~3 segundos
   const ciclo = frame % 95;
   const parpadeo = ciclo < 4 ? 0.1 : 1;
   const brazoSaludo = saluda ? -130 + Math.sin(frame / 5) * 18 : 0;
-  const piel = PIEL[tipo];
-  const ropa = ROPA[tipo];
+  const piel = pielX ?? PIEL[tipo];
+  const ropa = ropaX ?? ROPA[tipo];
   const medico = tipo === "doctora" || tipo === "doctor";
   const pensando = expresion === "pensando";
   const manga = ropa === "#ffffff" ? "#e7ecf4" : ropa;
@@ -175,11 +210,11 @@ export const Personaje: React.FC<{
         </g>
         {/* cuello y cabeza */}
         <rect x={134} y={204} width={32} height={50} rx={12} fill={piel} />
-        <PeloAtras tipo={tipo} />
+        <PeloAtras tipo={tipo} color={pelo} />
         <ellipse cx={150} cy={142} rx={66} ry={76} fill={piel} stroke={TINTA} strokeWidth={4} />
         <ellipse cx={84} cy={150} rx={10} ry={16} fill={piel} stroke={TINTA} strokeWidth={3} />
         <ellipse cx={216} cy={150} rx={10} ry={16} fill={piel} stroke={TINTA} strokeWidth={3} />
-        <PeloAdelante tipo={tipo} />
+        <PeloAdelante tipo={tipo} color={pelo} />
         <Cara expresion={expresion} parpadeo={parpadeo} tipo={tipo} />
         {pensando && (
           <g fill="#ffffff" stroke="#c9c9e0" strokeWidth={3}>
@@ -199,4 +234,8 @@ export const NOMBRES: Record<TipoPersonaje, string> = {
   chica: "Sofi",
   chico: "Tomi",
   abuelo: "El abuelo",
+  mama: "La mamá",
+  papa: "El papá",
+  abuela: "La abuela",
+  maestra: "La maestra",
 };

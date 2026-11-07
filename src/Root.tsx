@@ -1,4 +1,6 @@
 import React from "react";
+import { Historia } from "./historia/Historia";
+import { DURACION_FRAMES as DURACION_HISTORIA, FPS as FPS_HISTORIA } from "./historia/datos";
 import { MuestrarioPersonajes } from "./salud/MuestrarioPersonajes";
 import { Prueba3D } from "./tres/Prueba3D";
 import { Composition } from "remotion";
@@ -132,5 +134,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Personajes" component={MuestrarioPersonajes} durationInFrames={480} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: celiaquía y sensibilidad al gluten no celíaca, estilo neón */}
     <Composition id="Celiaquia" component={Celiaquia} durationInFrames={DURACION_CELIAQUIA} fps={FPS_CELIAQUIA} width={1080} height={1920} />
+    {/* Historia de 5 minutos: "Ladrillo a ladrillo" */}
+    <Composition id="LadrilloALadrillo" component={Historia} durationInFrames={DURACION_HISTORIA} fps={FPS_HISTORIA} width={1080} height={1920} />
   </>
 );
