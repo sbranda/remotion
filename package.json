@@ -41,7 +41,8 @@
     "depresion": "remotion render Depresion out/depresion.mp4 --crf=24",
     "prueba3d": "remotion render Prueba3D out/prueba-3d.mp4 --gl=swangle --crf=24",
     "fibromialgia": "remotion render Fibromialgia out/fibromialgia.mp4 --crf=24",
-    "personajes": "remotion render Personajes out/personajes.mp4 --crf=24"
+    "personajes": "remotion render Personajes out/personajes.mp4 --crf=24",
+    "celiaquia": "remotion render Celiaquia out/celiaquia.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",

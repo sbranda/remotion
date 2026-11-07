@@ -683,3 +683,28 @@ Muestrario: composición `Personajes` (`src/salud/MuestrarioPersonajes.tsx`), 16
 ```bash
 npm run personajes     # out/personajes.mp4
 ```
+
+---
+
+# Reel: Celiaquía y sensibilidad al gluten no celíaca (90 s, estilo neón)
+
+Estilo neón y **@sebranda** al pie. Animaciones: vellosidades del intestino que se aplanan con el gluten y sello "Sin TACC" genérico (no es el logo oficial).
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | "¿Comés pan o pizza y se te hincha la panza?" |
+| Gluten | 8 s | Proteína de trigo, avena, cebada y centeno (TACC) |
+| Celiaquía | 12 s | Autoinmune; vellosidades aplanadas; ~1 de cada 100 |
+| Señales | 12 s | 8 síntomas + "o ningún síntoma" |
+| Sensibilidad no celíaca | 12 s | Síntomas parecidos, sin daño intestinal ni anticuerpos |
+| Comparación | 12 s | Tabla celiaquía vs. sensibilidad |
+| Diagnóstico | 12 s | Anticuerpos y biopsia · no dejar el gluten antes |
+| Sin TACC | 12 s | Dieta sin TACC y contaminación cruzada |
+| Cierre | 6 s | "Si tenés síntomas, consultá antes de sacar el gluten" |
+
+```bash
+npm run celiaquia     # out/celiaquia.mp4
+```
+
+Textos: `src/celiaquia/datos.ts` · Escenas: `src/celiaquia/Celiaquia.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,8,12,12,12,12,12,12,6 --transponer 3 --bpm 110 --estilo energico --salida public/audio/celiaquia-musica.wav` y convertir con `loudnorm`.

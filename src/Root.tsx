@@ -52,6 +52,8 @@ import { Depresion } from "./depresion/Depresion";
 import { DURACION_FRAMES as DURACION_DEPRESION, FPS as FPS_DEPRESION } from "./depresion/datos";
 import { Fibromialgia } from "./fibromialgia/Fibromialgia";
 import { DURACION_FRAMES as DURACION_FIBRO, FPS as FPS_FIBRO } from "./fibromialgia/datos";
+import { Celiaquia } from "./celiaquia/Celiaquia";
+import { DURACION_FRAMES as DURACION_CELIAQUIA, FPS as FPS_CELIAQUIA } from "./celiaquia/datos";
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -128,5 +130,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Fibromialgia" component={Fibromialgia} durationInFrames={DURACION_FIBRO} fps={FPS_FIBRO} width={1080} height={1920} />
     {/* Muestrario de personajes ilustrados (16 s) */}
     <Composition id="Personajes" component={MuestrarioPersonajes} durationInFrames={480} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: celiaquía y sensibilidad al gluten no celíaca, estilo neón */}
+    <Composition id="Celiaquia" component={Celiaquia} durationInFrames={DURACION_CELIAQUIA} fps={FPS_CELIAQUIA} width={1080} height={1920} />
   </>
 );
