@@ -847,3 +847,11 @@ Reel `Sop` (`src/sop/Sop.tsx`): qué es, "poliquístico pero no son quistes" (ov
 ```bash
 npm run sop   # → out/sop.mp4
 ```
+
+## Parálisis del sueño (90 s, estilo noche)
+
+Reel `ParalisisSueno` (`src/paralisis/Paralisis.tsx`): qué es, el "interruptor" del REM que bloquea los músculos (atonía), el desfase cerebro despierto / cuerpo en REM, por qué se siente presión en el pecho y aparecen sombras o presencias (habitación animada), qué la favorece, qué hacer y cierre. Música original suave en tono menor.
+
+```bash
+npm run paralisis   # → out/paralisis-sueno.mp4
+```
