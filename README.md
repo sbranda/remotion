@@ -744,3 +744,28 @@ python3 scripts/musica_reel.py --paginas 8,24,22,22,22,26,24 --bpm 72 --transpon
 python3 scripts/musica_reel.py --paginas 24,28,22,24,28,18,8 --bpm 84 --transponer 0 --estilo suave --salida /tmp/hB.wav
 ffmpeg -i /tmp/hA.wav -i /tmp/hB.wav -filter_complex "[0:a][1:a]concat=n=2:v=0:a=1[a];[a]loudnorm=I=-18:TP=-2[b]" -map "[b]" -b:a 160k public/audio/historia-musica.mp3
 ```
+
+---
+
+# Reel: Fatiga crónica y burnout (90 s, estilo calma)
+
+Estilo **calma** y **@sebranda** al pie. Animaciones: batería que no se llena (fatiga crónica), vela que se consume (burnout) y batería que se recarga en el cierre.
+
+| Página | Duración | Contenido |
+|---|---|---|
+| Gancho | 4 s | Batería que se descarga: "¿Estás cansado siempre, aunque duermas?" |
+| Son distintos | 6 s | 🪫 vs. 🕯️ |
+| Fatiga crónica | 14 s | 6 meses o más, no mejora descansando, empeora después del esfuerzo, niebla mental |
+| Burnout | 14 s | Estrés laboral crónico (fenómeno laboral para la OMS): agotamiento, distancia, menor rendimiento |
+| Comparación | 14 s | Qué es, de dónde viene, si mejora descansando, señal clave |
+| Descartar | 10 s | Anemia, tiroides, depresión, apnea, diabetes, medicamentos |
+| Qué ayuda (fatiga) | 10 s | Dosificar la energía, no forzar el ejercicio, seguimiento médico |
+| Qué ayuda (burnout) | 12 s | Límites, pausas, hablarlo, licencia si hace falta |
+| Cierre | 6 s | "Descansar no es de vagos" |
+
+```bash
+npm run fatiga     # out/fatiga-burnout.mp4
+```
+
+Textos: `src/fatiga/datos.ts` · Escenas: `src/fatiga/Fatiga.tsx`.
+Música: `python3 scripts/musica_reel.py --paginas 4,6,14,14,14,10,10,12,6 --bpm 74 --transponer 2 --estilo suave --salida public/audio/fatiga-musica.wav` y convertir con `loudnorm=I=-18`.
