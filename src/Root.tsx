@@ -1,4 +1,5 @@
 import React from "react";
+import { MuestrarioPersonajes } from "./salud/MuestrarioPersonajes";
 import { Prueba3D } from "./tres/Prueba3D";
 import { Composition } from "remotion";
 import { Accidente } from "./accidente/Accidente";
@@ -125,5 +126,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Prueba3D" component={Prueba3D} durationInFrames={300} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: fibromialgia, estilo calma */}
     <Composition id="Fibromialgia" component={Fibromialgia} durationInFrames={DURACION_FIBRO} fps={FPS_FIBRO} width={1080} height={1920} />
+    {/* Muestrario de personajes ilustrados (16 s) */}
+    <Composition id="Personajes" component={MuestrarioPersonajes} durationInFrames={480} fps={30} width={1080} height={1920} />
   </>
 );

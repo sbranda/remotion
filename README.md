@@ -663,3 +663,23 @@ npm run fibromialgia     # out/fibromialgia.mp4
 
 Textos: `src/fibromialgia/datos.ts` · Escenas: `src/fibromialgia/Fibromialgia.tsx`.
 Música: `python3 scripts/musica_reel.py --paginas 4,12,10,14,8,12,22,8 --bpm 74 --transponer -1 --estilo suave --salida public/audio/fibromialgia-musica.wav` y convertir con `loudnorm=I=-18`.
+
+---
+
+# Personajes ilustrados
+
+Componente `<Personaje />` en `src/salud/personajes.tsx`, para usar en cualquier Reel:
+
+```tsx
+<Personaje tipo="doctora" expresion="feliz" saluda size={400} />
+```
+
+- **tipo:** `doctora`, `doctor`, `chica` (Sofi), `chico` (Tomi), `abuelo`
+- **expresion:** `feliz`, `triste`, `dolor`, `sorpresa`, `pensando`
+- Respiran y parpadean solos; `saluda` mueve la mano; `fase` desfasa la animación entre varios personajes.
+
+Muestrario: composición `Personajes` (`src/salud/MuestrarioPersonajes.tsx`), 16 s.
+
+```bash
+npm run personajes     # out/personajes.mp4
+```
