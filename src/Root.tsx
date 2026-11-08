@@ -1,4 +1,5 @@
 import React from "react";
+import { ApneaSueno, DURACION_APNEA } from "./apnea/Apnea";
 import { DURACION_PIERNAS, PiernasInquietas } from "./piernas/PiernasInquietas";
 import { DURACION_PARALISIS, ParalisisSueno } from "./paralisis/Paralisis";
 import { DURACION_SOP, Sop } from "./sop/Sop";
@@ -165,5 +166,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ParalisisSueno" component={ParalisisSueno} durationInFrames={DURACION_PARALISIS} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: síndrome de piernas inquietas, estilo cuaderno */}
     <Composition id="PiernasInquietas" component={PiernasInquietas} durationInFrames={DURACION_PIERNAS} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: apnea del sueño, estilo neón */}
+    <Composition id="ApneaSueno" component={ApneaSueno} durationInFrames={DURACION_APNEA} fps={30} width={1080} height={1920} />
   </>
 );

@@ -863,3 +863,11 @@ Reel `PiernasInquietas` (`src/piernas/PiernasInquietas.tsx`): la sensación (pie
 ```bash
 npm run piernas   # → out/piernas-inquietas.mp4
 ```
+
+## Apnea del sueño (90 s, estilo neón)
+
+Reel `ApneaSueno` (`src/apnea/Apnea.tsx`): qué es (onda de respiración con pausa y jadeo), qué pasa en la garganta (corte animado: la lengua tapa la vía aérea y se frena el aire), el ciclo oxígeno ↓ → alarma → microdespertar, señales, riesgos, factores, diagnóstico y tratamiento (polisomnografía, CPAP) y cierre. Música original enérgica.
+
+```bash
+npm run apnea   # → out/apnea-sueno.mp4
+```
