@@ -871,3 +871,11 @@ Reel `ApneaSueno` (`src/apnea/Apnea.tsx`): qué es (onda de respiración con pau
 ```bash
 npm run apnea   # → out/apnea-sueno.mp4
 ```
+
+## Endometriosis (3 min, estilo calma)
+
+Reel `Endometriosis` (`src/endometriosis/Endometriosis.tsx`): qué es (útero animado con tejido que aparece fuera de lugar), por qué duele (inflamación cíclica y adherencias), la demora de 7 a 10 años en el diagnóstico (línea de tiempo con “es normal”, “es estrés”…), síntomas, lo que no se ve, causas, cuándo consultar, diagnóstico, tratamiento, mitos y cierre. Música original suave.
+
+```bash
+npm run endometriosis   # → out/endometriosis.mp4
+```

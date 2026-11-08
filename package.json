@@ -53,7 +53,8 @@
     "sop": "remotion render Sop out/sop.mp4 --crf=24",
     "paralisis": "remotion render ParalisisSueno out/paralisis-sueno.mp4 --crf=24",
     "piernas": "remotion render PiernasInquietas out/piernas-inquietas.mp4 --crf=24",
-    "apnea": "remotion render ApneaSueno out/apnea-sueno.mp4 --crf=24"
+    "apnea": "remotion render ApneaSueno out/apnea-sueno.mp4 --crf=24",
+    "endometriosis": "remotion render Endometriosis out/endometriosis.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
