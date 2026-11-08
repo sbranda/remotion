@@ -855,3 +855,11 @@ Reel `ParalisisSueno` (`src/paralisis/Paralisis.tsx`): qué es, el "interruptor"
 ```bash
 npm run paralisis   # → out/paralisis-sueno.mp4
 ```
+
+## Síndrome de piernas inquietas (90 s, estilo cuaderno)
+
+Reel `PiernasInquietas` (`src/piernas/PiernasInquietas.tsx`): la sensación (piernas dibujadas con el cosquilleo por dentro que se calma al moverlas), el nombre médico (Willis-Ekbom), las 4 claves, por qué pasa (dopamina, hierro, herencia, embarazo, riñón, medicamentos), gráfico de cómo empeora a la noche y roba el sueño, qué ayuda y cierre. Música original suave.
+
+```bash
+npm run piernas   # → out/piernas-inquietas.mp4
+```
