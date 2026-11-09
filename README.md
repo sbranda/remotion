@@ -895,3 +895,11 @@ Reel `CeliaquiaComic` (`src/celiaquia/CeliaquiaComic.tsx`), centrado solo en la 
 ```bash
 npm run celiaquia:comic   # → out/celiaquia-comic.mp4
 ```
+
+## Alzheimer y reserva cognitiva (3 min, estilo cuaderno)
+
+Reel `AlzheimerReserva` (`src/alzheimer/Alzheimer.tsx`): qué es, red de neuronas con placas de amiloide y ovillos de tau que corta conexiones, primeras señales, olvido normal vs alerta, el estudio de las monjas, la reserva cognitiva (la señal que se corta con poca reserva y encuentra otro camino con mucha), cómo construirla, neuroplasticidad, cuándo consultar, mitos y cierre. Música original suave.
+
+```bash
+npm run alzheimer   # → out/alzheimer-reserva.mp4
+```

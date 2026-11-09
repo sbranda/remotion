@@ -56,7 +56,8 @@
     "apnea": "remotion render ApneaSueno out/apnea-sueno.mp4 --crf=24",
     "endometriosis": "remotion render Endometriosis out/endometriosis.mp4 --crf=24",
     "dejavu": "remotion render DejaVuJamaisVu out/dejavu-jamaisvu.mp4 --crf=24",
-    "celiaquia:comic": "remotion render CeliaquiaComic out/celiaquia-comic.mp4 --crf=24"
+    "celiaquia:comic": "remotion render CeliaquiaComic out/celiaquia-comic.mp4 --crf=24",
+    "alzheimer": "remotion render AlzheimerReserva out/alzheimer-reserva.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
