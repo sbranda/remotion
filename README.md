@@ -887,3 +887,11 @@ Reel `DejaVuJamaisVu` (`src/dejavu/DejaVu.tsx`): los dos sistemas de memoria del
 ```bash
 npm run dejavu   # → out/dejavu-jamaisvu.mp4
 ```
+
+## Enfermedad celíaca (90 s, estilo cómic)
+
+Reel `CeliaquiaComic` (`src/celiaquia/CeliaquiaComic.tsx`), centrado solo en la celiaquía: enfermedad autoinmune, vellosidades del intestino que se aplastan con el gluten y nutrientes que rebotan, síntomas dentro y fuera de la panza, 1 de cada 100 (y la mayoría no lo sabe), diagnóstico (análisis y biopsia, sin dejar el gluten antes), dieta sin TACC y contaminación cruzada, y cierre. Música original enérgica.
+
+```bash
+npm run celiaquia:comic   # → out/celiaquia-comic.mp4
+```

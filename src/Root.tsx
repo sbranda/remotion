@@ -1,4 +1,5 @@
 import React from "react";
+import { CeliaquiaComic, DURACION_CELIAQUIA_COMIC } from "./celiaquia/CeliaquiaComic";
 import { DURACION_DEJAVU, DejaVuJamaisVu } from "./dejavu/DejaVu";
 import { DURACION_ENDOMETRIOSIS, Endometriosis } from "./endometriosis/Endometriosis";
 import { ApneaSueno, DURACION_APNEA } from "./apnea/Apnea";
@@ -174,5 +175,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Endometriosis" component={Endometriosis} durationInFrames={DURACION_ENDOMETRIOSIS} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: déjà vu y jamais vu, estilo neón */}
     <Composition id="DejaVuJamaisVu" component={DejaVuJamaisVu} durationInFrames={DURACION_DEJAVU} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: enfermedad celíaca, estilo cómic */}
+    <Composition id="CeliaquiaComic" component={CeliaquiaComic} durationInFrames={DURACION_CELIAQUIA_COMIC} fps={30} width={1080} height={1920} />
   </>
 );
