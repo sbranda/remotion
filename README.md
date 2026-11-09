@@ -879,3 +879,11 @@ Reel `Endometriosis` (`src/endometriosis/Endometriosis.tsx`): qué es (útero an
 ```bash
 npm run endometriosis   # → out/endometriosis.mp4
 ```
+
+## Déjà vu y jamais vu (90 s, estilo neón)
+
+Reel `DejaVuJamaisVu` (`src/dejavu/DejaVu.tsx`): los dos sistemas de memoria del lóbulo temporal (familiaridad y recuerdo/hipocampo) como redes de neuronas animadas; el déjà vu como señal de familiaridad sin recuerdo y el lóbulo frontal que detecta el error; el jamais vu con la palabra repetida hasta perder sentido y la señal sináptica que se apaga (adaptación neuronal); el lugar conocido que se ve nuevo; cuándo consultar y cierre. Música original en tono menor.
+
+```bash
+npm run dejavu   # → out/dejavu-jamaisvu.mp4
+```
