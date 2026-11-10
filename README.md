@@ -903,3 +903,11 @@ Reel `AlzheimerReserva` (`src/alzheimer/Alzheimer.tsx`): qué es, red de neurona
 ```bash
 npm run alzheimer   # → out/alzheimer-reserva.mp4
 ```
+
+## Niebla mental / brain fog (90 s, estilo calma)
+
+Reel `NieblaMental` (`src/niebla/NieblaMental.tsx`): niebla animada que tapa el texto y se despeja al final; qué es; la memoria de trabajo como una "mesa chica" donde lo que sobra se cae; el estrés (cortisol y corteza prefrontal), la falta de sueño (batería que se vacía) y las pantallas (barra de concentración que se corta con cada notificación); otras causas; cómo despejarla y cierre. Música original suave.
+
+```bash
+npm run niebla   # → out/niebla-mental.mp4
+```

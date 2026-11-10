@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_NIEBLA, NieblaMental } from "./niebla/NieblaMental";
 import { AlzheimerReserva, DURACION_ALZHEIMER } from "./alzheimer/Alzheimer";
 import { CeliaquiaComic, DURACION_CELIAQUIA_COMIC } from "./celiaquia/CeliaquiaComic";
 import { DURACION_DEJAVU, DejaVuJamaisVu } from "./dejavu/DejaVu";
@@ -180,5 +181,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="CeliaquiaComic" component={CeliaquiaComic} durationInFrames={DURACION_CELIAQUIA_COMIC} fps={30} width={1080} height={1920} />
     {/* Reel de 3 minutos: Alzheimer y reserva cognitiva, estilo cuaderno */}
     <Composition id="AlzheimerReserva" component={AlzheimerReserva} durationInFrames={DURACION_ALZHEIMER} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: niebla mental, estilo calma */}
+    <Composition id="NieblaMental" component={NieblaMental} durationInFrames={DURACION_NIEBLA} fps={30} width={1080} height={1920} />
   </>
 );
