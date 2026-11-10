@@ -911,3 +911,11 @@ Reel `NieblaMental` (`src/niebla/NieblaMental.tsx`): niebla animada que tapa el 
 ```bash
 npm run niebla   # → out/niebla-mental.mp4
 ```
+
+## Sinestesia (90 s, estilo neón)
+
+Reel `Sinestesia` (`src/sinestesia/Sinestesia.tsx`): números que se encienden con su color, qué es, tipos (grafema-color, música que se ve, palabras con sabor, meses en el espacio, tacto espejo), música convertida en formas de colores, el cerebro con "cables cruzados" que no se podaron, 1 de cada 25, el test de encontrar los 2 entre los 5 (dígitos de reloj digital que se colorean) y cierre "¿de qué color es tu 7?" para invitar a comentar. Música original enérgica.
+
+```bash
+npm run sinestesia   # → out/sinestesia.mp4
+```

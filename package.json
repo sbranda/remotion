@@ -58,7 +58,8 @@
     "dejavu": "remotion render DejaVuJamaisVu out/dejavu-jamaisvu.mp4 --crf=24",
     "celiaquia:comic": "remotion render CeliaquiaComic out/celiaquia-comic.mp4 --crf=24",
     "alzheimer": "remotion render AlzheimerReserva out/alzheimer-reserva.mp4 --crf=24",
-    "niebla": "remotion render NieblaMental out/niebla-mental.mp4 --crf=24"
+    "niebla": "remotion render NieblaMental out/niebla-mental.mp4 --crf=24",
+    "sinestesia": "remotion render Sinestesia out/sinestesia.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
