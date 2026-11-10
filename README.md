@@ -919,3 +919,11 @@ Reel `Sinestesia` (`src/sinestesia/Sinestesia.tsx`): números que se encienden c
 ```bash
 npm run sinestesia   # → out/sinestesia.mp4
 ```
+
+## Resistencia a la insulina (90 s, estilo cómic)
+
+Reel `ResistenciaInsulina` (`src/insulina/ResistenciaInsulina.tsx`): la insulina como llave que abre la célula a la glucosa; la cerradura que se traba y el páncreas que manda más y más llaves (glucosa normal con insulina alta); la montaña rusa de energía (pico, bajón, hambre); signos tempranos más allá del peso (lo que se ve, lo que se siente y el análisis); qué la favorece; cómo estudiarla (HOMA, hemoglobina glicosilada, lípidos); qué ayuda y cierre. Música original enérgica.
+
+```bash
+npm run insulina   # → out/resistencia-insulina.mp4
+```
