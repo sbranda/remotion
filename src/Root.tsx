@@ -1,4 +1,5 @@
 import React from "react";
+import { AlopeciaVitiligo, DURACION_ALOPECIA_VITILIGO } from "./autoinmune/AlopeciaVitiligo";
 import { DURACION_DOLOR_INVISIBLE, DolorInvisible } from "./fibromialgia/DolorInvisible";
 import { DURACION_INSULINA, ResistenciaInsulina } from "./insulina/ResistenciaInsulina";
 import { DURACION_SINESTESIA, Sinestesia } from "./sinestesia/Sinestesia";
@@ -192,5 +193,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ResistenciaInsulina" component={ResistenciaInsulina} durationInFrames={DURACION_INSULINA} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: fibromialgia y el dolor invisible, estilo noche */}
     <Composition id="DolorInvisible" component={DolorInvisible} durationInFrames={DURACION_DOLOR_INVISIBLE} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: alopecia areata y vitiligo, estilo calma */}
+    <Composition id="AlopeciaVitiligo" component={AlopeciaVitiligo} durationInFrames={DURACION_ALOPECIA_VITILIGO} fps={30} width={1080} height={1920} />
   </>
 );

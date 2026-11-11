@@ -61,7 +61,8 @@
     "niebla": "remotion render NieblaMental out/niebla-mental.mp4 --crf=24",
     "sinestesia": "remotion render Sinestesia out/sinestesia.mp4 --crf=24",
     "insulina": "remotion render ResistenciaInsulina out/resistencia-insulina.mp4 --crf=24",
-    "dolor-invisible": "remotion render DolorInvisible out/dolor-invisible.mp4 --crf=24"
+    "dolor-invisible": "remotion render DolorInvisible out/dolor-invisible.mp4 --crf=24",
+    "alopecia-vitiligo": "remotion render AlopeciaVitiligo out/alopecia-vitiligo.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",

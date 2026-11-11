@@ -935,3 +935,11 @@ Reel `DolorInvisible` (`src/fibromialgia/DolorInvisible.tsx`), enfocado en neuro
 ```bash
 npm run dolor-invisible   # → out/dolor-invisible.mp4
 ```
+
+## Alopecia areata y vitiligo (90 s, estilo calma)
+
+Reel `AlopeciaVitiligo` (`src/autoinmune/AlopeciaVitiligo.tsx`): la respuesta autoinmune (defensas que dejan al virus y atacan una célula propia); vitiligo (piel donde los melanocitos se apagan y aparece la mancha); alopecia areata (calva redonda donde después vuelve a crecer el pelo); lo que no es; el estigma (con Winnie Harlow como ejemplo); opciones de tratamiento y cierre "La diferencia no es un defecto". Música original suave.
+
+```bash
+npm run alopecia-vitiligo   # → out/alopecia-vitiligo.mp4
+```
