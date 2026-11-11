@@ -927,3 +927,11 @@ Reel `ResistenciaInsulina` (`src/insulina/ResistenciaInsulina.tsx`): la insulina
 ```bash
 npm run insulina   # → out/resistencia-insulina.mp4
 ```
+
+## Fibromialgia y el "dolor invisible" (90 s, estilo noche)
+
+Reel `DolorInvisible` (`src/fibromialgia/DolorInvisible.tsx`), enfocado en neurología y empatía: dolor que no aparece en estudios pero es real; la alarma de incendio demasiado sensible (una tostada la hace sonar) y el amplificador del sistema nervioso (sensibilización central); el cerebro que se activa más ante el mismo toque; lo que tampoco se ve; frases que duelen que se transforman en frases que ayudan; qué ayuda y cierre. Música original suave en tono menor.
+
+```bash
+npm run dolor-invisible   # → out/dolor-invisible.mp4
+```

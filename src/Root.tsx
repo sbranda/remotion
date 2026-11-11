@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_DOLOR_INVISIBLE, DolorInvisible } from "./fibromialgia/DolorInvisible";
 import { DURACION_INSULINA, ResistenciaInsulina } from "./insulina/ResistenciaInsulina";
 import { DURACION_SINESTESIA, Sinestesia } from "./sinestesia/Sinestesia";
 import { DURACION_NIEBLA, NieblaMental } from "./niebla/NieblaMental";
@@ -189,5 +190,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Sinestesia" component={Sinestesia} durationInFrames={DURACION_SINESTESIA} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: resistencia a la insulina, estilo cómic */}
     <Composition id="ResistenciaInsulina" component={ResistenciaInsulina} durationInFrames={DURACION_INSULINA} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: fibromialgia y el dolor invisible, estilo noche */}
+    <Composition id="DolorInvisible" component={DolorInvisible} durationInFrames={DURACION_DOLOR_INVISIBLE} fps={30} width={1080} height={1920} />
   </>
 );
