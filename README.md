@@ -963,3 +963,11 @@ Las librerías (GSAP y three.js) están copiadas en `assets/lib/` de cada proyec
 ```bash
 npm run corazon:hf   # → out/corazon-3d.mp4 (unos 8 minutos: el 3D se dibuja por software)
 ```
+
+## La sacudida al dormir: mioclonía hípnica (90 s, Remotion, estilo noche)
+
+Reel `SacudidaHipnica` (`src/sacudida/SacudidaHipnica.tsx`): el susto de "caer al vacío" con sacudida de pantalla; qué es (mioclonía hípnica, 7 de cada 10 personas); la transición despierto → dormido como un interruptor que tironea; la persona que cae, el cerebro que grita "¡nos caemos!" y la sacudida "¡ZAS!" que prueba los músculos; el mini-sueño de caerse y la teoría de los antepasados en los árboles; qué la hace más frecuente; cómo dormirse más suave; cuándo consultar y cierre. Música original suave.
+
+```bash
+npm run sacudida   # → out/sacudida-al-dormir.mp4
+```

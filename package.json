@@ -64,7 +64,8 @@
     "dolor-invisible": "remotion render DolorInvisible out/dolor-invisible.mp4 --crf=24",
     "alopecia-vitiligo": "remotion render AlopeciaVitiligo out/alopecia-vitiligo.mp4 --crf=24",
     "hipertension:hf": "cd hyperframes/hipertension && hyperframes render -o ../../out/hipertension-silenciosa.mp4",
-    "corazon:hf": "cd hyperframes/corazon && hyperframes render -o ../../out/corazon-3d.mp4"
+    "corazon:hf": "cd hyperframes/corazon && hyperframes render -o ../../out/corazon-3d.mp4",
+    "sacudida": "remotion render SacudidaHipnica out/sacudida-al-dormir.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
