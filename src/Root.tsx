@@ -1,4 +1,5 @@
 import React from "react";
+import { CegueraInatencion, DURACION_GORILA } from "./gorila/CegueraInatencion";
 import { DURACION_SACUDIDA, SacudidaHipnica } from "./sacudida/SacudidaHipnica";
 import { AlopeciaVitiligo, DURACION_ALOPECIA_VITILIGO } from "./autoinmune/AlopeciaVitiligo";
 import { DURACION_DOLOR_INVISIBLE, DolorInvisible } from "./fibromialgia/DolorInvisible";
@@ -198,5 +199,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="AlopeciaVitiligo" component={AlopeciaVitiligo} durationInFrames={DURACION_ALOPECIA_VITILIGO} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: la sacudida al dormir (mioclonía hípnica), estilo noche */}
     <Composition id="SacudidaHipnica" component={SacudidaHipnica} durationInFrames={DURACION_SACUDIDA} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: ceguera por inatención (el gorila invisible), estilo neón */}
+    <Composition id="CegueraInatencion" component={CegueraInatencion} durationInFrames={DURACION_GORILA} fps={30} width={1080} height={1920} />
   </>
 );

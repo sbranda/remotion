@@ -971,3 +971,11 @@ Reel `SacudidaHipnica` (`src/sacudida/SacudidaHipnica.tsx`): el susto de "caer a
 ```bash
 npm run sacudida   # → out/sacudida-al-dormir.mp4
 ```
+
+## Ceguera por inatención: el gorila invisible (90 s, Remotion, estilo neón)
+
+Reel `CegueraInatencion` (`src/gorila/CegueraInatencion.tsx`) con una prueba propia (animación original inspirada en el experimento de Simons y Chabris, 1999): consigna "contá los pases de los de blanco", cancha con dos equipos y dos pelotas mientras un gorila cruza y se queda en el medio, respuesta (11 pases) y repetición con el gorila marcado; el experimento original; la atención como linterna (el elefante en la oscuridad); ejemplos de la vida real (manejar con el celular, el gorila en la tomografía, los magos) y cierre que invita a comentar. Música original enérgica.
+
+```bash
+npm run gorila   # → out/gorila-invisible.mp4
+```
