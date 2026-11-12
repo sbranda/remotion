@@ -1,0 +1,23 @@
+{
+  "name": "my-video",
+  "version": "1.0.0",
+  "description": "Proyecto Remotion en blanco",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render MyComp out/video.mp4",
+    "upgrade": "remotion upgrade",
+    "lint": "tsc"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.543"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}
