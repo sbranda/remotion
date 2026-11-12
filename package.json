@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.543",
+    "@remotion/transitions": "4.0.543",
     "@remotion/zod-types": "4.0.543",
     "react": "19.3.1",
     "react-dom": "19.3.1",

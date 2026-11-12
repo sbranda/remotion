@@ -1,4 +1,5 @@
 import { Composition, Folder } from "remotion";
+import { Empalme, EMPALME_DURATION, FPS } from "./Empalme";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { Title } from "./HelloWorld/Title";
@@ -50,7 +51,15 @@ export const RemotionRoot: React.FC = () => {
           titleColor: "#000000",
         }}
       />
-
+      <Composition
+        // npx remotion render Empalme
+        id="Empalme"
+        component={Empalme}
+        durationInFrames={EMPALME_DURATION}
+        fps={FPS}
+        width={1280}
+        height={720}
+      />
     </>
   );
 };
