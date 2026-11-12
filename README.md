@@ -943,3 +943,13 @@ Reel `AlopeciaVitiligo` (`src/autoinmune/AlopeciaVitiligo.tsx`): la respuesta au
 ```bash
 npm run alopecia-vitiligo   # → out/alopecia-vitiligo.mp4
 ```
+
+## Hipertensión silenciosa (90 s, hecho con HyperFrames)
+
+Primer reel hecho con [HyperFrames](https://hyperframes.heygen.com) (HTML + GSAP → MP4) en lugar de Remotion. El proyecto está en `hyperframes/hipertension/` (`index.html`), con estilo "monitor médico": electrocardiograma, arteria con presión sobre las paredes, tensiómetro digital (12/8 → 14,5/9,5), por qué es silenciosa (1 de cada 3 adultos en Argentina, 4 de cada 10 no lo saben), órganos que daña, síntomas que no avisan, cómo medirla bien en casa, qué ayuda y cierre. Fuentes locales (Inter y Noto Color Emoji) y música original.
+
+```bash
+npm install -g hyperframes          # una vez (ya está en el script de inicio del entorno)
+npm run hipertension:hf             # → out/hipertension-silenciosa.mp4
+cd hyperframes/hipertension && hyperframes check   # validar la composición
+```

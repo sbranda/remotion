@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="es" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Fuentes locales (Inter, licencia OFL en assets/LICENSE-Inter.txt) */
+      @font-face { font-family: "Inter"; font-weight: 400; src: url("assets/inter-latin-400-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 600; src: url("assets/inter-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Inter"; font-weight: 800; src: url("assets/inter-latin-800-normal.woff2") format("woff2"); }
+      /* Emojis: Noto Color Emoji (Google, licencia OFL) */
+      @font-face { font-family: "Noto Color Emoji"; src: url("assets/NotoColorEmoji.ttf") format("truetype"); }
+
+      /* Estilo "monitor médico" */
+      :root {
+        --ground: #04121a;
+        --ground2: #08222e;
+        --ink: #ffffff;
+        --ink2: #9fc3cf;
+        --ecg: #3cff9e;
+        --rojo: #ff4d5e;
+        --ambar: #ffc23d;
+        --cian: #4fd8ff;
+        --vidrio: rgba(255, 255, 255, 0.06);
+        --font: "Inter", sans-serif;
+        --emoji: "Noto Color Emoji", sans-serif;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+      #root {
+        position: relative; width: 1080px; height: 1920px; font-family: var(--font); color: var(--ink);
+        background:
+          linear-gradient(rgba(60, 255, 158, 0.05) 2px, transparent 2px) 0 0 / 60px 60px,
+          linear-gradient(90deg, rgba(60, 255, 158, 0.05) 2px, transparent 2px) 0 0 / 60px 60px,
+          radial-gradient(ellipse at 50% 35%, var(--ground2) 0%, var(--ground) 70%);
+      }
+      .clip { position: absolute; }
+      /* Zona útil de Instagram: libre arriba (200 px) y abajo (500 px) */
+      .scene {
+        inset: 200px 70px 500px 70px; display: flex; flex-direction: column; align-items: center;
+        justify-content: flex-start; gap: 34px; text-align: center; opacity: 0;
+      }
+      .scene.centro { justify-content: center; }
+      .titulo { font-size: 84px; font-weight: 800; line-height: 1.05; letter-spacing: -2px; text-wrap: balance; }
+      .texto { font-size: 44px; font-weight: 600; line-height: 1.3; color: var(--ink); text-wrap: balance; }
+      .chico { font-size: 36px; font-weight: 600; line-height: 1.3; color: var(--ink2); text-wrap: balance; }
+      .marca { padding: 0 14px; border-radius: 12px; color: var(--ground); }
+      .m-rojo { background: var(--rojo); color: #fff; }
+      .m-ecg { background: var(--ecg); }
+      .m-ambar { background: var(--ambar); }
+      .m-cian { background: var(--cian); }
+      .rojo { color: var(--rojo); } .ecg { color: var(--ecg); } .ambar { color: var(--ambar); } .cian { color: var(--cian); }
+      .emoji { font-family: var(--emoji); line-height: 1; }
+      .card {
+        background: var(--vidrio); border: 3px solid var(--borde, var(--ecg)); border-radius: 28px;
+        box-shadow: 0 0 34px color-mix(in srgb, var(--borde, var(--ecg)) 35%, transparent);
+      }
+
+      /* Barra de progreso y firma */
+      #progreso { left: 60px; top: 60px; width: 960px; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.12); overflow: hidden; }
+      #progreso-lleno { width: 960px; height: 10px; background: linear-gradient(90deg, var(--ecg), var(--cian)); transform-origin: 0 50%; transform: scaleX(0); }
+      #firma { left: 0; right: 0; bottom: 420px; display: flex; justify-content: center; }
+      #firma span { font-weight: 800; font-size: 38px; padding: 8px 30px; border-radius: 999px; background: rgba(0,0,0,0.45); border: 2px solid rgba(255,255,255,0.18); }
+
+      /* 1. ECG */
+      .ecg-caja { width: 900px; height: 240px; overflow: hidden; }
+      .ecg-caja svg { width: 900px; height: 240px; }
+
+      /* 2. Arteria */
+      .arteria { position: relative; width: 900px; height: 280px; margin-top: 30px; }
+      .pared { position: absolute; left: 0; right: 0; height: 34px; border-radius: 17px; background: #d9466b; box-shadow: 0 0 24px #ff4d5e88; }
+      .pared.arriba { top: 30px; } .pared.abajo { bottom: 30px; }
+      .canal { position: absolute; left: 0; right: 0; top: 64px; bottom: 64px; background: #3a0d1c; overflow: hidden; }
+      .globulo { position: absolute; top: 50%; width: 46px; height: 46px; margin-top: -23px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, #ff8a99, #c4183b); }
+      .flecha { position: absolute; font-size: 54px; font-weight: 800; color: var(--ambar); text-shadow: 0 0 16px var(--ambar); }
+
+      /* 3. Tensiómetro */
+      .tensiometro { width: 640px; padding: 34px 40px; border-radius: 40px; background: #dfe7ea; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+      .lcd { position: relative; height: 330px; border-radius: 20px; background: #9fb59b; box-shadow: inset 0 0 0 6px #7f957b; }
+      .lcd-capa { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; color: #1b2a1a; }
+      .lcd-fila { display: flex; justify-content: space-between; align-items: baseline; }
+      .lcd-label { font-size: 34px; font-weight: 800; }
+      .lcd-num { font-size: 130px; font-weight: 800; letter-spacing: -4px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+      .lcd-alta .lcd-num { color: #8a0e1e; }
+      .boton-on { margin: 24px auto 0; width: 120px; height: 60px; border-radius: 30px; background: #2b8a5a; }
+
+      /* 4. Estadísticas */
+      .stat { width: 940px; padding: 26px 30px; }
+      .stat-num { font-size: 120px; font-weight: 800; line-height: 1; letter-spacing: -3px; }
+      .personas { display: flex; gap: 10px; justify-content: center; font-size: 74px; }
+      .personas .p { font-family: var(--emoji); }
+
+      /* 5. Órganos */
+      .grilla { display: grid; grid-template-columns: repeat(2, 450px); gap: 22px; }
+      .organo { height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; --borde: var(--rojo); }
+      .organo .emoji { font-size: 80px; }
+      .organo b { font-size: 40px; } .organo small { font-size: 30px; color: var(--ink2); font-weight: 600; }
+      .organo.ancho { grid-column: span 2; }
+
+      /* 6. Mitos */
+      .pregunta { font-size: 56px; font-weight: 800; color: var(--ink2); position: relative; }
+      .tachado { position: absolute; left: -10px; right: -10px; top: 50%; height: 7px; background: var(--rojo); border-radius: 4px; transform-origin: 0 50%; }
+
+      /* 7 y 8. Listas */
+      .lista { display: flex; flex-direction: column; gap: 16px; width: 940px; }
+      .item { display: flex; align-items: center; gap: 22px; padding: 16px 24px; text-align: left; }
+      .item .emoji { font-size: 54px; width: 64px; text-align: center; }
+      .item span { font-size: 36px; font-weight: 700; line-height: 1.2; }
+      .item .ok { margin-left: auto; font-size: 46px; font-weight: 800; color: var(--ecg); }
+
+      /* 9. Cierre */
+      .botones { display: flex; gap: 24px; }
+      .boton { display: flex; align-items: center; gap: 14px; padding: 18px 38px; border-radius: 999px; font-size: 46px; font-weight: 800; color: var(--ground); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="90" data-width="1080" data-height="1920">
+      <!-- Música original (scripts/musica_reel.py --paginas 6,10,10,12,12,8,14,10,8 --bpm 96 --transponer 3 --estilo suave --menor) -->
+      <audio id="musica" class="clip" src="assets/musica.mp3" data-start="0" data-duration="90" data-volume="0.8" data-fade-out="2" data-track-index="9"></audio>
+
+      <!-- 1. Gancho (0–6 s) -->
+      <section id="s1" class="clip scene centro" data-start="0" data-duration="6" data-track-index="0">
+        <div class="ecg-caja" id="ecg1">
+          <svg viewBox="0 0 900 240"><path d="M0 120 H180 L210 120 L230 70 L250 170 L275 20 L300 210 L320 120 H470 L500 120 L520 70 L540 170 L565 20 L590 210 L610 120 H900" fill="none" stroke="#3cff9e" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" style="filter: drop-shadow(0 0 10px #3cff9e)" /></svg>
+        </div>
+        <div class="titulo" id="s1-t1">Podés tener la presión alta…</div>
+        <div class="titulo" id="s1-t2"><span class="marca m-ecg">y sentirte perfecto.</span></div>
+      </section>
+
+      <!-- 2. Qué es (6–16 s) -->
+      <section id="s2" class="clip scene" data-start="6" data-duration="10" data-track-index="0">
+        <div class="titulo" id="s2-t">¿Qué es la <span class="marca m-rojo">hipertensión</span>?</div>
+        <div class="arteria" id="arteria">
+          <div class="pared arriba" id="pared-a"></div>
+          <div class="canal">
+            <div class="globulo g"></div><div class="globulo g"></div><div class="globulo g"></div><div class="globulo g"></div><div class="globulo g"></div><div class="globulo g"></div>
+          </div>
+          <div class="pared abajo" id="pared-b"></div>
+          <div class="flecha f" style="left: 160px; top: -36px">↑</div>
+          <div class="flecha f" style="left: 430px; top: -36px">↑</div>
+          <div class="flecha f" style="left: 700px; top: -36px">↑</div>
+          <div class="flecha f" style="left: 295px; bottom: -40px">↓</div>
+          <div class="flecha f" style="left: 565px; bottom: -40px">↓</div>
+        </div>
+        <div class="texto" id="s2-x1">La sangre empuja con <span class="ambar">demasiada fuerza</span> contra las paredes de las arterias.</div>
+        <div class="chico" id="s2-x2">Con los años, las arterias se endurecen y se dañan.</div>
+      </section>
+
+      <!-- 3. Los números (16–26 s) -->
+      <section id="s3" class="clip scene" data-start="16" data-duration="10" data-track-index="0">
+        <div class="titulo" id="s3-t" style="font-size: 76px">¿Qué significan los <span class="marca m-cian">números</span>?</div>
+        <div class="tensiometro" id="tensiometro">
+          <div class="lcd">
+            <div class="lcd-capa lcd-normal" id="lcd-normal">
+              <div class="lcd-fila"><span class="lcd-label">MÁX</span><span class="lcd-num">120</span></div>
+              <div class="lcd-fila"><span class="lcd-label">MÍN</span><span class="lcd-num">80</span></div>
+            </div>
+            <div class="lcd-capa lcd-alta" id="lcd-alta" style="opacity: 0">
+              <div class="lcd-fila"><span class="lcd-label">MÁX</span><span class="lcd-num">145</span></div>
+              <div class="lcd-fila"><span class="lcd-label">MÍN</span><span class="lcd-num">95</span></div>
+            </div>
+          </div>
+          <div class="boton-on"></div>
+        </div>
+        <div class="texto" id="s3-x1" style="font-size: 38px">Arriba: cuando el corazón <span class="cian">late</span>. Abajo: cuando <span class="cian">descansa</span>.</div>
+        <div class="texto" id="s3-x2" style="font-size: 40px"><span class="rojo">14/9 o más</span>, en varias mediciones, es hipertensión.</div>
+      </section>
+
+      <!-- 4. Silenciosa (26–38 s) -->
+      <section id="s4" class="clip scene" data-start="26" data-duration="12" data-track-index="0">
+        <div class="titulo" id="s4-t">¿Por qué es <span class="marca m-ambar">silenciosa</span>?</div>
+        <div class="texto" id="s4-x1">No duele. No se siente. El daño avanza <span class="ambar">durante años</span> sin avisar.</div>
+        <div class="card stat" id="s4-c1" style="--borde: var(--cian)">
+          <div class="stat-num cian">1 de cada 3</div>
+          <div class="texto" style="font-size: 38px">adultos en Argentina tiene la presión alta</div>
+        </div>
+        <div class="personas" id="personas">
+          <span class="p">🧍</span><span class="p">🧍</span><span class="p">🧍</span><span class="p">🧍</span><span class="p">🧍</span><span class="p">🧍</span><span class="p q">🙈</span><span class="p q">🙈</span><span class="p q">🙈</span><span class="p q">🙈</span>
+        </div>
+        <div class="texto" id="s4-x2"><span class="rojo">4 de cada 10</span> no saben que la tienen.</div>
+      </section>
+
+      <!-- 5. Qué daña (38–50 s) -->
+      <section id="s5" class="clip scene" data-start="38" data-duration="12" data-track-index="0">
+        <div class="titulo" id="s5-t">Mientras tanto, <span class="marca m-rojo">daña</span></div>
+        <div class="grilla">
+          <div class="card organo o"><span class="emoji">❤️</span><b>Corazón</b><small>infarto</small></div>
+          <div class="card organo o"><span class="emoji">🧠</span><b>Cerebro</b><small>ACV</small></div>
+          <div class="card organo o"><span class="emoji">🫘</span><b>Riñones</b><small>pierden función</small></div>
+          <div class="card organo o"><span class="emoji">👁️</span><b>Ojos</b><small>lesiones en la retina</small></div>
+          <div class="card organo o ancho"><span class="emoji">🩸</span><b>Arterias</b><small>se endurecen y se tapan</small></div>
+        </div>
+      </section>
+
+      <!-- 6. No esperes síntomas (50–58 s) -->
+      <section id="s6" class="clip scene centro" data-start="50" data-duration="8" data-track-index="0">
+        <div class="pregunta" id="p1">¿Dolor de nuca?<div class="tachado"></div></div>
+        <div class="pregunta" id="p2">¿Mareos?<div class="tachado"></div></div>
+        <div class="pregunta" id="p3">¿Sangrado de nariz?<div class="tachado"></div></div>
+        <div class="titulo" id="s6-t" style="font-size: 76px">No esperes síntomas: <span class="marca m-ambar">casi nunca avisan</span>.</div>
+      </section>
+
+      <!-- 7. Medirla bien en casa (58–72 s) -->
+      <section id="s7" class="clip scene" data-start="58" data-duration="14" data-track-index="0">
+        <div class="titulo" id="s7-t" style="font-size: 74px">Cómo <span class="marca m-ecg">medirla bien</span> en casa</div>
+        <div class="lista">
+          <div class="card item m7"><span class="emoji">🪑</span><span>5 minutos sentado y tranquilo</span><b class="ok">✓</b></div>
+          <div class="card item m7"><span class="emoji">🧉</span><span>Sin café, mate ni cigarrillo 30 min antes</span><b class="ok">✓</b></div>
+          <div class="card item m7"><span class="emoji">🦶</span><span>Espalda apoyada y pies en el piso</span><b class="ok">✓</b></div>
+          <div class="card item m7"><span class="emoji">💪</span><span>Brazo apoyado, a la altura del corazón</span><b class="ok">✓</b></div>
+          <div class="card item m7"><span class="emoji">🤐</span><span>Manguito sobre el brazo desnudo, sin hablar</span><b class="ok">✓</b></div>
+          <div class="card item m7"><span class="emoji">📝</span><span>2 mediciones con 1 minuto de diferencia: anotalas</span><b class="ok">✓</b></div>
+        </div>
+      </section>
+
+      <!-- 8. Qué ayuda (72–82 s) -->
+      <section id="s8" class="clip scene" data-start="72" data-duration="10" data-track-index="0">
+        <div class="titulo" id="s8-t">Qué <span class="marca m-ecg">ayuda</span></div>
+        <div class="lista">
+          <div class="card item m8" style="--borde: var(--cian)"><span class="emoji">🧂</span><span>Menos sal: ojo con pan, fiambres y snacks</span></div>
+          <div class="card item m8" style="--borde: var(--cian)"><span class="emoji">🚶</span><span>30 minutos de movimiento por día</span></div>
+          <div class="card item m8" style="--borde: var(--cian)"><span class="emoji">🍷</span><span>Menos alcohol</span></div>
+          <div class="card item m8" style="--borde: var(--cian)"><span class="emoji">😴</span><span>Dormir bien</span></div>
+          <div class="card item m8" style="--borde: var(--ambar)"><span class="emoji">💊</span><span>Si te indican medicación, no la dejes aunque te sientas bien</span></div>
+        </div>
+      </section>
+
+      <!-- 9. Cierre (82–90 s) -->
+      <section id="s9" class="clip scene centro" data-start="82" data-duration="8" data-track-index="0">
+        <div class="emoji" id="s9-e" style="font-size: 130px">🩺</div>
+        <div class="titulo" id="s9-t">La única forma de saberlo: <span class="marca m-ecg">medirla</span>.</div>
+        <div class="botones" id="s9-b">
+          <div class="boton" style="background: var(--ecg)"><span class="emoji">🔖</span>Guardalo</div>
+          <div class="boton" style="background: var(--cian)"><span class="emoji">📲</span>Compartilo</div>
+        </div>
+        <div class="chico" id="s9-d" style="font-size: 28px">Esto no reemplaza la consulta con tu médico.</div>
+      </section>
+
+      <!-- Marco: progreso y firma -->
+      <div id="progreso" class="clip" data-start="0" data-duration="90" data-track-index="1"><div id="progreso-lleno"></div></div>
+      <div id="firma" class="clip" data-start="0" data-duration="90" data-track-index="2"><span>@sebranda</span></div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const entra = (sel, t, d = 0.6) => tl.fromTo(sel, { opacity: 0, y: 34 }, { opacity: 1, y: 0, duration: d, ease: "power3.out" }, t);
+      const golpe = (sel, t) => tl.fromTo(sel, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, t);
+      const escena = (sel, ini, fin) => {
+        tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, ini);
+        tl.to(sel, { opacity: 0, duration: 0.35, ease: "power2.in" }, fin - 0.35);
+      };
+
+      // Progreso general
+      tl.fromTo("#progreso-lleno", { scaleX: 0 }, { scaleX: 1, duration: 90, ease: "none" }, 0);
+
+      // 1. Gancho
+      escena("#s1", 0, 6);
+      tl.fromTo("#ecg1", { width: 0 }, { width: 900, duration: 2.2, ease: "none" }, 0.1);
+      entra("#s1-t1", 0.6);
+      golpe("#s1-t2", 2.4);
+
+      // 2. Qué es
+      escena("#s2", 6, 16);
+      entra("#s2-t", 6.1);
+      entra("#arteria", 6.5);
+      gsap.utils.toArray(".g").forEach((g, i) => {
+        tl.fromTo(g, { x: -80 }, { x: 960, duration: 1.6, ease: "none", repeat: 5 }, 6.5 + i * 0.27);
+      });
+      tl.fromTo(".f", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 8.4);
+      tl.to(".f", { scale: 1.25, duration: 0.35, yoyo: true, repeat: 13, ease: "sine.inOut" }, 8.7);
+      tl.to("#pared-a", { y: -10, duration: 0.35, yoyo: true, repeat: 13, ease: "sine.inOut" }, 8.7);
+      tl.to("#pared-b", { y: 10, duration: 0.35, yoyo: true, repeat: 13, ease: "sine.inOut" }, 8.7);
+      entra("#s2-x1", 8.4);
+      entra("#s2-x2", 12.0);
+
+      // 3. Números
+      escena("#s3", 16, 26);
+      entra("#s3-t", 16.1);
+      golpe("#tensiometro", 16.5);
+      entra("#s3-x1", 17.6);
+      tl.to("#lcd-normal", { opacity: 0, duration: 0.3 }, 21.0);
+      tl.to("#lcd-alta", { opacity: 1, duration: 0.3 }, 21.0);
+      tl.to("#lcd-alta", { opacity: 0.35, duration: 0.25, yoyo: true, repeat: 5 }, 21.4);
+      entra("#s3-x2", 21.2);
+
+      // 4. Silenciosa
+      escena("#s4", 26, 38);
+      entra("#s4-t", 26.1);
+      entra("#s4-x1", 27.0);
+      golpe("#s4-c1", 29.5);
+      tl.fromTo(".personas .p", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.12 }, 32.0);
+      tl.to(".personas .q", { opacity: 0.35, duration: 0.4 }, 33.8);
+      entra("#s4-x2", 33.8);
+
+      // 5. Qué daña
+      escena("#s5", 38, 50);
+      entra("#s5-t", 38.1);
+      tl.fromTo(".o", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)", stagger: 1.1 }, 39.0);
+      tl.to(".o", { scale: 1.04, duration: 0.5, yoyo: true, repeat: 7, ease: "sine.inOut" }, 45.0);
+
+      // 6. No esperes síntomas
+      escena("#s6", 50, 58);
+      entra("#p1", 50.1); entra("#p2", 50.7); entra("#p3", 51.3);
+      tl.fromTo("#p1 .tachado", { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, 52.6);
+      tl.fromTo("#p2 .tachado", { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, 52.9);
+      tl.fromTo("#p3 .tachado", { scaleX: 0 }, { scaleX: 1, duration: 0.3 }, 53.2);
+      golpe("#s6-t", 53.8);
+
+      // 7. Medirla bien
+      escena("#s7", 58, 72);
+      entra("#s7-t", 58.1);
+      tl.fromTo(".m7", { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 1.6 }, 59.0);
+      tl.fromTo(".m7 .ok", { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(3)", stagger: 1.6 }, 59.9);
+
+      // 8. Qué ayuda
+      escena("#s8", 72, 82);
+      entra("#s8-t", 72.1);
+      tl.fromTo(".m8", { opacity: 0, x: 60 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 1.2 }, 72.8);
+
+      // 9. Cierre
+      escena("#s9", 82, 90.4);
+      golpe("#s9-e", 82.1);
+      entra("#s9-t", 82.4);
+      golpe("#s9-b", 83.6);
+      tl.to("#s9-b", { scale: 1.05, duration: 0.4, yoyo: true, repeat: 7, ease: "sine.inOut" }, 84.2);
+      entra("#s9-d", 84.2);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
