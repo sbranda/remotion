@@ -953,3 +953,13 @@ npm install -g hyperframes          # una vez (ya está en el script de inicio d
 npm run hipertension:hf             # → out/hipertension-silenciosa.mp4
 cd hyperframes/hipertension && hyperframes check   # validar la composición
 ```
+
+## El corazón por dentro, en 3D (90 s, HyperFrames + three.js)
+
+Reel en `hyperframes/corazon/` con un corazón 3D hecho con three.js dentro de HyperFrames: gira y late a 72 lpm (el mismo ritmo de la música), se vuelve transparente para mostrar las 4 cámaras con etiquetas, la sangre azul recorre el lado derecho hacia los pulmones y la roja sale por la aorta, las 4 válvulas destellan con el "PUM-PUM", y el nodo sinusal manda la chispa eléctrica. La escena 3D se dibuja desde la línea de tiempo de GSAP, cuadro por cuadro, así que el render es exacto.
+
+Las librerías (GSAP y three.js) están copiadas en `assets/lib/` de cada proyecto, para no depender de internet al renderizar (el CDN puede estar bloqueado).
+
+```bash
+npm run corazon:hf   # → out/corazon-3d.mp4 (unos 8 minutos: el 3D se dibuja por software)
+```
