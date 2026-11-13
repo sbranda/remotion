@@ -1,4 +1,5 @@
 import React from "react";
+import { ArtrosisArtritis, DURACION_ARTROSIS } from "./artrosis/ArtrosisArtritis";
 import { CegueraInatencion, DURACION_GORILA } from "./gorila/CegueraInatencion";
 import { DURACION_SACUDIDA, SacudidaHipnica } from "./sacudida/SacudidaHipnica";
 import { AlopeciaVitiligo, DURACION_ALOPECIA_VITILIGO } from "./autoinmune/AlopeciaVitiligo";
@@ -201,5 +202,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="SacudidaHipnica" component={SacudidaHipnica} durationInFrames={DURACION_SACUDIDA} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: ceguera por inatención (el gorila invisible), estilo neón */}
     <Composition id="CegueraInatencion" component={CegueraInatencion} durationInFrames={DURACION_GORILA} fps={30} width={1080} height={1920} />
+    {/* Reel de 3 minutos: artrosis vs. artritis, estilo cómic */}
+    <Composition id="ArtrosisArtritis" component={ArtrosisArtritis} durationInFrames={DURACION_ARTROSIS} fps={30} width={1080} height={1920} />
   </>
 );

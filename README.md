@@ -979,3 +979,11 @@ Reel `CegueraInatencion` (`src/gorila/CegueraInatencion.tsx`) con una prueba pro
 ```bash
 npm run gorila   # → out/gorila-invisible.mp4
 ```
+
+## Artrosis vs. Artritis (3 min, Remotion, estilo cómic)
+
+Reel `ArtrosisArtritis` (`src/artrosis/ArtrosisArtritis.tsx`), formato "VS" con código de color fijo (naranja 🔧 artrosis, rosa 🔥 artritis): gancho VS, "todo el mundo los confunde", articulación sana animada (huesos, cartílago, membrana), artrosis = desgaste (cartílago que se gasta y agrieta, roce "¡CRIC!" y picos de loro), artritis = inflamación (membrana hinchada y caliente, defensas que atacan), tablas VS (dolor, rigidez, dónde, a quién), diagnóstico, tratamiento ("moverse ayuda a las dos"), mitos y cierre. Música original enérgica.
+
+```bash
+npm run artrosis   # → out/artrosis-vs-artritis.mp4
+```
