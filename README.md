@@ -985,5 +985,8 @@ npm run gorila   # → out/gorila-invisible.mp4
 Reel `ArtrosisArtritis` (`src/artrosis/ArtrosisArtritis.tsx`), formato "VS" con código de color fijo (naranja 🔧 artrosis, rosa 🔥 artritis): gancho VS, "todo el mundo los confunde", articulación sana animada (huesos, cartílago, membrana), artrosis = desgaste (cartílago que se gasta y agrieta, roce "¡CRIC!" y picos de loro), artritis = inflamación (membrana hinchada y caliente, defensas que atacan), tablas VS (dolor, rigidez, dónde, a quién), diagnóstico, tratamiento ("moverse ayuda a las dos"), mitos y cierre. Música original enérgica.
 
 ```bash
-npm run artrosis   # → out/artrosis-vs-artritis.mp4
+npm run artrosis     # → out/artrosis-vs-artritis.mp4 (3 min)
+npm run artrosis90   # → out/artrosis-vs-artritis-90.mp4 (90 s)
 ```
+
+La versión de 90 s (`ArtrosisArtritis90`) reutiliza las mismas escenas, aceleradas con un "ritmo" proporcional a su nueva duración: gancho, confusión, articulación sana, artrosis, artritis, VS del dolor, VS de dónde, tratamiento y cierre.

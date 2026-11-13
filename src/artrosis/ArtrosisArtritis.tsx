@@ -1,7 +1,36 @@
-// Reel de 3 min: artrosis vs. artritis, estilo cómic.
-import React from "react";
-import { interpolate, staticFile, useCurrentFrame } from "remotion";
-import { Boton, COMIC, Emoji, Globo, K, ListaStickers, Pagina, Pop, ReelComic, SANS, Sello, Sticker, TituloComic, clamp, useSacudida } from "../salud/comic";
+// Reels de artrosis vs. artritis, estilo cómic: versión de 3 min y versión de 90 s.
+import React, { createContext, useContext } from "react";
+import { interpolate, staticFile, useCurrentFrame as useFrameReal } from "remotion";
+import {
+  Boton as BotonBase,
+  COMIC,
+  Emoji,
+  Globo,
+  K,
+  ListaStickers as ListaStickersBase,
+  Pagina,
+  Pop as PopBase,
+  ReelComic,
+  SANS,
+  Sello as SelloBase,
+  Sticker,
+  TituloComic,
+  clamp,
+  useSacudida as useSacudidaBase,
+} from "../salud/comic";
+
+// ─── Ritmo: acelera una escena sin reescribir sus tiempos ───────────────────
+// Con ritmo 0.6, todo lo que en la versión larga pasaba en el cuadro 100 pasa en el 60.
+const Ritmo = createContext(1);
+const useCurrentFrame = () => useFrameReal() / useContext(Ritmo);
+const useSacudida = (desde: number, fuerza?: number, dur?: number) => useSacudidaBase(desde * useContext(Ritmo), fuerza, dur);
+const Pop: React.FC<React.ComponentProps<typeof PopBase>> = ({ desde, ...resto }) => <PopBase desde={desde * useContext(Ritmo)} {...resto} />;
+const Sello: React.FC<React.ComponentProps<typeof SelloBase>> = ({ desde, ...resto }) => <SelloBase desde={desde * useContext(Ritmo)} {...resto} />;
+const Boton: React.FC<React.ComponentProps<typeof BotonBase>> = ({ desde, ...resto }) => <BotonBase desde={desde * useContext(Ritmo)} {...resto} />;
+const ListaStickers: React.FC<React.ComponentProps<typeof ListaStickersBase>> = ({ desde, paso, ...resto }) => {
+  const r = useContext(Ritmo);
+  return <ListaStickersBase desde={desde * r} paso={paso * r} {...resto} />;
+};
 
 const FPS = 30;
 const C_ARTROSIS = K.naranja;
@@ -410,5 +439,39 @@ export const ArtrosisArtritis: React.FC = () => (
     fps={FPS}
     // Música original: scripts/musica_reel.py --paginas 6,10,18,22,22,16,14,12,14,18,16,12 --bpm 112 --transponer 1 --estilo energico
     musica={staticFile("audio/artrosis-musica.mp3")}
+  />
+);
+
+// ─── Versión de 90 segundos ─────────────────────────────────────────────────
+/** Cada escena se acelera en proporción a su nueva duración (seg nuevos / seg originales) */
+const conRitmo = (Escena: React.FC, original: number, nuevo: number): React.FC => {
+  const ConRitmo: React.FC = () => (
+    <Ritmo.Provider value={nuevo / original}>
+      <Escena />
+    </Ritmo.Provider>
+  );
+  return ConRitmo;
+};
+
+const PAGINAS_90 = [
+  { id: "gancho", seg: 4, color: K.amarillo, Escena: conRitmo(Gancho, 6, 4) },
+  { id: "confusion", seg: 6, color: K.celeste, Escena: conRitmo(Confusion, 10, 6) },
+  { id: "sana", seg: 10, color: K.lima, Escena: conRitmo(Sana, 18, 10) },
+  { id: "artrosis", seg: 14, color: K.amarillo, Escena: conRitmo(Artrosis, 22, 14) },
+  { id: "artritis", seg: 14, color: K.celeste, Escena: conRitmo(Artritis, 22, 14) },
+  { id: "vsDolor", seg: 11, color: K.violeta, Escena: conRitmo(VsDolor, 16, 11) },
+  { id: "vsDonde", seg: 10, color: K.celeste, Escena: conRitmo(VsDonde, 14, 10) },
+  { id: "tratamiento", seg: 10, color: K.lima, Escena: conRitmo(Tratamiento, 18, 10) },
+  { id: "cierre", seg: 11, color: K.violeta, Escena: conRitmo(Cierre, 12, 11) },
+];
+
+export const DURACION_ARTROSIS_90 = PAGINAS_90.reduce((a, p) => a + p.seg, 0) * FPS;
+
+export const ArtrosisArtritis90: React.FC = () => (
+  <ReelComic
+    paginas={PAGINAS_90}
+    fps={FPS}
+    // Música original: scripts/musica_reel.py --paginas 4,6,10,14,14,11,10,10,11 --bpm 116 --transponer 1 --estilo energico
+    musica={staticFile("audio/artrosis90-musica.mp3")}
   />
 );

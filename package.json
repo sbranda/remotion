@@ -67,7 +67,8 @@
     "corazon:hf": "cd hyperframes/corazon && hyperframes render -o ../../out/corazon-3d.mp4",
     "sacudida": "remotion render SacudidaHipnica out/sacudida-al-dormir.mp4 --crf=24",
     "gorila": "remotion render CegueraInatencion out/gorila-invisible.mp4 --crf=24",
-    "artrosis": "remotion render ArtrosisArtritis out/artrosis-vs-artritis.mp4 --crf=24"
+    "artrosis": "remotion render ArtrosisArtritis out/artrosis-vs-artritis.mp4 --crf=24",
+    "artrosis90": "remotion render ArtrosisArtritis90 out/artrosis-vs-artritis-90.mp4 --crf=24"
   },
   "dependencies": {
     "@react-three/fiber": "8.18.0",
