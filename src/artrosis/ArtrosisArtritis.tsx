@@ -37,7 +37,7 @@ const C_ARTROSIS = K.naranja;
 const C_ARTRITIS = K.rosa;
 
 // ─── Articulación animada ───────────────────────────────────────────────────
-const Articulacion: React.FC<{ desgaste?: number; picos?: number; inflama?: number; ataque?: number; mueve?: number; ancho?: number }> = ({
+export const Articulacion: React.FC<{ desgaste?: number; picos?: number; inflama?: number; ataque?: number; mueve?: number; ancho?: number }> = ({
   desgaste = 0,
   picos = 0,
   inflama = 0,

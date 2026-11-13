@@ -990,3 +990,11 @@ npm run artrosis90   # → out/artrosis-vs-artritis-90.mp4 (90 s)
 ```
 
 La versión de 90 s (`ArtrosisArtritis90`) reutiliza las mismas escenas, aceleradas con un "ritmo" proporcional a su nueva duración: gancho, confusión, articulación sana, artrosis, artritis, VS del dolor, VS de dónde, tratamiento y cierre.
+
+## Mitos sobre la artrosis (90 s, Remotion, estilo cómic) — parte 2 de la serie
+
+Reel `MitosArtrosis` (`src/artrosis/MitosArtrosis.tsx`), con el naranja 🔧 de la serie: gancho "creías que tus rodillas crujen por la edad…", el mito "es vejez y hay que aguantarse", el cartílago sin vasos sanguíneos (el hueso recibe sangre, el cartílago no), el cartílago como esponja (aprieta y saca desechos, suelta y absorbe nutrientes: moverte = alimentarlo), el círculo vicioso del miedo al movimiento, los extremos (sedentarismo y sobrecarga; cada kilo pesa unas 4 veces en la rodilla), qué sí hacer y cierre. Reutiliza la articulación animada de `ArtrosisArtritis.tsx`.
+
+```bash
+npm run mitos-artrosis   # → out/mitos-artrosis.mp4
+```

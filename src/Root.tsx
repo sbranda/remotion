@@ -1,4 +1,5 @@
 import React from "react";
+import { DURACION_MITOS_ARTROSIS, MitosArtrosis } from "./artrosis/MitosArtrosis";
 import { ArtrosisArtritis, ArtrosisArtritis90, DURACION_ARTROSIS, DURACION_ARTROSIS_90 } from "./artrosis/ArtrosisArtritis";
 import { CegueraInatencion, DURACION_GORILA } from "./gorila/CegueraInatencion";
 import { DURACION_SACUDIDA, SacudidaHipnica } from "./sacudida/SacudidaHipnica";
@@ -206,5 +207,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ArtrosisArtritis" component={ArtrosisArtritis} durationInFrames={DURACION_ARTROSIS} fps={30} width={1080} height={1920} />
     {/* Reel de 90 segundos: artrosis vs. artritis, estilo cómic (versión corta) */}
     <Composition id="ArtrosisArtritis90" component={ArtrosisArtritis90} durationInFrames={DURACION_ARTROSIS_90} fps={30} width={1080} height={1920} />
+    {/* Reel de 90 segundos: mitos sobre la artrosis, estilo cómic (parte 2 de la serie) */}
+    <Composition id="MitosArtrosis" component={MitosArtrosis} durationInFrames={DURACION_MITOS_ARTROSIS} fps={30} width={1080} height={1920} />
   </>
 );
